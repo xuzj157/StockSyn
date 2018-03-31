@@ -8,7 +8,6 @@ import java.util.List;
 @Data
 public class BasicInfo {
 
-    private String symbol;
     /**
      * 公司名称
      */

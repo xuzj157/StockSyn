@@ -6,10 +6,6 @@ import lombok.Data;
 @Data
 public class FinInfo {
     /**
-     * 股票编号
-     */
-    private String symbol;
-    /**
      * 报表日期   YYYYMMDD
      */
     @JsonProperty("reportdate")

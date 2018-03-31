@@ -17,6 +17,7 @@ import personal.xuzj157.stocksyn.pojo.po.FinInfo;
 import personal.xuzj157.stocksyn.pojo.po.StockInfo;
 import personal.xuzj157.stocksyn.utils.SymbolUtils;
 
+import javax.mail.StoreClosedException;
 import java.util.List;
 
 @Service
@@ -40,8 +41,11 @@ public class XueQiuImpl implements XueQiuService {
             if (jsonObject != null) {
                 System.out.println(symbolStr);
                 BasicInfo basicInfo = JSONObject.parseObject(jsonObject.toJSONString(), BasicInfo.class);
-                basicInfo.setSymbol(String.valueOf(symbolStr));
-                MongoDB.writeResultObjectToDB("basic_info", basicInfo);
+                StockInfo stockInfo = new StockInfo();
+                stockInfo.setCode(symbolStr);
+                stockInfo.setName(name);
+                stockInfo.setBasicInfo(basicInfo);
+                MongoDB.writeResultObjectToDB("basic_info", stockInfo);
             }
             symbol++;
         }
@@ -52,20 +56,22 @@ public class XueQiuImpl implements XueQiuService {
         HttpEntity<String> requestEntity = setHeader();
 
         int symbol = start;
-        while (symbol == end) {
+        while (symbol <= end) {
             String symbolStr = String.format("%06d",symbol);
             String url = urlFin + "?" + "symbol=" + name + symbolStr;
 
             ResponseEntity<JSONObject> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JSONObject.class);
             JSONArray jsonArray = response.getBody().getJSONArray("list");
             if (jsonArray != null) {
-                System.out.println(jsonArray);
+                System.out.println(symbolStr);
                 List<FinInfo> finInfoList = JSONArray.parseArray(jsonArray.toJSONString(), FinInfo.class);
-                for (FinInfo finInfo : finInfoList) {
-                    finInfo.setSymbol(String.valueOf(symbolStr));
-                }
-                MongoDB.writeResultListToDB("fin_info", finInfoList);
+                StockInfo stockInfo = new StockInfo();
+                stockInfo.setCode(symbolStr);
+                stockInfo.setName(name);
+                stockInfo.setFinInfoList(finInfoList);
+                MongoDB.writeResultObjectToDB("fin_info", stockInfo);
             }
+            symbol++;
         }
     }
 
