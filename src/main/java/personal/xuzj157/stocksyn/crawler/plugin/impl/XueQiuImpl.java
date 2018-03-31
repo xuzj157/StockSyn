@@ -2,6 +2,7 @@ package personal.xuzj157.stocksyn.crawler.plugin.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.mongodb.BasicDBObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -13,6 +14,8 @@ import personal.xuzj157.stocksyn.crawler.plugin.XueQiuService;
 import personal.xuzj157.stocksyn.db.MongoDB;
 import personal.xuzj157.stocksyn.pojo.po.BasicInfo;
 import personal.xuzj157.stocksyn.pojo.po.FinInfo;
+import personal.xuzj157.stocksyn.pojo.po.StockInfo;
+import personal.xuzj157.stocksyn.utils.SymbolUtils;
 
 import java.util.List;
 
@@ -26,24 +29,44 @@ public class XueQiuImpl implements XueQiuService {
     RestTemplate restTemplate;
 
     @Override
-    public void getCompInfo() {
+    public void getCompInfo(int start, int end, String name) {
         HttpEntity<String> requestEntity = setHeader();
-        String url  = urlConInfo + "?" + "symbol=SH600022";
-        ResponseEntity<JSONObject> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JSONObject.class);
-        JSONObject jsonObject = response.getBody().getJSONObject("tqCompInfo");
-        BasicInfo basicInfo = JSONObject.parseObject(jsonObject.toJSONString(), BasicInfo.class);
-        MongoDB.writeResultObjectToDB("basicInfo", basicInfo);
+        int symbol = start;
+        while (symbol <= end) {
+            String symbolStr = String.format("%06d",symbol);
+            String url = urlConInfo + "?" + "symbol=" + name + symbolStr;
+            ResponseEntity<JSONObject> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JSONObject.class);
+            JSONObject jsonObject = response.getBody().getJSONObject("tqCompInfo");
+            if (jsonObject != null) {
+                System.out.println(symbolStr);
+                BasicInfo basicInfo = JSONObject.parseObject(jsonObject.toJSONString(), BasicInfo.class);
+                basicInfo.setSymbol(String.valueOf(symbolStr));
+                MongoDB.writeResultObjectToDB("basic_info", basicInfo);
+            }
+            symbol++;
+        }
     }
 
     @Override
-    public void getFin() {
+    public void getFin(int start, int end, String name) {
         HttpEntity<String> requestEntity = setHeader();
-        String url = urlFin + "?" + "symbol=SH600022" + "&size=16";
-        ResponseEntity<JSONObject> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JSONObject.class);
-        JSONArray jsonArray = response.getBody().getJSONArray("list");
-        List<FinInfo> finInfoList = JSONArray.parseArray(jsonArray.toJSONString(), FinInfo.class);
-        MongoDB.writeResultListToDB("finInfo", finInfoList);
 
+        int symbol = start;
+        while (symbol == end) {
+            String symbolStr = String.format("%06d",symbol);
+            String url = urlFin + "?" + "symbol=" + name + symbolStr;
+
+            ResponseEntity<JSONObject> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JSONObject.class);
+            JSONArray jsonArray = response.getBody().getJSONArray("list");
+            if (jsonArray != null) {
+                System.out.println(jsonArray);
+                List<FinInfo> finInfoList = JSONArray.parseArray(jsonArray.toJSONString(), FinInfo.class);
+                for (FinInfo finInfo : finInfoList) {
+                    finInfo.setSymbol(String.valueOf(symbolStr));
+                }
+                MongoDB.writeResultListToDB("fin_info", finInfoList);
+            }
+        }
     }
 
     private HttpEntity<String> setHeader() {

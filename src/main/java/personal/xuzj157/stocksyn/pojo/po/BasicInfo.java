@@ -7,6 +7,8 @@ import java.util.List;
 
 @Data
 public class BasicInfo {
+
+    private String symbol;
     /**
      * 公司名称
      */
@@ -18,7 +20,7 @@ public class BasicInfo {
     private String compsname;
 
     /**
-     * 成立日期
+     * 成立日期    YYYYMMDD
      */
     @JsonProperty("founddate")
     private String foundDate;

@@ -28,13 +28,13 @@ public class TestController {
 
     @RequestMapping("/mongo")
     public String MongoTest() {
-        List<JSONObject> jsonObjects = MongoDB.getResultListFromDB("info",new BasicDBObject(),new BasicDBObject(),JSONObject.class);
+        List<JSONObject> jsonObjects = MongoDB.getResultListFromDB("info", new BasicDBObject(), new BasicDBObject(), JSONObject.class);
         return jsonObjects.get(0).toJSONString();
     }
 
-    @RequestMapping("/xueqiu/compInfo")
-    public void xueqiuTest(){
-        xueQiuService.getCompInfo();
-        xueQiuService.getFin();
+    @RequestMapping("/xueqiu")
+    public void xueqiuTest(int start, int end, String name) {
+        xueQiuService.getCompInfo(start, end, name);
+//        xueQiuService.getFin();
     }
 }
