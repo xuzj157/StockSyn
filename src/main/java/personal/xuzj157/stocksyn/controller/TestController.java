@@ -5,6 +5,7 @@ import com.mongodb.BasicDBObject;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import personal.xuzj157.stocksyn.crawler.plugin.DongFangService;
+import personal.xuzj157.stocksyn.crawler.plugin.XueQiuService;
 import personal.xuzj157.stocksyn.db.MongoDB;
 
 import javax.annotation.Resource;
@@ -17,6 +18,9 @@ public class TestController {
     @Resource
     DongFangService dongFangService;
 
+    @Resource
+    XueQiuService xueQiuService;
+
     @RequestMapping("/dongfang")
     public void GetAllTest() throws URISyntaxException {
         dongFangService.getStockInfo();
@@ -28,4 +32,9 @@ public class TestController {
         return jsonObjects.get(0).toJSONString();
     }
 
+    @RequestMapping("/xueqiu/compInfo")
+    public void xueqiuTest(){
+        xueQiuService.getCompInfo();
+        xueQiuService.getFin();
+    }
 }
