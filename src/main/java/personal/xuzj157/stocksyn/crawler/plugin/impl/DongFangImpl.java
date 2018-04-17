@@ -42,7 +42,7 @@ public class DongFangImpl implements DongFangService {
 
     /**
      * 解析网页将股票编号取出
-     * 
+     *
      * @param document
      * @return
      */

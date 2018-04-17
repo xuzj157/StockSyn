@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import personal.xuzj157.stocksyn.crawler.plugin.BaiduService;
 import personal.xuzj157.stocksyn.pojo.po.SnapShot;
+import personal.xuzj157.stocksyn.repository.SnapShotRepository;
+
+import javax.annotation.Resource;
 
 @Service
 public class BaiduImpl implements BaiduService {
@@ -13,6 +16,8 @@ public class BaiduImpl implements BaiduService {
 
     @Autowired
     RestTemplate restTemplate;
+    @Resource
+    SnapShotRepository snapShotRepository;
 
     @Override
     public SnapShot getSnapShotFromAndroid(int start, int end, String name) {
@@ -20,7 +25,7 @@ public class BaiduImpl implements BaiduService {
             String symbol = name + String.format("%06d", start);
             String resultStr = restTemplate.getForObject(String.format(urlGetAll, symbol), String.class);
             SnapShot snapShot = JSONObject.parseObject(resultStr).getObject("snapShot", SnapShot.class);
-            //todo 入库
+            snapShotRepository.save(snapShot);
             start++;
         }
         return null;
