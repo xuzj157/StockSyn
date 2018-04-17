@@ -20,6 +20,7 @@ public class BaiduImpl implements BaiduService {
             String symbol = name + String.format("%06d", start);
             String resultStr = restTemplate.getForObject(String.format(urlGetAll, symbol), String.class);
             SnapShot snapShot = JSONObject.parseObject(resultStr).getObject("snapShot", SnapShot.class);
+            //todo 入库
             start++;
         }
         return null;

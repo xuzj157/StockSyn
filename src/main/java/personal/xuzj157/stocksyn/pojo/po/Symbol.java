@@ -1,13 +1,16 @@
 package personal.xuzj157.stocksyn.pojo.po;
 
-import jdk.nashorn.internal.objects.annotations.Constructor;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "symbol")
 @Data
 public class Symbol {
     /**
      * 股票代码
      */
+    @Id
     private String stockCode;
     /**
      * 证交所
@@ -19,4 +22,5 @@ public class Symbol {
         this.stockCode = stockCode;
         this.exchange = exchange;
     }
+
 }

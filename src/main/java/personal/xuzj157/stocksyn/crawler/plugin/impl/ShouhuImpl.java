@@ -6,6 +6,7 @@ import org.springframework.web.client.RestTemplate;
 import personal.xuzj157.stocksyn.crawler.plugin.ShouhuService;
 import personal.xuzj157.stocksyn.db.MongoDB;
 import personal.xuzj157.stocksyn.pojo.po.HqInfo;
+import personal.xuzj157.stocksyn.pojo.po.Symbol;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class ShouhuImpl implements ShouhuService {
             if (status == 0){
                 System.out.println(symbolStr);
                 List<HqInfo> hqInfoList = new ArrayList<>();
-                StockInfo stockInfo = new StockInfo();
+                Symbol symbol = new Symbol(symbolStr);
                 stockInfo.setCode(symbolStr);
 
                 JSONArray hqArray = jsonArray.getJSONObject(0).getJSONArray("hq");
