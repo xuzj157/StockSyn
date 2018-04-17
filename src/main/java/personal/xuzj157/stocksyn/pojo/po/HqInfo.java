@@ -1,12 +1,16 @@
 package personal.xuzj157.stocksyn.pojo.po;
 
 import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "hq_info")
 @Data
 public class HqInfo {
     /**
      * 股票编号
      */
+    @DBRef
     private Symbol symbol;
     /**
      * 日期 YYYYMMDD

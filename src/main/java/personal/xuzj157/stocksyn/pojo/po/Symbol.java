@@ -23,4 +23,8 @@ public class Symbol {
         this.exchange = exchange;
     }
 
+    public Symbol() {
+    }
+
+
 }
