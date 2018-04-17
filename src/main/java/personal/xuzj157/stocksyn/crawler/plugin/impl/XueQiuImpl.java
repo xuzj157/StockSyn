@@ -2,7 +2,6 @@ package personal.xuzj157.stocksyn.crawler.plugin.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.mongodb.BasicDBObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -14,10 +13,7 @@ import personal.xuzj157.stocksyn.crawler.plugin.XueQiuService;
 import personal.xuzj157.stocksyn.db.MongoDB;
 import personal.xuzj157.stocksyn.pojo.po.BasicInfo;
 import personal.xuzj157.stocksyn.pojo.po.FinInfo;
-import personal.xuzj157.stocksyn.pojo.po.StockInfo;
-import personal.xuzj157.stocksyn.utils.SymbolUtils;
 
-import javax.mail.StoreClosedException;
 import java.util.List;
 
 @Service

@@ -6,7 +6,6 @@ import org.springframework.web.client.RestTemplate;
 import personal.xuzj157.stocksyn.crawler.plugin.ShouhuService;
 import personal.xuzj157.stocksyn.db.MongoDB;
 import personal.xuzj157.stocksyn.pojo.po.HqInfo;
-import personal.xuzj157.stocksyn.pojo.po.StockInfo;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;

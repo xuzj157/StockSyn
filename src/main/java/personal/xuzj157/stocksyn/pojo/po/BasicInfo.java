@@ -9,6 +9,10 @@ import java.util.List;
 public class BasicInfo {
 
     /**
+     * 股票编号
+     */
+    private Symbol symbol;
+    /**
      * 公司名称
      */
     @JsonProperty("compname")

@@ -5,6 +5,10 @@ import lombok.Data;
 @Data
 public class HqInfo {
     /**
+     * 股票编号
+     */
+    private Symbol symbol;
+    /**
      * 日期 YYYYMMDD
      */
     private String data;
