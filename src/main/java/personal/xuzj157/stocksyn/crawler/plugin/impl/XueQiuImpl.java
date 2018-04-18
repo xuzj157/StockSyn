@@ -19,6 +19,8 @@ import personal.xuzj157.stocksyn.repository.FinInfoRepository;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Service
 public class XueQiuImpl implements XueQiuService {
@@ -37,17 +39,21 @@ public class XueQiuImpl implements XueQiuService {
     public void getCompInfo(int start, int end, String name) {
         HttpEntity<String> requestEntity = setHeader();
         int symbol = start;
+        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(20);
+
         while (symbol <= end) {
             String symbolStr = String.format("%06d", symbol);
-            String url = urlConInfo + "?" + "symbol=" + name + symbolStr;
-            ResponseEntity<JSONObject> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JSONObject.class);
-            JSONObject jsonObject = response.getBody().getJSONObject("tqCompInfo");
-            if (jsonObject != null) {
-                System.out.println(symbolStr);
-                BasicInfo basicInfo = JSONObject.parseObject(jsonObject.toJSONString(), BasicInfo.class);
-                basicInfo.setSymbol(new Symbol(symbolStr, name.toLowerCase()));
-                basicInfoRepository.save(basicInfo);
-            }
+            fixedThreadPool.execute(() -> {
+                String url = urlConInfo + "?" + "symbol=" + name + symbolStr;
+                ResponseEntity<JSONObject> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JSONObject.class);
+                JSONObject jsonObject = response.getBody().getJSONObject("tqCompInfo");
+                if (jsonObject != null) {
+                    System.out.println(symbolStr);
+                    BasicInfo basicInfo = JSONObject.parseObject(jsonObject.toJSONString(), BasicInfo.class);
+                    basicInfo.setSymbol(new Symbol(symbolStr, name.toLowerCase()));
+                    basicInfoRepository.save(basicInfo);
+                }
+            });
             symbol++;
         }
     }
@@ -57,19 +63,23 @@ public class XueQiuImpl implements XueQiuService {
         HttpEntity<String> requestEntity = setHeader();
         List<FinInfo> finInfoListResult = new ArrayList<>();
         int symbol = start;
+        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(20);
+
         while (symbol <= end) {
             String symbolStr = String.format("%06d", symbol);
-            String url = urlFin + "?" + "symbol=" + name + symbolStr;
-            ResponseEntity<JSONObject> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JSONObject.class);
-            JSONArray jsonArray = response.getBody().getJSONArray("list");
-            if (jsonArray != null) {
-                System.out.println(symbolStr);
-                List<FinInfo> finInfoList = JSONArray.parseArray(jsonArray.toJSONString(), FinInfo.class);
-                for (FinInfo finInfo : finInfoList) {
-                    finInfo.setSymbol(new Symbol(symbolStr, name.toLowerCase()));
-                    finInfoListResult.add(finInfo);
+            fixedThreadPool.execute(() -> {
+                String url = urlFin + "?" + "symbol=" + name + symbolStr;
+                ResponseEntity<JSONObject> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, JSONObject.class);
+                JSONArray jsonArray = response.getBody().getJSONArray("list");
+                if (jsonArray != null) {
+                    System.out.println(symbolStr);
+                    List<FinInfo> finInfoList = JSONArray.parseArray(jsonArray.toJSONString(), FinInfo.class);
+                    for (FinInfo finInfo : finInfoList) {
+                        finInfo.setSymbol(new Symbol(symbolStr, name.toLowerCase()));
+                        finInfoListResult.add(finInfo);
+                    }
                 }
-            }
+            });
             symbol++;
         }
         finInfoRepository.saveAll(finInfoListResult);

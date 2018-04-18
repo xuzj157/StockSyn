@@ -9,6 +9,8 @@ import personal.xuzj157.stocksyn.pojo.po.SnapShot;
 import personal.xuzj157.stocksyn.repository.SnapShotRepository;
 
 import javax.annotation.Resource;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Service
 public class BaiduImpl implements BaiduService {
@@ -21,11 +23,15 @@ public class BaiduImpl implements BaiduService {
 
     @Override
     public SnapShot getSnapShotFromAndroid(int start, int end, String name) {
+        ExecutorService executorService = Executors.newFixedThreadPool(20);
         while (end >= start) {
             String symbol = name + String.format("%06d", start);
-            String resultStr = restTemplate.getForObject(String.format(urlGetAll, symbol), String.class);
-            SnapShot snapShot = JSONObject.parseObject(resultStr).getObject("snapShot", SnapShot.class);
-            snapShotRepository.save(snapShot);
+            executorService.execute(() -> {
+                String resultStr = restTemplate.getForObject(String.format(urlGetAll, symbol), String.class);
+                SnapShot snapShot = JSONObject.parseObject(resultStr).getObject("snapShot", SnapShot.class);
+                snapShotRepository.save(snapShot);
+
+            });
             start++;
         }
         return null;

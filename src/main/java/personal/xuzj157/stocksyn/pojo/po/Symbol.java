@@ -2,7 +2,6 @@ package personal.xuzj157.stocksyn.pojo.po;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "symbol")

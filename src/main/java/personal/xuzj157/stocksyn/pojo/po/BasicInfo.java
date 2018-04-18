@@ -3,17 +3,17 @@ package personal.xuzj157.stocksyn.pojo.po;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
+import java.util.UUID;
 
 @Document(collection = "basic_info")
 @Data
 public class BasicInfo {
     @Id
-    private String id;
+    private String id = UUID.randomUUID().toString().replaceAll("-","");
     /**
      * 股票编号
      */

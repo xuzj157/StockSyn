@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.UUID;
+
 @Document(collection = "hq_info")
 @Data
 public class HqInfo {
@@ -19,6 +21,7 @@ public class HqInfo {
     /**
      * 日期 YYYYMMDD
      */
+    @Indexed(unique=true)
     private String data;
     /**
      * 开盘价
