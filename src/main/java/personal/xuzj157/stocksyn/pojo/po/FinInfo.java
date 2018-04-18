@@ -10,7 +10,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "fin_info")
 @Data
 public class FinInfo {
-    @Indexed(unique=true)
     @Id
     private String id;
 
@@ -18,7 +17,6 @@ public class FinInfo {
      * 股票编号
      */
     @DBRef
-    @Indexed(unique=true)
     private Symbol symbol;
     /**
      * 报表日期   YYYYMMDD

@@ -9,14 +9,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "snap_shot")
 @Data
 public class SnapShot {
-    @Indexed(unique=true)
     @Id
     private String id;
     /**
      * 股票编号
      */
     @DBRef
-    @Indexed(unique=true)
     private Symbol symbol;
     /**
      * 市盈率

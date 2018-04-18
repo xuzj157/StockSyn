@@ -20,6 +20,7 @@ public class TestController {
 
     @Resource
     ShouhuService shouhuService;
+
     @RequestMapping("/dongfang")
     public void GetAllTest() throws URISyntaxException {
         dongFangService.getStockInfo();

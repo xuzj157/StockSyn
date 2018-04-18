@@ -11,7 +11,6 @@ public class Symbol {
     /**
      * 股票代码
      */
-    @Indexed(unique=true)
     @Id
     private String stockCode;
     /**
