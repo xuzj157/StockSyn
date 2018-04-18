@@ -55,7 +55,7 @@ public class ShouhuImpl implements ShouhuService {
                         hqInfo.setVol(Double.valueOf(hqArray.getJSONArray(i).getString(7)) / 100);
                         hqInfo.setVolPrice(Double.valueOf(hqArray.getJSONArray(i).getString(8)));
                         hqInfo.setExchangeRate(Double.valueOf(hqArray.getJSONArray(i).getString(9).replaceAll("%", "")));
-                        hqInfo.setSymbol(symbol);
+//                        hqInfo.setSymbol(symbol);
                         hqInfoList.add(hqInfo);
                     }
                     hqInfoRepository.saveAll(hqInfoList);

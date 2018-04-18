@@ -1,27 +1,31 @@
 package personal.xuzj157.stocksyn.pojo.po;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
+//import org.springframework.data.annotation.Id;
+//import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.UUID;
 
-@Document(collection = "hq_info")
+//@Document(collection = "hq_info")
+@Entity
 @Data
 public class HqInfo {
     @Id
-    private String id;
+    private String id = UUID.randomUUID().toString().replaceAll("-","");
     /**
      * 股票编号
      */
-    @DBRef
-    private Symbol symbol;
+//    @DBRef
+//    private Symbol symbol;
     /**
      * 日期 YYYYMMDD
      */
-    @Indexed(unique=true)
+//    @Indexed(unique=true)
     private String data;
     /**
      * 开盘价

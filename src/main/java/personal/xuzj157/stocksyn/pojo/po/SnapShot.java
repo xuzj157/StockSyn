@@ -5,18 +5,20 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.Entity;
 import java.util.UUID;
 
 @Document(collection = "snap_shot")
+//@Entity
 @Data
 public class SnapShot {
-    @Id
-    private String id = UUID.randomUUID().toString().replaceAll("-","");
+//    @Id
+//    private String id = UUID.randomUUID().toString().replaceAll("-","");
     /**
      * 股票编号
      */
-    @DBRef
-    private Symbol symbol;
+    @Id
+    private String code;
     /**
      * 市盈率
      */
