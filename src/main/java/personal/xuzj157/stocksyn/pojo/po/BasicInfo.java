@@ -2,23 +2,19 @@ package personal.xuzj157.stocksyn.pojo.po;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-import java.util.UUID;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-@Document(collection = "basic_info")
+@Entity
 @Data
 public class BasicInfo {
-    @Id
-    private String id = UUID.randomUUID().toString().replaceAll("-","");
+
     /**
      * 股票编号
      */
-    @DBRef
-    private Symbol symbol;
+    @Id
+    private String code;
     /**
      * 公司名称
      */
@@ -43,24 +39,14 @@ public class BasicInfo {
     /**
      * 所属板块
      */
-    private List<CompBoard> tqCompBoardmapList;
+    private String keyname;
+    private String keycode;
+    private String boardcode;
+    private String boardname;
 
     /**
      * 所属行业
      */
-    private List<CompIndustry> tqCompIndustryList;
-
-    @Data
-    public class CompBoard {
-        private String keyname;
-        private String keycode;
-        private String boardcode;
-        private String boardname;
-    }
-
-    @Data
-    public class CompIndustry {
-        private String level2name;
-        private String level2code;
-    }
+    private String level2name;
+    private String level2code;
 }

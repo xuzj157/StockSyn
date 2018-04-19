@@ -6,4 +6,5 @@ public interface BaiduService {
 
     SnapShot getSnapShotFromAndroid(int start, int end, String name);
 
+    SnapShot getSnapShotFromAndroid();
 }

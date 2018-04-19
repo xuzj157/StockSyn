@@ -12,6 +12,7 @@ import javax.annotation.Resource;
 import java.net.URISyntaxException;
 
 @RestController
+@RequestMapping("/test")
 public class TestController {
 
     @Resource
@@ -38,12 +39,17 @@ public class TestController {
     }
 
     @RequestMapping("/shouhu")
-    public void shouhuTest(int start, int end){
-        shouhuService.getHistory( start,  end);
+    public void shouhuTest(int start, int end) {
+        shouhuService.getHistory(start, end);
     }
 
-    @GetMapping("/baidu")
-    public void baiduTest(int start, int end, String exchange){
-        baiduService.getSnapShotFromAndroid(start, end,exchange);
+    @GetMapping("/baidu/params")
+    public void baiduTest(int start, int end, String exchange) {
+        baiduService.getSnapShotFromAndroid(start, end, exchange);
+    }
+
+    @GetMapping("/baidu/null")
+    public void baiduTest() {
+        baiduService.getSnapShotFromAndroid();
     }
 }

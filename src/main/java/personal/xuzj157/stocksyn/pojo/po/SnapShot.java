@@ -1,19 +1,14 @@
 package personal.xuzj157.stocksyn.pojo.po;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Entity;
-import java.util.UUID;
+import javax.persistence.Id;
 
-@Document(collection = "snap_shot")
-//@Entity
+
+@Entity
 @Data
 public class SnapShot {
-//    @Id
-//    private String id = UUID.randomUUID().toString().replaceAll("-","");
     /**
      * 股票编号
      */

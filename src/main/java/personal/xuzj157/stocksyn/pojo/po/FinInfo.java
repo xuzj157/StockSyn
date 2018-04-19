@@ -2,23 +2,18 @@ package personal.xuzj157.stocksyn.pojo.po;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.UUID;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-@Document(collection = "fin_info")
+@Entity
 @Data
 public class FinInfo {
-    @Id
-    private String id = UUID.randomUUID().toString().replaceAll("-","");
-
     /**
      * 股票编号
      */
-    @DBRef
-    private Symbol symbol;
+    @Id
+    private String code;
     /**
      * 报表日期   YYYYMMDD
      */

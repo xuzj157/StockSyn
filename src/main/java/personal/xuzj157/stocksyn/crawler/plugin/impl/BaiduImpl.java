@@ -6,9 +6,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import personal.xuzj157.stocksyn.crawler.plugin.BaiduService;
 import personal.xuzj157.stocksyn.pojo.po.SnapShot;
+import personal.xuzj157.stocksyn.pojo.po.Symbol;
 import personal.xuzj157.stocksyn.repository.SnapShotRepository;
+import personal.xuzj157.stocksyn.repository.SymbolRepository;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -20,6 +23,8 @@ public class BaiduImpl implements BaiduService {
     RestTemplate restTemplate;
     @Resource
     SnapShotRepository snapShotRepository;
+    @Resource
+    SymbolRepository symbolRepository;
 
     @Override
     public SnapShot getSnapShotFromAndroid(int start, int end, String name) {
@@ -30,9 +35,24 @@ public class BaiduImpl implements BaiduService {
                 String resultStr = restTemplate.getForObject(String.format(urlGetAll, symbol), String.class);
                 SnapShot snapShot = JSONObject.parseObject(resultStr).getObject("snapShot", SnapShot.class);
                 snapShotRepository.save(snapShot);
-
             });
             start++;
+        }
+        return null;
+    }
+
+    @Override
+    public SnapShot getSnapShotFromAndroid() {
+        ExecutorService executorService = Executors.newFixedThreadPool(20);
+        List<Symbol> symbolList = symbolRepository.findALL();
+        for (int i = 0; i < symbolList.size(); i++) {
+            Symbol symbol = symbolList.get(i);
+//            String symbolStr = symbol.getExchange().toLowerCase() + symbol.getStockCode();
+//            executorService.execute(() -> {
+//                String resultStr = restTemplate.getForObject(String.format(urlGetAll, symbolStr), String.class);
+//                SnapShot snapShot = JSONObject.parseObject(resultStr).getObject("snapShot", SnapShot.class);
+//                snapShotRepository.save(snapShot);
+//            });
         }
         return null;
     }

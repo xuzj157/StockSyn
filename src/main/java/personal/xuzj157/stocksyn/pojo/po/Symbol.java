@@ -1,10 +1,11 @@
 package personal.xuzj157.stocksyn.pojo.po;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "symbol")
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 @Data
 public class Symbol {
     /**
@@ -15,7 +16,6 @@ public class Symbol {
     /**
      * 证交所
      */
-
     private String exchange;
 
     public Symbol(String stockCode, String exchange) {

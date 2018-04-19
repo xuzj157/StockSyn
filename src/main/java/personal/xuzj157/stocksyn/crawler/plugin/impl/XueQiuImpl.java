@@ -49,9 +49,10 @@ public class XueQiuImpl implements XueQiuService {
                 JSONObject jsonObject = response.getBody().getJSONObject("tqCompInfo");
                 if (jsonObject != null) {
                     System.out.println(symbolStr);
-                    BasicInfo basicInfo = JSONObject.parseObject(jsonObject.toJSONString(), BasicInfo.class);
-                    basicInfo.setSymbol(new Symbol(symbolStr, name.toLowerCase()));
-                    basicInfoRepository.save(basicInfo);
+                    //todo
+//                    BasicInfo basicInfo = JSONObject.parseObject(jsonObject.toJSONString(), BasicInfo.class);
+//                    basicInfo.setSymbol(new Symbol(symbolStr, name.toLowerCase()));
+//                    basicInfoRepository.save(basicInfo);
                 }
             });
             symbol++;
@@ -75,7 +76,8 @@ public class XueQiuImpl implements XueQiuService {
                     System.out.println(symbolStr);
                     List<FinInfo> finInfoList = JSONArray.parseArray(jsonArray.toJSONString(), FinInfo.class);
                     for (FinInfo finInfo : finInfoList) {
-                        finInfo.setSymbol(new Symbol(symbolStr, name.toLowerCase()));
+                        //todo
+//                        finInfo.setSymbol(new Symbol(symbolStr, name.toLowerCase()));
                         finInfoListResult.add(finInfo);
                     }
                 }
