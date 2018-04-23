@@ -3,6 +3,7 @@ package personal.xuzj157.stocksyn.crawler.plugin.impl;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.client.RestTemplate;
 import personal.xuzj157.stocksyn.crawler.plugin.BaiduService;
 import personal.xuzj157.stocksyn.pojo.po.SnapShot;
@@ -11,6 +12,7 @@ import personal.xuzj157.stocksyn.repository.SnapShotRepository;
 import personal.xuzj157.stocksyn.repository.SymbolRepository;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -43,16 +45,16 @@ public class BaiduImpl implements BaiduService {
 
     @Override
     public SnapShot getSnapShotFromAndroid() {
-        ExecutorService executorService = Executors.newFixedThreadPool(20);
-        List<Symbol> symbolList = symbolRepository.findALL();
-        for (int i = 0; i < symbolList.size(); i++) {
-            Symbol symbol = symbolList.get(i);
-//            String symbolStr = symbol.getExchange().toLowerCase() + symbol.getStockCode();
-//            executorService.execute(() -> {
-//                String resultStr = restTemplate.getForObject(String.format(urlGetAll, symbolStr), String.class);
-//                SnapShot snapShot = JSONObject.parseObject(resultStr).getObject("snapShot", SnapShot.class);
-//                snapShotRepository.save(snapShot);
-//            });
+        ExecutorService executorService = Executors.newFixedThreadPool(40);
+        List<Symbol> symbolList = symbolRepository.findAll();
+        for (Symbol symbol : symbolList) {
+            String symbolStr = symbol.getExchange().toLowerCase() + symbol.getStockCode();
+            executorService.execute(() -> {
+                String resultStr = restTemplate.getForObject(String.format(urlGetAll, symbolStr), String.class);
+                SnapShot snapShot = JSONObject.parseObject(resultStr).getObject("snapShot", SnapShot.class);
+                snapShot.setCode(symbol.getStockCode());
+                snapShotRepository.save(snapShot);
+            });
         }
         return null;
     }
