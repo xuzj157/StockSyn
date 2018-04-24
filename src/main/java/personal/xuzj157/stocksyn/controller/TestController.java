@@ -39,8 +39,8 @@ public class TestController {
     }
 
     @RequestMapping("/shouhu")
-    public void shouhuTest(int start, int end) {
-        shouhuService.getHistory(start, end);
+    public void shouhuTest() {
+        shouhuService.getHistory();
     }
 
     @GetMapping("/baidu/params")

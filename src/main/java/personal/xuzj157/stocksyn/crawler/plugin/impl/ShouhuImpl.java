@@ -8,11 +8,11 @@ import personal.xuzj157.stocksyn.crawler.plugin.ShouhuService;
 import personal.xuzj157.stocksyn.pojo.po.HqInfo;
 import personal.xuzj157.stocksyn.pojo.po.Symbol;
 import personal.xuzj157.stocksyn.repository.HqInfoRepository;
+import personal.xuzj157.stocksyn.repository.SymbolRepository;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -25,12 +25,17 @@ public class ShouhuImpl implements ShouhuService {
     RestTemplate restTemplate;
     @Autowired
     HqInfoRepository hqInfoRepository;
+    @Autowired
+    SymbolRepository symbolRepository;
 
     @Override
-    public void getHistory(int start, int end) {
-        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(50);
-        while (start <= end) {
-            String symbolStr = String.format("%06d", start);
+    public void getHistory() {
+
+        List<Symbol> symbolList = symbolRepository.findAll();
+        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(30);
+
+        for (Symbol symbol : symbolList) {
+            String symbolStr = symbol.getStockCode();
             fixedThreadPool.execute(() -> {
                 String resultStr = restTemplate.getForObject(String.format(urlHistory, symbolStr), String.class);
                 resultStr = resultStr.replaceAll("historySearchHandler\\(", "");
@@ -38,10 +43,7 @@ public class ShouhuImpl implements ShouhuService {
                 JSONArray jsonArray = JSONArray.parseArray(resultStr);
                 int status = jsonArray.getJSONObject(0).getInteger("status");
                 if (status == 0) {
-                    System.out.println(symbolStr);
                     List<HqInfo> hqInfoList = new ArrayList<>();
-                    Symbol symbol = new Symbol();
-                    symbol.setStockCode(symbolStr);
                     JSONArray hqArray = jsonArray.getJSONObject(0).getJSONArray("hq");
                     for (int i = 0; i < hqArray.size(); i++) {
                         HqInfo hqInfo = new HqInfo();
@@ -55,13 +57,12 @@ public class ShouhuImpl implements ShouhuService {
                         hqInfo.setVol(Double.valueOf(hqArray.getJSONArray(i).getString(7)) / 100);
                         hqInfo.setVolPrice(Double.valueOf(hqArray.getJSONArray(i).getString(8)));
                         hqInfo.setExchangeRate(Double.valueOf(hqArray.getJSONArray(i).getString(9).replaceAll("%", "")));
-//                        hqInfo.setSymbol(symbol);
+                        hqInfo.setCode(symbol.getStockCode());
                         hqInfoList.add(hqInfo);
                     }
                     hqInfoRepository.saveAll(hqInfoList);
                 }
             });
-            start++;
         }
     }
 }

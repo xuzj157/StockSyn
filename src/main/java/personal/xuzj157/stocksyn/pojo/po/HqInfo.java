@@ -2,18 +2,20 @@ package personal.xuzj157.stocksyn.pojo.po;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
 @Data
+@Table(name = "hq_info",
+        indexes = {@Index(name = "index_hq_info", columnList = "code,data")})
 public class HqInfo {
     @Id
-    private String id = UUID.randomUUID().toString().replaceAll("-","");
+    private String id = UUID.randomUUID().toString().replaceAll("-", "");
     /**
      * 股票编号
      */
+    private String code;
     /**
      * 日期 YYYYMMDD
      */
@@ -54,4 +56,5 @@ public class HqInfo {
      * 换手率（%）
      */
     private double exchangeRate;
+
 }
