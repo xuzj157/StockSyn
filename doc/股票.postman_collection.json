@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "5ca4b137-04a4-4059-b795-bf7a32afde31",
+		"name": "股票",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "【数据】【爬虫】百度手机",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://gupiao.baidu.com/api/stocks/stockbets?from=h5&os_ver=0&cuid=xxx&vv=2.2&format=json&stock_code=sz300023",
+					"protocol": "https",
+					"host": [
+						"gupiao",
+						"baidu",
+						"com"
+					],
+					"path": [
+						"api",
+						"stocks",
+						"stockbets"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "h5"
+						},
+						{
+							"key": "os_ver",
+							"value": "0"
+						},
+						{
+							"key": "cuid",
+							"value": "xxx"
+						},
+						{
+							"key": "vv",
+							"value": "2.2"
+						},
+						{
+							"key": "format",
+							"value": "json"
+						},
+						{
+							"key": "stock_code",
+							"value": "sz300023"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "【数据】【爬虫】雪球经济参数",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "device_id=66d11289786ec6edd20b417e44546f16; s=fn112aohsh; bid=44e66306585a5c9788ae9c616162de73_j9rst8fy; __utmz=1.1509973978.9.2.utmcsr=baidu|utmccn=(organic)|utmcmd=organic; aliyungf_tc=AQAAANXwRDgo4AsAokBRZUXoxF2LDc/X; xq_a_token=0d524219cf0dd2d0a4d48f15e36f37ef9ebcbee1; xq_a_token.sig=P0rdE1K6FJmvC2XfH5vucrIHsnw; xq_r_token=7095ce0c820e0a53c304a6ead234a6c6eca38488; xq_r_token.sig=xBQzKLc4EP4eZvezKxqxXNtB7K0; u=881524563971954; __utma=1.1428376186.1509680287.1523931447.1524563972.14; __utmc=1; __utmt=1; Hm_lvt_1db88642e346389874251b5a1eded6e3=1523931448,1524563973; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1524564126; __utmb=1.7.10.1524563972"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://xueqiu.com/stock/f10/finmainindex.json?symbol=sh600000",
+					"protocol": "https",
+					"host": [
+						"xueqiu",
+						"com"
+					],
+					"path": [
+						"stock",
+						"f10",
+						"finmainindex.json"
+					],
+					"query": [
+						{
+							"key": "symbol",
+							"value": "sh600000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "【爬虫】【测试】东方财富网",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{STOCK_SYN_API}}/test/dongfang",
+					"host": [
+						"{{STOCK_SYN_API}}"
+					],
+					"path": [
+						"test",
+						"dongfang"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "【爬虫】【测试】雪球",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{STOCK_SYN_API}}/test/xueqiu",
+					"host": [
+						"{{STOCK_SYN_API}}"
+					],
+					"path": [
+						"test",
+						"xueqiu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "【爬虫】【测试】搜狐",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{STOCK_SYN_API}}/test/shouhu",
+					"host": [
+						"{{STOCK_SYN_API}}"
+					],
+					"path": [
+						"test",
+						"shouhu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "【爬虫】【测试】百度 带参",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{STOCK_SYN_API}}/test/baidu/params?start=000000&end=700000",
+					"host": [
+						"{{STOCK_SYN_API}}"
+					],
+					"path": [
+						"test",
+						"baidu",
+						"params"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "000000"
+						},
+						{
+							"key": "end",
+							"value": "700000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "【爬虫】【测试】百度 不带参",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{STOCK_SYN_API}}/test/baidu/null",
+					"host": [
+						"{{STOCK_SYN_API}}"
+					],
+					"path": [
+						"test",
+						"baidu",
+						"null"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
