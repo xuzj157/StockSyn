@@ -5,14 +5,16 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.UUID;
 
 @Entity
 @Data
 public class FinInfo {
+    @Id
+    private String id = UUID.randomUUID().toString().replaceAll("-","");
     /**
      * 股票编号
      */
-    @Id
     private String code;
     /**
      * 报表日期   YYYYMMDD

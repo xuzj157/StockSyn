@@ -7,8 +7,8 @@ import java.util.UUID;
 
 @Entity
 @Data
-@Table(name = "hq_info",
-        indexes = {@Index(name = "index_hq_info", columnList = "code,data")})
+//@Table(name = "hq_info",
+//        indexes = {@Index(name = "index_hq_info", columnList = "code,data")})
 public class HqInfo {
     @Id
     private String id = UUID.randomUUID().toString().replaceAll("-", "");

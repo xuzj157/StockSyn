@@ -2,6 +2,7 @@ package personal.xuzj157.stocksyn.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import personal.xuzj157.stocksyn.crawler.plugin.BaiduService;
 import personal.xuzj157.stocksyn.crawler.plugin.DongFangService;
@@ -33,9 +34,9 @@ public class TestController {
     }
 
     @RequestMapping("/xueqiu")
-    public void xueqiuTest(int start, int end, String exchange) {
-        xueQiuService.getCompInfo(start, end, exchange);
-        xueQiuService.getFin(start, end, exchange);
+    public void xueqiuTest() {
+//        xueQiuService.getCompInfo();
+        xueQiuService.getFin();
     }
 
     @RequestMapping("/shouhu")
