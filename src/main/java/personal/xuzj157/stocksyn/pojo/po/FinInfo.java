@@ -11,7 +11,7 @@ import java.util.UUID;
 @Data
 public class FinInfo {
     @Id
-    private String id = UUID.randomUUID().toString().replaceAll("-","");
+    private String id = UUID.randomUUID().toString().replaceAll("-", "");
     /**
      * 股票编号
      */
@@ -60,4 +60,29 @@ public class FinInfo {
      * 销售毛利率(%)
      */
     private double salegrossprofitrto;
+    /**
+     * 主营业务收入
+     */
+    private double mainbusiincome;
+    /**
+     * 主营业务利润
+     */
+    private double mainbusiprofit;
+    /**
+     * 利润总额
+     */
+    private double totprofit;
+    /**
+     * 净利润
+     */
+    private double netprofit;
+    /**
+     * 资产总额
+     */
+    private double totalassets;
+    /**
+     * 负债总额
+     */
+    private double totalliab;
+
 }
