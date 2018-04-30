@@ -18,6 +18,11 @@ public class SecondCalculationUnit {
     @Id
     private String code;
     /**
+     * 60日涨幅(%)   不参与运算
+     * 1/4 * 前30日 + 3/4 * 后半段30日均价
+     */
+    private Double upRate;
+    /**
      * 1 / ( 1 + e^( -净利润增长率 / 净利润增长率平均值))
      */
     private double netincGrowRate;

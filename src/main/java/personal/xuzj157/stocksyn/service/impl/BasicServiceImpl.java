@@ -3,6 +3,7 @@ package personal.xuzj157.stocksyn.service.impl;
 import org.springframework.stereotype.Service;
 import personal.xuzj157.stocksyn.pojo.bo.BasicUnit;
 import personal.xuzj157.stocksyn.pojo.bo.FirstCalculationUnit;
+import personal.xuzj157.stocksyn.pojo.bo.SecondCalculationUnit;
 import personal.xuzj157.stocksyn.pojo.po.FinInfo;
 import personal.xuzj157.stocksyn.pojo.po.HqInfo;
 import personal.xuzj157.stocksyn.pojo.po.SnapShot;
@@ -12,6 +13,7 @@ import personal.xuzj157.stocksyn.repository.calculationUnit.FirstCalculationUnit
 import personal.xuzj157.stocksyn.repository.calculationUnit.SecondCalculationUnitRepository;
 import personal.xuzj157.stocksyn.service.BasicService;
 import personal.xuzj157.stocksyn.utils.FirstCalculationUnitUtils;
+import personal.xuzj157.stocksyn.utils.MathUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -36,7 +38,6 @@ public class BasicServiceImpl implements BasicService {
     @Resource
     SecondCalculationUnitRepository secondCalculationUnitRepository;
 
-    private BasicUnit basicUnit = new BasicUnit();
 
     @Override
     public void ori2First() {
@@ -151,32 +152,59 @@ public class BasicServiceImpl implements BasicService {
 
     @Override
     public void first2Second() {
+        BasicUnit basicUnit = initBasic();
+        List<FirstCalculationUnit> firstCalculationUnitList = firstCalculationUnitRepository.findAll();
+        SecondCalculationUnit second = new SecondCalculationUnit();
 
+        for (FirstCalculationUnit first : firstCalculationUnitList) {
+            second.setCode(first.getCode());
+            second.setUpRate(first.getUpRate());
+            second.setNetincGrowRate(MathUtils.logicS(first.getNetincGrowRate(), basicUnit.getNetincGrowRateAvg()));
+            second.setMainbusiincome(MathUtils.logicS(first.getMainbusiincome(), first.getMainbusiincomeAvg()));
+            second.setNetprofit(MathUtils.logicS(first.getNetprofit(), first.getNetprofitAvg()));
+            second.setTotalassets(MathUtils.logicS(first.getTotalassets(), first.getTotalassetsAvg()));
+            second.setPeratio(MathUtils.logicS(first.getPeratio(), basicUnit.getPeratioAvg()));
+            second.setBvRatio(MathUtils.logicS(first.getBvRatio(), basicUnit.getBvRatioAvg()));
+
+            double now = first.getNowPrice();
+            second.setFifteenPrice(first.getFifteenPrice() / now);
+            second.setLowFifteenPrice(first.getLowFifteenPrice() / now);
+            second.setThirtyPrice(first.getThirtyPrice() / now);
+            second.setLowThirtyPrice(first.getLowThirtyPrice() / now);
+            second.setSixtyPrice(first.getSixtyPrice() / now);
+            second.setLowSixtyPrice(first.getLowSixtyPrice() / now);
+            second.setOneEightyPrice(first.getOneEightyPrice() / now);
+            second.setLowOneEightyPrice(first.getLowOneEightyPrice() / now);
+            second.setFourHundredPrice(first.getFourHundredPrice() / now);
+            second.setLowFourHundredPrice(first.getLowFourHundredPrice() / now);
+            second.setHistoryPrice(first.getHistoryPrice() / now);
+            second.setLowHistoryPrice(first.getLowHistoryPrice() / now);
+
+            secondCalculationUnitRepository.save(second);
+        }
     }
 
     /**
      * 初始化
      */
     @Override
-    public void initBasic() {
-        List<SnapShot> snapShotList = snapShotRepository.findAll();
-        List<FinInfo> finInfoList = finInfoRepository.findAll();
+    public BasicUnit initBasic() {
+        BasicUnit basicUnit = new BasicUnit();
+
+        List<FirstCalculationUnit> firstCalculationUnitList = firstCalculationUnitRepository.findAll();
 
         double netincGrowRateAvgSum = 0;   //平均净利润增长率
         double peratioAvgSum = 0;       //平均市盈率
         double bvRatioAvgSum = 0;       //平均市净率
-
-        for (SnapShot snapShot : snapShotList) {
-            peratioAvgSum = peratioAvgSum + snapShot.getPeratio();
-            bvRatioAvgSum = bvRatioAvgSum + snapShot.getBvRatio();
+        for (FirstCalculationUnit firstCalculationUnit : firstCalculationUnitList) {
+            peratioAvgSum = peratioAvgSum + firstCalculationUnit.getPeratio();
+            bvRatioAvgSum = bvRatioAvgSum + firstCalculationUnit.getBvRatio();
+            netincGrowRateAvgSum = netincGrowRateAvgSum + firstCalculationUnit.getNetincGrowRate();
         }
-        basicUnit.setPeratioAvg(peratioAvgSum / snapShotList.size());
-        basicUnit.setBvRatioAvg(bvRatioAvgSum / snapShotList.size());
-
-        for (FinInfo finInfo : finInfoList) {
-            netincGrowRateAvgSum = netincGrowRateAvgSum + finInfo.getNetincGrowRate();
-        }
-        basicUnit.setNetincGrowRateAvg(netincGrowRateAvgSum / finInfoList.size());
+        basicUnit.setPeratioAvg(peratioAvgSum / firstCalculationUnitList.size());
+        basicUnit.setBvRatioAvg(bvRatioAvgSum / firstCalculationUnitList.size());
+        basicUnit.setNetincGrowRateAvg(netincGrowRateAvgSum / firstCalculationUnitList.size());
+        return basicUnit;
     }
 
 }

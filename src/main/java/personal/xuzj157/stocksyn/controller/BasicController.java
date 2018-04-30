@@ -23,4 +23,9 @@ public class BasicController {
     public void ori2First(){
         basicService.ori2First();
     }
+
+    @GetMapping("/first2Second")
+    public void first2Second(){
+        basicService.first2Second();
+    }
 }
