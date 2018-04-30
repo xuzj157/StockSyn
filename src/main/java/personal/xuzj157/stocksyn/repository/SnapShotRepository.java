@@ -11,4 +11,6 @@ public interface SnapShotRepository extends PagingAndSortingRepository<SnapShot,
 
     List<SnapShot> findAll();
 
+    SnapShot findByCode(String code);
+
 }

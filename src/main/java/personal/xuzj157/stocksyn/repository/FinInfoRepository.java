@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface FinInfoRepository extends PagingAndSortingRepository<FinInfo, String> {
     List<FinInfo> findAll();
+
+    List<FinInfo> findAllByCode(String code);
 }

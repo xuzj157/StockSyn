@@ -18,6 +18,11 @@ public class FirstCalculationUnit {
     @Id
     private String code;
     /**
+     * 60日涨幅(%)
+     * 1/4 * 前30日 + 3/4 * 后半段30日均价
+     */
+    private Double upRate;
+    /**
      * 净利润增长率(%)
      */
     private double netincGrowRate;

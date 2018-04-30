@@ -19,4 +19,8 @@ public class BasicController {
         basicService.initBasic();
     }
 
+    @GetMapping("/ori2First")
+    public void ori2First(){
+        basicService.ori2First();
+    }
 }
