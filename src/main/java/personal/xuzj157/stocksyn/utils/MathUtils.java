@@ -11,8 +11,10 @@ public class MathUtils {
      * @return
      */
     public static Double logicS(double t, double p) {
-//        return (1 / (1 + Math.pow(Math.E, ((-t) / p))) - 0.5) * 2;
-        return (1 / (1 + Math.pow(Math.E, ((-t) / p))) - 0.5) * 2;
+        return (1.0 / (1.0 + Math.pow(Math.E, ((-t) / p))) - 0.5) * 2;
     }
 
+    public static Double logicS(double t, double p, double range) {
+        return (1.0 / (1.0 + Math.pow(Math.E, ((-t) / p))) - 0.5) * range;
+    }
 }
