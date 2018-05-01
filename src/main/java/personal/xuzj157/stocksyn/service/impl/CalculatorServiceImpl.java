@@ -21,7 +21,7 @@ public class CalculatorServiceImpl implements CalculatorService {
         for (int i = 0; i < 3000000; i++) {
             executorService.execute(() -> {
                 RandomUnit randomUnit = new RandomUnit();
-//                randomUnitRepository.save(randomUnit);
+                randomUnitRepository.save(randomUnit);
             });
         }
         System.out.println("finish");
