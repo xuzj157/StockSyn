@@ -9,14 +9,22 @@ import javax.annotation.Resource;
 
 @RestController
 @RequestMapping("/calculator")
-public class RandomUnit {
+public class CalculatorController {
 
     @Resource
     CalculatorService calculatorService;
 
     @GetMapping("/getRandomUnit")
-    public void genRandom(){
+    public void genRandom() {
         calculatorService.getRandomUnit();
     }
 
+    @GetMapping("/calculator")
+    public void calculator() {
+        try {
+            calculatorService.calculator();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
