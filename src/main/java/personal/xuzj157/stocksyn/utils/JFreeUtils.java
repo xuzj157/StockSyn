@@ -2,19 +2,14 @@ package personal.xuzj157.stocksyn.utils;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.DateAxis;
-import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Map;
 import java.util.UUID;
 
@@ -41,22 +36,19 @@ public class JFreeUtils {
                 true, // 提示信息是否显示
                 false);
 
-        XYPlot xyplot = (XYPlot) jfreechart.getPlot();
-        DateAxis dateaxis = (DateAxis) xyplot.getDomainAxis();
-        dateaxis.setDateFormatOverride(new SimpleDateFormat("MMM-yyyy"));
-        dateaxis.setLabelFont(new Font("黑体", Font.BOLD, 14));         //水平底部标题
-        dateaxis.setTickLabelFont(new Font("宋体", Font.BOLD, 12));  //垂直标题
-        ValueAxis rangeAxis = xyplot.getRangeAxis();//获取柱状
-        rangeAxis.setLabelFont(new Font("黑体", Font.BOLD, 15));
-        jfreechart.getLegend().setItemFont(new Font("黑体", Font.BOLD, 15));
-        jfreechart.getTitle().setFont(new Font("宋体", Font.BOLD, 20));//设置标题字体
-
         return jfreechart;
     }
 
     public static void save(JFreeChart jFreeChart) throws IOException {
         BufferedImage bufferedImage = jFreeChart.createBufferedImage(4000, 2000);
-        File outputfile = new File(UUID.randomUUID().toString().replace("-", "") + ".jpeg");
+        File outputfile = new File(UUID.randomUUID().toString().replace("-", "") + ".jpg");
         ImageIO.write(bufferedImage, "jpg", outputfile);
     }
+
+    public static void allInOne(Map<String, Map<Double, Integer>> mapOri) throws IOException {
+        CategoryDataset set = categoryDataset(mapOri);
+        JFreeChart jFreeChart = createChart(set);
+        save(jFreeChart);
+    }
+
 }
