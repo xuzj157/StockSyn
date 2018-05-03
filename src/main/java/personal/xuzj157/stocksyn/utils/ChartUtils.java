@@ -10,7 +10,6 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.Vector;
 
 import org.jfree.chart.ChartFactory;
@@ -145,12 +144,12 @@ public class ChartUtils {
     /**
      * 创建类别数据集合
      */
-    public static DefaultCategoryDataset createDefaultCategoryDataset(List<Serie> series, String[] categories) {
+    public static DefaultCategoryDataset createDefaultCategoryDataset(Vector<Serie> series, String[] categories) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 
         for (Serie serie : series) {
             String name = serie.getName();
-            List<Object> data = serie.getData();
+            Vector<Object> data = serie.getData();
             if (data != null && categories != null && data.size() == categories.length) {
                 for (int index = 0; index < data.size(); index++) {
                     String value = data.get(index) == null ? "" : data.get(index).toString();
@@ -191,7 +190,6 @@ public class ChartUtils {
      *
      * @param category   类别
      * @param dateValues 日期-值 数组
-     * @param xAxisTitle X坐标轴标题
      * @return
      */
     public static TimeSeries createTimeseries(String category, Vector<Object[]> dateValues) {

@@ -21,9 +21,7 @@ public class JFreeUtilsTest {
             }
             map.put(i.toString(), maps);
         }
-
         JFreeUtils.allInOne(map);
-
     }
 
 }
