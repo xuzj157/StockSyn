@@ -1,6 +1,7 @@
 package personal.xuzj157.stocksyn.utils;
 
 import org.junit.Test;
+import personal.xuzj157.stocksyn.utils.chart.LineChartUtils;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -21,7 +22,8 @@ public class JFreeUtilsTest {
             }
             map.put(i.toString(), maps);
         }
-        JFreeUtils.allInOne(map);
+
+        LineChartUtils.allInOne(map, "a", "a", "a", 2048, 1024);
     }
 
 }

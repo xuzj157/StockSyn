@@ -1,16 +1,4 @@
-package personal.xuzj157.stocksyn.utils;
-
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Paint;
-import java.awt.Rectangle;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Vector;
+package personal.xuzj157.stocksyn.utils.chart;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
@@ -20,18 +8,8 @@ import org.jfree.chart.axis.DateTickUnit;
 import org.jfree.chart.axis.DateTickUnitType;
 import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.block.BlockBorder;
-import org.jfree.chart.labels.ItemLabelAnchor;
-import org.jfree.chart.labels.ItemLabelPosition;
-import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
-import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
-import org.jfree.chart.labels.StandardXYItemLabelGenerator;
-import org.jfree.chart.labels.StandardXYToolTipGenerator;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.DefaultDrawingSupplier;
-import org.jfree.chart.plot.PieLabelLinkStyle;
-import org.jfree.chart.plot.PiePlot;
-import org.jfree.chart.plot.Plot;
-import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.labels.*;
+import org.jfree.chart.plot.*;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.chart.renderer.category.StackedBarRenderer;
@@ -45,7 +23,15 @@ import org.jfree.data.time.Day;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.ui.RectangleInsets;
 import org.jfree.ui.TextAnchor;
-import personal.xuzj157.stocksyn.pojo.bo.Serie;
+
+import java.awt.*;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * Jfreechart工具类
@@ -141,30 +127,15 @@ public class ChartUtils {
 
     }
 
-    /**
-     * 创建类别数据集合
-     */
-    public static DefaultCategoryDataset createDefaultCategoryDataset(Vector<Serie> series, String[] categories) {
-        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-
-        for (Serie serie : series) {
-            String name = serie.getName();
-            Vector<Object> data = serie.getData();
-            if (data != null && categories != null && data.size() == categories.length) {
-                for (int index = 0; index < data.size(); index++) {
-                    String value = data.get(index) == null ? "" : data.get(index).toString();
-                    if (isPercent(value)) {
-                        value = value.substring(0, value.length() - 1);
-                    }
-                    if (isNumber(value)) {
-                        dataset.setValue(Double.parseDouble(value), name, categories[index]);
-                    }
-                }
+    public static DefaultCategoryDataset categoryDataset(Map<String, Map<Double, Integer>> mapOri) {
+        DefaultCategoryDataset defaultCategoryDataset = new DefaultCategoryDataset();
+        for (Map.Entry<String, Map<Double, Integer>> entryMap : mapOri.entrySet()) {
+            String name = entryMap.getKey();
+            for (Map.Entry<Double, Integer> entry : entryMap.getValue().entrySet()) {
+                defaultCategoryDataset.addValue(entry.getValue(), name, String.valueOf(entry.getKey()));
             }
-
         }
-        return dataset;
-
+        return defaultCategoryDataset;
     }
 
     /**
@@ -192,7 +163,7 @@ public class ChartUtils {
      * @param dateValues 日期-值 数组
      * @return
      */
-    public static TimeSeries createTimeseries(String category, Vector<Object[]> dateValues) {
+    public static TimeSeries createTimeseries(String category, LinkedList<Object[]> dateValues) {
         TimeSeries timeseries = new TimeSeries(category);
 
         if (dateValues != null) {
