@@ -1,7 +1,8 @@
 {
 	"info": {
-		"_postman_id": "5ca4b137-04a4-4059-b795-bf7a32afde31",
 		"name": "股票",
+		"_postman_id": "9793bd4c-a5e2-e7f9-93c3-92c17e3264e6",
+		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -10,7 +11,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "https://gupiao.baidu.com/api/stocks/stockbets?from=h5&os_ver=0&cuid=xxx&vv=2.2&format=json&stock_code=sz300023",
 					"protocol": "https",
@@ -64,7 +68,10 @@
 						"value": "device_id=66d11289786ec6edd20b417e44546f16; s=fn112aohsh; bid=44e66306585a5c9788ae9c616162de73_j9rst8fy; __utmz=1.1509973978.9.2.utmcsr=baidu|utmccn=(organic)|utmcmd=organic; aliyungf_tc=AQAAANXwRDgo4AsAokBRZUXoxF2LDc/X; xq_a_token=0d524219cf0dd2d0a4d48f15e36f37ef9ebcbee1; xq_a_token.sig=P0rdE1K6FJmvC2XfH5vucrIHsnw; xq_r_token=7095ce0c820e0a53c304a6ead234a6c6eca38488; xq_r_token.sig=xBQzKLc4EP4eZvezKxqxXNtB7K0; u=881524563971954; __utma=1.1428376186.1509680287.1523931447.1524563972.14; __utmc=1; __utmt=1; Hm_lvt_1db88642e346389874251b5a1eded6e3=1523931448,1524563973; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1524564126; __utmb=1.7.10.1524563972"
 					}
 				],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "https://xueqiu.com/stock/f10/finmainindex.json?symbol=sh600000",
 					"protocol": "https",
@@ -92,7 +99,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "{{STOCK_SYN_API}}/test/dongfang",
 					"host": [
@@ -111,7 +121,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "{{STOCK_SYN_API}}/test/xueqiu",
 					"host": [
@@ -130,7 +143,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "{{STOCK_SYN_API}}/test/shouhu",
 					"host": [
@@ -149,7 +165,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "{{STOCK_SYN_API}}/test/baidu/params?start=000000&end=700000",
 					"host": [
@@ -179,7 +198,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "{{STOCK_SYN_API}}/test/baidu/null",
 					"host": [
@@ -189,6 +211,101 @@
 						"test",
 						"baidu",
 						"null"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "【基础】初始化",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{STOCK_SYN_API}}/basic/init",
+					"host": [
+						"{{STOCK_SYN_API}}"
+					],
+					"path": [
+						"basic",
+						"init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "【基础】一层数据处理",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{STOCK_SYN_API}}/basic/ori2First",
+					"host": [
+						"{{STOCK_SYN_API}}"
+					],
+					"path": [
+						"basic",
+						"ori2First"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "【基础】一层数据转二层",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{STOCK_SYN_API}}/basic/first2Second",
+					"host": [
+						"{{STOCK_SYN_API}}"
+					],
+					"path": [
+						"basic",
+						"first2Second"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "【计算】生成随机数实例",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{STOCK_SYN_API}}/calculator/getRandomUnit",
+					"host": [
+						"{{STOCK_SYN_API}}"
+					],
+					"path": [
+						"calculator",
+						"getRandomUnit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "【计算】计算",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{STOCK_SYN_API}}/calculator/calculator",
+					"host": [
+						"{{STOCK_SYN_API}}"
+					],
+					"path": [
+						"calculator",
+						"calculator"
 					]
 				}
 			},
