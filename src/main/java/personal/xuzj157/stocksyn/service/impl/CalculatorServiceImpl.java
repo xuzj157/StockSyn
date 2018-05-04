@@ -1,8 +1,5 @@
 package personal.xuzj157.stocksyn.service.impl;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import org.hibernate.sql.Update;
 import org.springframework.stereotype.Service;
 import personal.xuzj157.stocksyn.pojo.bo.RandomUnit;
 import personal.xuzj157.stocksyn.pojo.bo.SecondCalculationUnit;
@@ -10,12 +7,14 @@ import personal.xuzj157.stocksyn.repository.calculationUnit.RandomUnitRepository
 import personal.xuzj157.stocksyn.repository.calculationUnit.SecondCalculationUnitRepository;
 import personal.xuzj157.stocksyn.service.CalculatorService;
 import personal.xuzj157.stocksyn.utils.CalculationUtils;
-import personal.xuzj157.stocksyn.utils.MongoDB;
 import personal.xuzj157.stocksyn.utils.chart.LineChartUtils;
 
 import javax.annotation.Resource;
 import java.text.DecimalFormat;
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -46,7 +45,7 @@ public class CalculatorServiceImpl implements CalculatorService {
         Map<String, Map<Double, Integer>> statisticsMap = new HashMap<>();
         Integer upNum = 0;
         Integer downNum = 0;
-        DecimalFormat df = new DecimalFormat("#.##");
+        DecimalFormat df = new DecimalFormat("#.#");
 
         for (int i = 0; i < times; i++) {
             RandomUnit randomUnit = new RandomUnit();
@@ -90,10 +89,14 @@ public class CalculatorServiceImpl implements CalculatorService {
             System.out.println("finish: " + second.getCode());
         }
         System.out.println("basic finish!!!");
-        statisticsMap.put("up", CalculationUtils.getMap(upMap, 33));
-        statisticsMap.put("down", CalculationUtils.getMap(downMap, 36));
+        statisticsMap.put(times + "up", CalculationUtils.getMap(upMap, upNum));
+        statisticsMap.put(times + "down", CalculationUtils.getMap(downMap, downNum));
+
+        //存储以备下次使用
+        CalculationUtils.saveMap(statisticsMap);
+
         System.out.println("statisticsMap finish!!!");
-        LineChartUtils.allInOne(statisticsMap, "标题", "价格", "数量", 2048, 1024);
+        LineChartUtils.allInOne(statisticsMap, times + "拟合次数", "价格", "数量", 2048, 1024);
         System.out.println("all finish!!!");
 
     }

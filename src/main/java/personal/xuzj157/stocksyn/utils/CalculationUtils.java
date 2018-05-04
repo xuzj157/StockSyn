@@ -61,4 +61,18 @@ public class CalculationUtils {
         }
     }
 
+    public static void saveMap(Map<String, Map<Double, Integer>> mapOri) {
+        Map<String, Map<String, Integer>> resultMap = new TreeMap<>();
+        for (Map.Entry<String, Map<Double, Integer>> entry : mapOri.entrySet()) {
+            Map<String, Integer> map = new HashMap<>();
+            for (Map.Entry<Double, Integer> entry1 : entry.getValue().entrySet()) {
+                map.put(String.valueOf((int) (entry1.getKey() * 100)), entry1.getValue());
+            }
+            resultMap.put(entry.getKey(), map);
+        }
+
+        MongoDB.writeResultObjectToDB("cal_history", resultMap);
+    }
+
+
 }
