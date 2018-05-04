@@ -23,7 +23,7 @@ public class JFreeUtilsTest {
             map.put(i.toString(), maps);
         }
 
-        LineChartUtils.allInOne(map, "a", "a", "a", 2048, 1024);
+//        LineChartUtils.allInOne(map, "a", "a", "a", 2048, 1024);
     }
 
 }

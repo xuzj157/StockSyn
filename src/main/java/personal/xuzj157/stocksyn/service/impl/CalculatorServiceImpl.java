@@ -1,5 +1,7 @@
 package personal.xuzj157.stocksyn.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.hibernate.sql.Update;
 import org.springframework.stereotype.Service;
 import personal.xuzj157.stocksyn.pojo.bo.RandomUnit;
@@ -8,6 +10,7 @@ import personal.xuzj157.stocksyn.repository.calculationUnit.RandomUnitRepository
 import personal.xuzj157.stocksyn.repository.calculationUnit.SecondCalculationUnitRepository;
 import personal.xuzj157.stocksyn.service.CalculatorService;
 import personal.xuzj157.stocksyn.utils.CalculationUtils;
+import personal.xuzj157.stocksyn.utils.MongoDB;
 import personal.xuzj157.stocksyn.utils.chart.LineChartUtils;
 
 import javax.annotation.Resource;
@@ -36,8 +39,8 @@ public class CalculatorServiceImpl implements CalculatorService {
     }
 
     @Override
-    public void calculator() {
-        ExecutorService executorService = Executors.newFixedThreadPool(4);
+    public void calculator(int times) {
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
 
         List<RandomUnit> randomUnitList = new LinkedList<>();
         Map<String, Map<Double, Integer>> statisticsMap = new HashMap<>();
@@ -45,7 +48,7 @@ public class CalculatorServiceImpl implements CalculatorService {
         Integer downNum = 0;
         DecimalFormat df = new DecimalFormat("#.##");
 
-        for (int i = 0; i < 10000000; i++) {
+        for (int i = 0; i < times; i++) {
             RandomUnit randomUnit = new RandomUnit();
             randomUnitList.add(randomUnit);
             System.out.println(i);
@@ -58,7 +61,7 @@ public class CalculatorServiceImpl implements CalculatorService {
             double uprate = second.getUpRate();
             if (uprate > 0) {
                 upNum++;
-            }else {
+            } else {
                 downNum++;
             }
             for (RandomUnit randomUnit : randomUnitList) {

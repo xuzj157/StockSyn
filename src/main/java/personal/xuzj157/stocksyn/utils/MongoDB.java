@@ -22,13 +22,13 @@ public class MongoDB {
 
 	public static synchronized MongoDatabase getDB(){
 		if(db==null){
-			ResourceBundle rb = ResourceBundle.getBundle("conf/mongodb", Locale.getDefault());
-			String host = rb.getString("mongodb_host");
-			String dbname = rb.getString("mongodb_dbname");
-			String port = rb.getString("mongodb_port");
+//			ResourceBundle rb = ResourceBundle.getBundle("conf/mongodb", Locale.getDefault());
+//			String host = rb.getString("mongodb_host");
+//			String dbname = rb.getString("mongodb_dbname");
+//			String port = rb.getString("mongodb_port");
 
-			MongoClient client=new MongoClient(host, Integer.parseInt(port));
-			db=client.getDatabase(dbname);
+			MongoClient client=new MongoClient("127.0.0.1", Integer.parseInt("27017"));
+			db=client.getDatabase("stock");
 		}
 		return db;
 	}

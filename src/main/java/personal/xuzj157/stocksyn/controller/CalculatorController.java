@@ -2,6 +2,7 @@ package personal.xuzj157.stocksyn.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import personal.xuzj157.stocksyn.service.CalculatorService;
 
@@ -20,11 +21,7 @@ public class CalculatorController {
     }
 
     @GetMapping("/calculator")
-    public void calculator() {
-        try {
-            calculatorService.calculator();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public void calculator(@RequestParam int times) {
+        calculatorService.calculator(times);
     }
 }
