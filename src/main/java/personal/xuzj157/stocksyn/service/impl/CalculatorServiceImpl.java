@@ -36,14 +36,14 @@ public class CalculatorServiceImpl implements CalculatorService {
     }
 
     @Override
-    public void calculator() throws InterruptedException {
+    public void calculator() {
         ExecutorService executorService = Executors.newFixedThreadPool(4);
 
         List<RandomUnit> randomUnitList = new LinkedList<>();
         Map<String, Map<Double, Integer>> statisticsMap = new HashMap<>();
-//        Integer upNum = 0;
-//        Integer downNum = 0;
-        DecimalFormat df = new DecimalFormat("#.#");
+        Integer upNum = 0;
+        Integer downNum = 0;
+        DecimalFormat df = new DecimalFormat("#.##");
 
         for (int i = 0; i < 10000000; i++) {
             RandomUnit randomUnit = new RandomUnit();
@@ -56,11 +56,11 @@ public class CalculatorServiceImpl implements CalculatorService {
 
         for (SecondCalculationUnit second : secondList) {
             double uprate = second.getUpRate();
-//            if (uprate > 0) {
-//                upNum++;
-//            }else {
-//                downNum++;
-//            }
+            if (uprate > 0) {
+                upNum++;
+            }else {
+                downNum++;
+            }
             for (RandomUnit randomUnit : randomUnitList) {
                 executorService.execute(() -> {
                     double randomSum = CalculationUtils.getSum(randomUnit, second);
@@ -87,8 +87,8 @@ public class CalculatorServiceImpl implements CalculatorService {
             System.out.println("finish: " + second.getCode());
         }
         System.out.println("basic finish!!!");
-        statisticsMap.put("up", CalculationUtils.getMap(upMap, 100));
-        statisticsMap.put("down", CalculationUtils.getMap(downMap, 100));
+        statisticsMap.put("up", CalculationUtils.getMap(upMap, 33));
+        statisticsMap.put("down", CalculationUtils.getMap(downMap, 36));
         System.out.println("statisticsMap finish!!!");
         LineChartUtils.allInOne(statisticsMap, "标题", "价格", "数量", 2048, 1024);
         System.out.println("all finish!!!");
