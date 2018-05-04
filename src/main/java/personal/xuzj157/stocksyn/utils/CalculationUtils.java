@@ -3,6 +3,8 @@ package personal.xuzj157.stocksyn.utils;
 import personal.xuzj157.stocksyn.pojo.bo.RandomUnit;
 import personal.xuzj157.stocksyn.pojo.bo.SecondCalculationUnit;
 
+import java.util.Map;
+
 public class CalculationUtils {
 
     public static double getSum(RandomUnit randomUnit, SecondCalculationUnit second) {
@@ -26,6 +28,13 @@ public class CalculationUtils {
         sum = sum + randomUnit.getHistoryPrice() * second.getLowHistoryPrice();
         sum = sum + randomUnit.getLowHistoryPrice() * second.getLowHistoryPrice();
         return sum;
+    }
+
+    public static Map<Double, Integer> getMap(Map<Double, Integer> map, Integer num) {
+        for (Map.Entry<Double, Integer> entry : map.entrySet()) {
+            map.replace(entry.getKey(), entry.getValue() / num);
+        }
+        return map;
     }
 
 }
