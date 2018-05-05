@@ -93,7 +93,7 @@ public class CalculationUtils {
     }
 
     public static List<SumUnit> getSumUnit(Integer times) {
-        List<SumUnit> sumUnitList = new LinkedList<>();
+        List<SumUnit> sumUnitList = new ArrayList<>();
         for (int i = 0; i < times; i++) {
             sumUnitList.add(new SumUnit(0.0, 0, new RandomUnit()));
         }
@@ -109,7 +109,7 @@ public class CalculationUtils {
             Double newN = newSumUnit.getN();
             Integer oldTimes = oldSumUnit.getTimes();
 
-            if (oldN == 0.0 || Math.abs((newN - oldN) / oldN) < 0.04) {
+            if (oldN == 0.0 || Math.abs((newN - oldN) / oldN) < 0.1) {
                 oldSumUnit.setN(((double) oldTimes * oldN + newN) / ((double) oldTimes + 1));
                 oldSumUnit.setTimes(oldTimes + 1);
                 oldSumUnitList.set(i, oldSumUnit);

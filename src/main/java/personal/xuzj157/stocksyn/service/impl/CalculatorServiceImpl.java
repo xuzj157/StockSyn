@@ -16,10 +16,7 @@ import personal.xuzj157.stocksyn.utils.chart.LineChartUtils;
 
 import javax.annotation.Resource;
 import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -95,24 +92,26 @@ public class CalculatorServiceImpl implements CalculatorService {
 
     @Override
     public void calculatorStatistics(int times) {
-        List<SumUnit> sumUnitList = CalculationUtils.getSumUnit(times);
+        times = times / 100000;
         List<SecondCalculationUnit> secondList = secondCalculationUnitRepository.findAll();
 
-        for (SecondCalculationUnit second : secondList) {
-            Double upRate = second.getUpRate();
-            List<SumUnit> newSumUnitList = new LinkedList<>();
-            for (SumUnit sumUnit : sumUnitList) {
-                double randomSum = CalculationUtils.getSum(sumUnit.getRandomUnit(), second);
-                double n = MathUtils.linearFunction(upRate, randomSum);
-//                RandomUnit randomUnit = sumUnit.getRandomUnit();
-                newSumUnitList.add(new SumUnit(n, 1, null));
+        for (int i = 0; i < 100000; i++) {
+            List<SumUnit> sumUnitList = CalculationUtils.getSumUnit(times);
+            for (SecondCalculationUnit second : secondList) {
+                Double upRate = second.getUpRate();
+                List<SumUnit> newSumUnitList = new ArrayList<>();
+                for (SumUnit sumUnit : sumUnitList) {
+                    double randomSum = CalculationUtils.getSum(sumUnit.getRandomUnit(), second);
+                    double n = MathUtils.linearFunction(upRate, randomSum);
+                    newSumUnitList.add(new SumUnit(n, 1, null));
+                }
+//                log.info("calculation finish:  " + second.getCode());
+                CalculationUtils.getSumList(newSumUnitList, sumUnitList);
+//                log.info("getSumList finish:  " + second.getCode());
             }
-            CalculationUtils.getSumList(newSumUnitList, sumUnitList);
-            log.info("finish: " + second.getCode());
+            MongoDB.writeResultListToDB("cal", sumUnitList);
+            log.info("calculation finish:  " + i);
         }
-
-        MongoDB.writeResultListToDB("cal", sumUnitList);
-
     }
 
 
