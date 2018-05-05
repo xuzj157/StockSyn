@@ -1,8 +1,10 @@
 package personal.xuzj157.stocksyn.utils;
 
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import lombok.extern.slf4j.Slf4j;
 import personal.xuzj157.stocksyn.pojo.bo.RandomUnit;
 import personal.xuzj157.stocksyn.pojo.bo.SecondCalculationUnit;
+import personal.xuzj157.stocksyn.pojo.bo.SumUnit;
 
 import java.util.*;
 
@@ -33,7 +35,6 @@ public class CalculationUtils {
     }
 
     public static Map<Double, Integer> getMap(Map<Double, Integer> map, Integer num) {
-
         map = sortMapByKey(map);    //按Key进行排序
         for (Map.Entry<Double, Integer> entry : map.entrySet()) {
             map.replace(entry.getKey(), entry.getValue() / num);
@@ -78,6 +79,7 @@ public class CalculationUtils {
 
     /**
      * 初始化随机数单元
+     *
      * @param times
      * @return
      */
@@ -90,4 +92,29 @@ public class CalculationUtils {
         return randomUnitList;
     }
 
+    public static List<SumUnit> getSumUnit(Integer times) {
+        List<SumUnit> sumUnitList = new LinkedList<>();
+        for (int i = 0; i < times; i++) {
+            sumUnitList.add(new SumUnit(0.0, 0, new RandomUnit()));
+        }
+        return sumUnitList;
+    }
+
+    public static List<SumUnit> getSumList(List<SumUnit> newSumUnitList, List<SumUnit> oldSumUnitList) {
+        for (int i = 0; i < newSumUnitList.size(); i++) {
+            SumUnit oldSumUnit = oldSumUnitList.get(i);
+            SumUnit newSumUnit = newSumUnitList.get(i);
+
+            Double oldN = oldSumUnit.getN();
+            Double newN = newSumUnit.getN();
+            Integer oldTimes = oldSumUnit.getTimes();
+
+            if (oldN == 0.0 || Math.abs((newN - oldN) / oldN) < 0.04) {
+                oldSumUnit.setN(((double) oldTimes * oldN + newN) / ((double) oldTimes + 1));
+                oldSumUnit.setTimes(oldTimes + 1);
+                oldSumUnitList.set(i, oldSumUnit);
+            }
+        }
+        return oldSumUnitList;
+    }
 }

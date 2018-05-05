@@ -17,4 +17,22 @@ public class MathUtils {
     public static Double logicS(double t, double p, double range) {
         return (1.0 / (1.0 + Math.pow(Math.E, ((-t) / p))) - 0.5) * range;
     }
+
+    /**
+     * y = ax + b
+     *
+     * @return a
+     */
+    public static Double linearFunction(Double y, Double x, Double b) {
+        return (y - b) / x;
+    }
+
+    /**
+     * y = nx
+     *
+     * @return n
+     */
+    public static Double linearFunction(Double y, Double x) {
+        return y / x;
+    }
 }

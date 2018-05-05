@@ -5,6 +5,7 @@ import personal.xuzj157.stocksyn.utils.MathUtils;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -86,5 +87,30 @@ public class RandomUnit {
      */
     private double lowHistoryPrice = MathUtils.logicS(Math.random(), 6, 4);
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        RandomUnit that = (RandomUnit) o;
+        return Double.compare(that.netincGrowRate, netincGrowRate) == 0 &&
+                Double.compare(that.mainbusiincome, mainbusiincome) == 0 &&
+                Double.compare(that.netprofit, netprofit) == 0 &&
+                Double.compare(that.totalassets, totalassets) == 0 &&
+                Double.compare(that.peratio, peratio) == 0 &&
+                Double.compare(that.bvRatio, bvRatio) == 0 &&
+                Double.compare(that.fifteenPrice, fifteenPrice) == 0 &&
+                Double.compare(that.lowFifteenPrice, lowFifteenPrice) == 0 &&
+                Double.compare(that.thirtyPrice, thirtyPrice) == 0 &&
+                Double.compare(that.lowThirtyPrice, lowThirtyPrice) == 0 &&
+                Double.compare(that.sixtyPrice, sixtyPrice) == 0 &&
+                Double.compare(that.lowSixtyPrice, lowSixtyPrice) == 0 &&
+                Double.compare(that.oneEightyPrice, oneEightyPrice) == 0 &&
+                Double.compare(that.lowOneEightyPrice, lowOneEightyPrice) == 0 &&
+                Double.compare(that.fourHundredPrice, fourHundredPrice) == 0 &&
+                Double.compare(that.lowFourHundredPrice, lowFourHundredPrice) == 0 &&
+                Double.compare(that.historyPrice, historyPrice) == 0 &&
+                Double.compare(that.lowHistoryPrice, lowHistoryPrice) == 0;
+    }
 
 }

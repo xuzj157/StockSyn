@@ -1,18 +1,23 @@
 package personal.xuzj157.stocksyn.service.impl;
 
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import personal.xuzj157.stocksyn.pojo.bo.RandomUnit;
 import personal.xuzj157.stocksyn.pojo.bo.SecondCalculationUnit;
+import personal.xuzj157.stocksyn.pojo.bo.SumUnit;
 import personal.xuzj157.stocksyn.repository.calculationUnit.RandomUnitRepository;
 import personal.xuzj157.stocksyn.repository.calculationUnit.SecondCalculationUnitRepository;
 import personal.xuzj157.stocksyn.service.CalculatorService;
 import personal.xuzj157.stocksyn.utils.CalculationUtils;
+import personal.xuzj157.stocksyn.utils.MathUtils;
+import personal.xuzj157.stocksyn.utils.MongoDB;
 import personal.xuzj157.stocksyn.utils.chart.LineChartUtils;
 
 import javax.annotation.Resource;
 import java.text.DecimalFormat;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -40,14 +45,11 @@ public class CalculatorServiceImpl implements CalculatorService {
 
     @Override
     public void calculatorChart(int times) {
-//        ExecutorService executorService = Executors.newFixedThreadPool(2);
-        List<RandomUnit> randomUnitList;
         Map<String, Map<Double, Integer>> statisticsMap = new HashMap<>();
-        Integer upNum = 0;
-        Integer downNum = 0;
+        Integer upNum = 0, downNum = 0;
         DecimalFormat df = new DecimalFormat("#.##");
         //初始化随机数单元
-        randomUnitList = CalculationUtils.getRandom(times);
+        List<RandomUnit> randomUnitList = CalculationUtils.getRandom(times);
         List<SecondCalculationUnit> secondList = secondCalculationUnitRepository.findAll();
         Map<Double, Integer> upMap = new HashMap<>();
         Map<Double, Integer> downMap = new HashMap<>();
@@ -59,7 +61,6 @@ public class CalculatorServiceImpl implements CalculatorService {
                 downNum++;
             }
             for (RandomUnit randomUnit : randomUnitList) {
-//                executorService.execute(() -> {
                 double randomSum = CalculationUtils.getSum(randomUnit, second);
                 randomSum = Double.parseDouble(df.format(randomSum));
                 if (uprate > 0) {
@@ -79,7 +80,6 @@ public class CalculatorServiceImpl implements CalculatorService {
                     }
                     downMap.put(randomSum, num);
                 }
-//                });
             }
             log.info("finish: " + second.getCode());
         }
@@ -91,6 +91,29 @@ public class CalculatorServiceImpl implements CalculatorService {
         log.info("statisticsMap finish!!!");
         LineChartUtils.allInOne(statisticsMap, times + "次拟合 股票预测", "价格", "数量", 2048, 950);
         log.info("all finish!!!");
+    }
+
+    @Override
+    public void calculatorStatistics(int times) {
+        List<SumUnit> sumUnitList = CalculationUtils.getSumUnit(times);
+        List<SecondCalculationUnit> secondList = secondCalculationUnitRepository.findAll();
+
+        for (SecondCalculationUnit second : secondList) {
+            Double upRate = second.getUpRate();
+            List<SumUnit> newSumUnitList = new LinkedList<>();
+            for (SumUnit sumUnit : sumUnitList) {
+                double randomSum = CalculationUtils.getSum(sumUnit.getRandomUnit(), second);
+                double n = MathUtils.linearFunction(upRate, randomSum);
+//                RandomUnit randomUnit = sumUnit.getRandomUnit();
+                newSumUnitList.add(new SumUnit(n, 1, null));
+            }
+            CalculationUtils.getSumList(newSumUnitList, sumUnitList);
+            log.info("finish: " + second.getCode());
+        }
+
+        MongoDB.writeResultListToDB("cal", sumUnitList);
 
     }
+
+
 }

@@ -20,8 +20,13 @@ public class CalculatorController {
         calculatorService.getRandomUnit();
     }
 
-    @GetMapping("/calculator")
-    public void calculator(@RequestParam int times) {
+    @GetMapping("/calculatorChart")
+    public void calculatorChart(@RequestParam int times) {
         calculatorService.calculatorChart(times);
+    }
+
+    @GetMapping("/calculatorStatistics")
+    public void calculatorStatistics(@RequestParam int times) {
+        calculatorService.calculatorStatistics(times);
     }
 }
