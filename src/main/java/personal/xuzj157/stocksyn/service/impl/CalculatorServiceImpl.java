@@ -1,5 +1,6 @@
 package personal.xuzj157.stocksyn.service.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import personal.xuzj157.stocksyn.pojo.bo.RandomUnit;
 import personal.xuzj157.stocksyn.pojo.bo.SecondCalculationUnit;
@@ -12,12 +13,12 @@ import personal.xuzj157.stocksyn.utils.chart.LineChartUtils;
 import javax.annotation.Resource;
 import java.text.DecimalFormat;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+@Slf4j
 @Service
 public class CalculatorServiceImpl implements CalculatorService {
 
@@ -38,24 +39,18 @@ public class CalculatorServiceImpl implements CalculatorService {
     }
 
     @Override
-    public void calculator(int times) {
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
-
-        List<RandomUnit> randomUnitList = new LinkedList<>();
+    public void calculatorChart(int times) {
+//        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        List<RandomUnit> randomUnitList;
         Map<String, Map<Double, Integer>> statisticsMap = new HashMap<>();
         Integer upNum = 0;
         Integer downNum = 0;
-        DecimalFormat df = new DecimalFormat("#.#");
-
-        for (int i = 0; i < times; i++) {
-            RandomUnit randomUnit = new RandomUnit();
-            randomUnitList.add(randomUnit);
-            System.out.println(i);
-        }
+        DecimalFormat df = new DecimalFormat("#.##");
+        //初始化随机数单元
+        randomUnitList = CalculationUtils.getRandom(times);
         List<SecondCalculationUnit> secondList = secondCalculationUnitRepository.findAll();
         Map<Double, Integer> upMap = new HashMap<>();
         Map<Double, Integer> downMap = new HashMap<>();
-
         for (SecondCalculationUnit second : secondList) {
             double uprate = second.getUpRate();
             if (uprate > 0) {
@@ -64,40 +59,38 @@ public class CalculatorServiceImpl implements CalculatorService {
                 downNum++;
             }
             for (RandomUnit randomUnit : randomUnitList) {
-                executorService.execute(() -> {
-                    double randomSum = CalculationUtils.getSum(randomUnit, second);
-                    randomSum = Double.parseDouble(df.format(randomSum));
-                    if (uprate > 0) {
-                        Integer num = upMap.get(randomSum);
-                        if (num == null || num == 0) {
-                            num = 1;
-                        } else {
-                            num++;
-                        }
-                        upMap.put(randomSum, num);
+//                executorService.execute(() -> {
+                double randomSum = CalculationUtils.getSum(randomUnit, second);
+                randomSum = Double.parseDouble(df.format(randomSum));
+                if (uprate > 0) {
+                    Integer num = upMap.get(randomSum);
+                    if (num == null || num == 0) {
+                        num = 1;
                     } else {
-                        Integer num = downMap.get(randomSum);
-                        if (num == null || num == 0) {
-                            num = 1;
-                        } else {
-                            num++;
-                        }
-                        downMap.put(randomSum, num);
+                        num++;
                     }
-                });
+                    upMap.put(randomSum, num);
+                } else {
+                    Integer num = downMap.get(randomSum);
+                    if (num == null || num == 0) {
+                        num = 1;
+                    } else {
+                        num++;
+                    }
+                    downMap.put(randomSum, num);
+                }
+//                });
             }
-            System.out.println("finish: " + second.getCode());
+            log.info("finish: " + second.getCode());
         }
-        System.out.println("basic finish!!!");
+        log.info("basic finish!!!");
         statisticsMap.put(times + "up", CalculationUtils.getMap(upMap, upNum));
         statisticsMap.put(times + "down", CalculationUtils.getMap(downMap, downNum));
-
         //存储以备下次使用
         CalculationUtils.saveMap(statisticsMap);
-
-        System.out.println("statisticsMap finish!!!");
-        LineChartUtils.allInOne(statisticsMap, times + "拟合次数", "价格", "数量", 2048, 1024);
-        System.out.println("all finish!!!");
+        log.info("statisticsMap finish!!!");
+        LineChartUtils.allInOne(statisticsMap, times + "次拟合 股票预测", "价格", "数量", 2048, 950);
+        log.info("all finish!!!");
 
     }
 }

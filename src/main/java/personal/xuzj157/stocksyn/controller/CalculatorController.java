@@ -22,6 +22,6 @@ public class CalculatorController {
 
     @GetMapping("/calculator")
     public void calculator(@RequestParam int times) {
-        calculatorService.calculator(times);
+        calculatorService.calculatorChart(times);
     }
 }

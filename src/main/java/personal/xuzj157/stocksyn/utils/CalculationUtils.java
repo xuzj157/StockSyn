@@ -1,10 +1,12 @@
 package personal.xuzj157.stocksyn.utils;
 
+import lombok.extern.slf4j.Slf4j;
 import personal.xuzj157.stocksyn.pojo.bo.RandomUnit;
 import personal.xuzj157.stocksyn.pojo.bo.SecondCalculationUnit;
 
 import java.util.*;
 
+@Slf4j
 public class CalculationUtils {
 
     public static double getSum(RandomUnit randomUnit, SecondCalculationUnit second) {
@@ -74,5 +76,18 @@ public class CalculationUtils {
         MongoDB.writeResultObjectToDB("cal_history", resultMap);
     }
 
+    /**
+     * 初始化随机数单元
+     * @param times
+     * @return
+     */
+    public static List<RandomUnit> getRandom(Integer times) {
+        List<RandomUnit> randomUnitList = new LinkedList<>();
+        for (int i = 0; i < times; i++) {
+            randomUnitList.add(new RandomUnit());
+        }
+        log.info("getRandom finish");
+        return randomUnitList;
+    }
 
 }
