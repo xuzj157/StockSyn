@@ -1,6 +1,5 @@
 package personal.xuzj157.stocksyn.service.impl;
 
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import personal.xuzj157.stocksyn.pojo.bo.RandomUnit;
@@ -16,7 +15,10 @@ import personal.xuzj157.stocksyn.utils.chart.LineChartUtils;
 
 import javax.annotation.Resource;
 import java.text.DecimalFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -91,11 +93,11 @@ public class CalculatorServiceImpl implements CalculatorService {
     }
 
     @Override
-    public void calculatorStatistics(int times) {
-        times = times / 100000;
+    public void calculatorStatistics(int timesOri) {
+        int times = 50000;
         List<SecondCalculationUnit> secondList = secondCalculationUnitRepository.findAll();
 
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < timesOri / times; i++) {
             List<SumUnit> sumUnitList = CalculationUtils.getSumUnit(times);
             for (SecondCalculationUnit second : secondList) {
                 Double upRate = second.getUpRate();
