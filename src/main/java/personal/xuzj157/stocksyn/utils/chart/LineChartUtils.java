@@ -19,7 +19,7 @@ public class LineChartUtils {
             JFreeChart chart = ChartFactory.createLineChart(
                     title, xTitle, yTitle, ChartUtils.categoryDataset(map));
             ChartUtilities.saveChartAsJPEG(
-                    new File(System.currentTimeMillis() + ".jpeg"), //文件保存物理路径包括路径和文件名
+                    new File("img/"+title + ".jpeg"), //文件保存物理路径包括路径和文件名
                     1.0f,    //图片质量 ，0.0f~1.0f
                     chart, //图表对象
                     width,   //图像宽度 ，这个将决定图表的横坐标值是否能完全显示还是显示省略号

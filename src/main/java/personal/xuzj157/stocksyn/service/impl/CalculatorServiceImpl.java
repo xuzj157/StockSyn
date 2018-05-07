@@ -46,7 +46,8 @@ public class CalculatorServiceImpl implements CalculatorService {
     public void calculatorChart(int times) {
         Map<String, Map<Double, Integer>> statisticsMap = new HashMap<>();
         Integer upNum = 0, downNum = 0;
-        DecimalFormat df = new DecimalFormat("#.##");
+        String format = "#.##";
+        DecimalFormat df = new DecimalFormat(format);
         //初始化随机数单元
         List<RandomUnit> randomUnitList = CalculationUtils.getRandom(times);
         List<SecondCalculationUnit> secondList = secondCalculationUnitRepository.findAll();
@@ -83,12 +84,12 @@ public class CalculatorServiceImpl implements CalculatorService {
             log.info("finish: " + second.getCode());
         }
         log.info("basic finish!!!");
-        statisticsMap.put(times + "up", CalculationUtils.getMap(upMap, upNum));
-        statisticsMap.put(times + "down", CalculationUtils.getMap(downMap, downNum));
+        statisticsMap.put(times + "up", CalculationUtils.mapSort(upMap, upNum));
+        statisticsMap.put(times + "down", CalculationUtils.mapSort(downMap, downNum));
         //存储以备下次使用
         CalculationUtils.saveMap(statisticsMap);
         log.info("statisticsMap finish!!!");
-        LineChartUtils.allInOne(statisticsMap, times + "次拟合 股票预测", "价格", "数量", 2048, 950);
+        LineChartUtils.allInOne(statisticsMap, times + "次拟合" + format + " 股票预测", "价格", "数量", 2048, 950);
         log.info("all finish!!!");
     }
 

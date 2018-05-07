@@ -1,5 +1,8 @@
 package personal.xuzj157.stocksyn.utils;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.mongodb.BasicDBObject;
 import com.sun.javafx.scene.control.skin.VirtualFlow;
 import lombok.extern.slf4j.Slf4j;
 import personal.xuzj157.stocksyn.pojo.bo.RandomUnit;
@@ -34,7 +37,13 @@ public class CalculationUtils {
         return sum;
     }
 
-    public static Map<Double, Integer> getMap(Map<Double, Integer> map, Integer num) {
+    /**
+     *
+     * @param map
+     * @param num 除以一个参数，使两个平均
+     * @return
+     */
+    public static Map<Double, Integer> mapSort(Map<Double, Integer> map, Integer num) {
         map = sortMapByKey(map);    //按Key进行排序
         for (Map.Entry<Double, Integer> entry : map.entrySet()) {
             map.replace(entry.getKey(), entry.getValue() / num);
@@ -69,12 +78,40 @@ public class CalculationUtils {
         for (Map.Entry<String, Map<Double, Integer>> entry : mapOri.entrySet()) {
             Map<String, Integer> map = new HashMap<>();
             for (Map.Entry<Double, Integer> entry1 : entry.getValue().entrySet()) {
-                map.put(String.valueOf((int) (entry1.getKey() * 100)), entry1.getValue());
+                map.put(String.valueOf(Math.round((entry1.getKey() * 100))), entry1.getValue());
             }
             resultMap.put(entry.getKey(), map);
         }
 
         MongoDB.writeResultObjectToDB("cal_history", resultMap);
+    }
+
+    /**
+     * 获取图标信息，并且进行处理
+     *
+     * @param name 名字
+     */
+    public static Map<String, Map<Double, Integer>> findMap(String name) {
+        Map<String, Map<Double, Integer>> statisticsMap = new HashMap<>();
+        Map<String, Map<String, Integer>> map = new HashMap<>();
+        List<JSONObject> jsonObjectList = MongoDB.getResultListFromDB("cal_history", new BasicDBObject(), new BasicDBObject(), JSONObject.class);
+        for (JSONObject jsonObject : jsonObjectList) {
+            if (jsonObject.containsKey(name + "down")) {
+                map = JSON.parseObject(jsonObject.toJSONString(), HashMap.class);
+            }
+        }
+
+        for (Map.Entry<String, Map<String, Integer>> entry : map.entrySet()) {
+            if (entry.getKey().contains(name)) {
+                Map<Double, Integer> doubleIntegerMap = new HashMap<>();
+                for (Map.Entry<String, Integer> entry1 : entry.getValue().entrySet()) {
+                    doubleIntegerMap.put(Double.valueOf(entry1.getKey()) / 100.0, entry1.getValue());
+                }
+                statisticsMap.put(entry.getKey(), doubleIntegerMap);
+            }
+        }
+
+        return statisticsMap;
     }
 
     /**

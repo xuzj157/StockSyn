@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface SecondCalculationUnitRepository extends PagingAndSortingRepository<SecondCalculationUnit, String> {
     List<SecondCalculationUnit> findAll();
+
+    SecondCalculationUnit findByCode(String code);
 }
