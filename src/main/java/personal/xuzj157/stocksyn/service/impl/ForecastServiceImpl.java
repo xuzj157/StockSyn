@@ -24,36 +24,36 @@ public class ForecastServiceImpl implements ForecastService {
 
     @Override
     public double chartForecast(String name, String code) {
-        Map<String, Map<Double, Integer>> statisticsMap = CalculationUtils.findMap(name);
-
+        Map<String, Map<Double, Integer>> statisticsMap = CalculationUtils.findMap(name + "_");
         SecondCalculationUnit second = secondCalculationUnitRepository.findByCode(code);
-        List<RandomUnit> randomUnitList = CalculationUtils.getRandom(Integer.valueOf(name));
-
         DecimalFormat df;
         if (Integer.valueOf(name) > 2000000) {
-            df = new DecimalFormat("#.##");
+            df = new DecimalFormat("#.#");
         } else {
             df = new DecimalFormat("#.#");
         }
 
         Map<Double, Integer> map = new HashMap<>();
-        for (RandomUnit randomUnit : randomUnitList) {
-            double randomSum = CalculationUtils.getSum(randomUnit, second);
-            randomSum = Double.parseDouble(df.format(randomSum));
-            Integer num = map.get(randomSum);
-            if (num == null || num == 0) {
-                num = 1;
-            } else {
-                num++;
+        for (int i = 0; i < 100; i++) {
+            List<RandomUnit> randomUnitList = CalculationUtils.getRandom(Integer.valueOf(name));
+            for (RandomUnit randomUnit : randomUnitList) {
+                double randomSum = CalculationUtils.getSum(randomUnit, second);
+                randomSum = Double.parseDouble(df.format(randomSum));
+                Integer num = map.get(randomSum);
+                if (num == null || num == 0) {
+                    num = 1;
+                } else {
+                    num++;
+                }
+                map.put(randomSum, num);
             }
-            map.put(randomSum, num);
+            log.info("i:" + i + "    finish: " + second.getCode());
         }
-        log.info("finish: " + second.getCode());
 
-        statisticsMap.put(code, map);
+        statisticsMap.put(code, CalculationUtils.mapSort(map,110));
 
         for (Map.Entry<String, Map<Double, Integer>> entry : statisticsMap.entrySet()) {
-            statisticsMap.put(entry.getKey(),CalculationUtils.mapSort(entry.getValue(),1));
+            statisticsMap.put(entry.getKey(), CalculationUtils.mapSort(entry.getValue(), 1));
         }
 
         LineChartUtils.allInOne(statisticsMap, name + " " + code, "", "", 2048, 950);

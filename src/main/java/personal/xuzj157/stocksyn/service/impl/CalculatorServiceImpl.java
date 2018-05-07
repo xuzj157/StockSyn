@@ -46,7 +46,7 @@ public class CalculatorServiceImpl implements CalculatorService {
     public void calculatorChart(int times) {
         Map<String, Map<Double, Integer>> statisticsMap = new HashMap<>();
         Integer upNum = 0, downNum = 0;
-        String format = "#.##";
+        String format = "#.#";
         DecimalFormat df = new DecimalFormat(format);
         //初始化随机数单元
         List<RandomUnit> randomUnitList = CalculationUtils.getRandom(times);
@@ -84,8 +84,8 @@ public class CalculatorServiceImpl implements CalculatorService {
             log.info("finish: " + second.getCode());
         }
         log.info("basic finish!!!");
-        statisticsMap.put(times + "up", CalculationUtils.mapSort(upMap, upNum));
-        statisticsMap.put(times + "down", CalculationUtils.mapSort(downMap, downNum));
+        statisticsMap.put(times + "_up", CalculationUtils.mapSort(upMap, upNum));
+        statisticsMap.put(times + "_down", CalculationUtils.mapSort(downMap, downNum));
         //存储以备下次使用
         CalculationUtils.saveMap(statisticsMap);
         log.info("statisticsMap finish!!!");
