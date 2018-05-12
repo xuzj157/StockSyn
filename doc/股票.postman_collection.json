@@ -293,19 +293,73 @@
 			"response": []
 		},
 		{
-			"name": "【计算】计算",
+			"name": "【计算】计算图标",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "{{STOCK_SYN_API}}/calculator/calculator",
+					"raw": "{{STOCK_SYN_API}}/calculator/calculatorChart?times=2000000",
 					"host": [
 						"{{STOCK_SYN_API}}"
 					],
 					"path": [
 						"calculator",
-						"calculator"
+						"calculatorChart"
+					],
+					"query": [
+						{
+							"key": "times",
+							"value": "2000000",
+							"equals": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "【计算】计算参数",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{STOCK_SYN_API}}/calculator/calculatorStatistics?times=10000000",
+					"host": [
+						"{{STOCK_SYN_API}}"
+					],
+					"path": [
+						"calculator",
+						"calculatorStatistics"
+					],
+					"query": [
+						{
+							"key": "times",
+							"value": "10000000",
+							"equals": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "【预测】图形预测",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{STOCK_SYN_API}}/forecast/chartForecast/200000/601668",
+					"host": [
+						"{{STOCK_SYN_API}}"
+					],
+					"path": [
+						"forecast",
+						"chartForecast",
+						"200000",
+						"601668"
 					]
 				}
 			},
