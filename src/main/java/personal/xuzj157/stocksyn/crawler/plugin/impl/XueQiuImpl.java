@@ -72,7 +72,6 @@ public class XueQiuImpl implements XueQiuService {
     @Override
     public void getFin() {
         HttpEntity<String> requestEntity = setHeader();
-        List<FinInfo> finInfoListResult = new ArrayList<>();
         ExecutorService fixedThreadPool = Executors.newFixedThreadPool(50);
         List<Symbol> symbolList = symbolRepository.findAll();
         for (Symbol symbol : symbolList) {
@@ -86,9 +85,7 @@ public class XueQiuImpl implements XueQiuService {
                     for (FinInfo finInfo : finInfoList) {
                         finInfo.setCode(symbol.getStockCode());
                         finInfoRepository.save(finInfo);
-//                        finInfoListResult.add(finInfo);
                     }
-//                    finInfoRepository.saveAll(finInfoListResult);
                 }
             });
         }

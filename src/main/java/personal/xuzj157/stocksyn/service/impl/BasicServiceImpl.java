@@ -24,8 +24,6 @@ import java.util.concurrent.Executors;
 public class BasicServiceImpl implements BasicService {
 
     @Resource
-    BasicInfoRepository basicInfoRepository;
-    @Resource
     FinInfoRepository finInfoRepository;
     @Resource
     HqInfoRepository hqInfoRepository;
