@@ -2,6 +2,7 @@ package personal.xuzj157.stocksyn.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import personal.xuzj157.stocksyn.pojo.bo.CalculationResUnit;
 import personal.xuzj157.stocksyn.pojo.bo.RandomUnit;
 import personal.xuzj157.stocksyn.pojo.bo.SecondCalculationUnit;
 import personal.xuzj157.stocksyn.pojo.bo.SumUnit;
@@ -9,16 +10,12 @@ import personal.xuzj157.stocksyn.repository.calculationUnit.RandomUnitRepository
 import personal.xuzj157.stocksyn.repository.calculationUnit.SecondCalculationUnitRepository;
 import personal.xuzj157.stocksyn.service.CalculatorService;
 import personal.xuzj157.stocksyn.utils.CalculationUtils;
-import personal.xuzj157.stocksyn.utils.MathUtils;
 import personal.xuzj157.stocksyn.utils.MongoDB;
 import personal.xuzj157.stocksyn.utils.chart.LineChartUtils;
 
 import javax.annotation.Resource;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -95,25 +92,63 @@ public class CalculatorServiceImpl implements CalculatorService {
 
     @Override
     public void calculatorStatistics(int timesOri) {
-        int times = 50000;
         List<SecondCalculationUnit> secondList = secondCalculationUnitRepository.findAll();
-
-        for (int i = 0; i < timesOri / times; i++) {
-            List<SumUnit> sumUnitList = CalculationUtils.getSumUnit(times);
-            for (SecondCalculationUnit second : secondList) {
-                Double upRate = second.getUpRate();
-                List<SumUnit> newSumUnitList = new ArrayList<>();
-                for (SumUnit sumUnit : sumUnitList) {
-                    double randomSum = CalculationUtils.getSum(sumUnit.getRandomUnit(), second);
-                    double n = MathUtils.linearFunction(upRate, randomSum);
-                    newSumUnitList.add(new SumUnit(n, 1, null));
-                }
-//                log.info("calculation finish:  " + second.getCode());
-                CalculationUtils.getSumList(newSumUnitList, sumUnitList);
-//                log.info("getSumList finish:  " + second.getCode());
+        Integer up = 0, down = 0;
+        for (SecondCalculationUnit secondCalculationUnit : secondList) {
+            if (secondCalculationUnit.getUpRate() > 0) {
+                up++;
+            } else {
+                down++;
             }
-            MongoDB.writeResultListToDB("cal", sumUnitList);
-            log.info("calculation finish:  " + i);
+        }
+
+        int t = 0, t2 = 0;
+
+        for (int j = 0; j < 10000; j++) {
+            List<RandomUnit> randomUnitList = CalculationUtils.getRandom(timesOri);
+            for (RandomUnit random : randomUnitList) {
+                List<SumUnit> sumUnitSet = CalculationUtils.getLimitList();
+                for (SecondCalculationUnit second : secondList) {
+                    Double sum = CalculationUtils.getSum(random, second);
+                    for (int i = 0; i < sumUnitSet.size(); i++) {
+                        SumUnit sumUnit = sumUnitSet.get(i);
+                        //二分类
+                        if (second.getUpRate() >= 0) {
+                            if (sum < sumUnit.getLimit()) {
+                                sumUnit.setN1(sumUnit.getN1() + 1);
+                            } else {
+                                sumUnit.setN3(sumUnit.getN3() + 1);
+                            }
+                        } else {
+                            if (sum < sumUnit.getLimit()) {
+                                sumUnit.setN2(sumUnit.getN2() + 1);
+                            } else {
+                                sumUnit.setN4(sumUnit.getN4() + 1);
+                            }
+                        }
+                        sumUnitSet.set(i, sumUnit);
+                    }
+                }
+//            Collections.sort(sumUnitSet);
+//            sumUnitSet = sumUnitSet.subList(0, 10);
+                List<SumUnit> sumUnitListRes = new LinkedList<>();
+                for (SumUnit sumUnit : sumUnitSet) {
+                    Double rateN1 = (double) sumUnit.getN1() / (double) up;
+                    Double rateN2 = (double) sumUnit.getN2() / (double) down;
+                    Double rateN3 = (double) sumUnit.getN3() / (double) up;
+                    Double rateN4 = (double) sumUnit.getN4() / (double) down;
+                    if ((rateN1 > 0.7 && rateN4 > 0.7) || (rateN2 > 0.7 && rateN3 > 0.7)) {
+                        sumUnitListRes.add(sumUnit);
+                    }
+                }
+
+                if (sumUnitListRes.size() > 0) {
+                    MongoDB.writeResultObjectToDB("calculation_res", new CalculationResUnit(random, sumUnitListRes));
+                    t2++;
+                }
+            }
+            System.out.println(j + "       " + t2);
+
         }
     }
 
