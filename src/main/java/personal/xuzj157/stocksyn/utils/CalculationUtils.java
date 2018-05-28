@@ -3,7 +3,6 @@ package personal.xuzj157.stocksyn.utils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.mongodb.BasicDBObject;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import lombok.extern.slf4j.Slf4j;
 import personal.xuzj157.stocksyn.pojo.bo.RandomUnit;
 import personal.xuzj157.stocksyn.pojo.bo.SecondCalculationUnit;
@@ -38,7 +37,6 @@ public class CalculationUtils {
     }
 
     /**
-     *
      * @param map
      * @param num 除以一个参数，使两个平均
      * @return
@@ -129,29 +127,12 @@ public class CalculationUtils {
         return randomUnitList;
     }
 
-    public static List<SumUnit> getSumUnit(Integer times) {
-        List<SumUnit> sumUnitList = new ArrayList<>();
-        for (int i = 0; i < times; i++) {
-            sumUnitList.add(new SumUnit(0.0, 0, new RandomUnit()));
+    public static List<SumUnit> getLimitList() {
+        List<SumUnit> sumUnitSet = new LinkedList<>();
+        for (Double limit = 2.0; limit < 9.0; limit = limit + 0.2) {
+            sumUnitSet.add(new SumUnit(limit));
         }
-        return sumUnitList;
+        return sumUnitSet;
     }
 
-    public static List<SumUnit> getSumList(List<SumUnit> newSumUnitList, List<SumUnit> oldSumUnitList) {
-        for (int i = 0; i < newSumUnitList.size(); i++) {
-            SumUnit oldSumUnit = oldSumUnitList.get(i);
-            SumUnit newSumUnit = newSumUnitList.get(i);
-
-            Double oldN = oldSumUnit.getN();
-            Double newN = newSumUnit.getN();
-            Integer oldTimes = oldSumUnit.getTimes();
-
-            if (oldN == 0.0 || Math.abs((newN - oldN) / oldN) < 0.1) {
-                oldSumUnit.setN(((double) oldTimes * oldN + newN) / ((double) oldTimes + 1));
-                oldSumUnit.setTimes(oldTimes + 1);
-                oldSumUnitList.set(i, oldSumUnit);
-            }
-        }
-        return oldSumUnitList;
-    }
 }
