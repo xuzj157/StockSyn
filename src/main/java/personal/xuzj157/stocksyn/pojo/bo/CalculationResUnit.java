@@ -6,10 +6,10 @@ import java.util.List;
 
 @Data
 public class CalculationResUnit {
-    RandomUnit randomUnit;
+    RandomUnitS randomUnit;
     List<SumUnit> sumUnitList;
 
-    public CalculationResUnit(RandomUnit randomUnit, List<SumUnit> sumUnitList) {
+    public CalculationResUnit(RandomUnitS randomUnit, List<SumUnit> sumUnitList) {
         this.randomUnit = randomUnit;
         this.sumUnitList = sumUnitList;
     }

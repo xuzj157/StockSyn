@@ -1,5 +1,7 @@
 package personal.xuzj157.stocksyn.utils;
 
+import java.util.Random;
+
 public class MathUtils {
 
     /**
@@ -34,5 +36,16 @@ public class MathUtils {
      */
     public static Double linearFunction(Double y, Double x) {
         return y / x;
+    }
+
+    /**
+     * 获取随机数
+     *
+     * @param end
+     * @return
+     */
+    public static int random(Integer end) {
+        Random random = new Random();
+        return random.nextInt(end);
     }
 }

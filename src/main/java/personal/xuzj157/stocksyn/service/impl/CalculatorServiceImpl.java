@@ -2,10 +2,7 @@ package personal.xuzj157.stocksyn.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import personal.xuzj157.stocksyn.pojo.bo.CalculationResUnit;
-import personal.xuzj157.stocksyn.pojo.bo.RandomUnit;
-import personal.xuzj157.stocksyn.pojo.bo.SecondCalculationUnit;
-import personal.xuzj157.stocksyn.pojo.bo.SumUnit;
+import personal.xuzj157.stocksyn.pojo.bo.*;
 import personal.xuzj157.stocksyn.repository.calculationUnit.RandomUnitRepository;
 import personal.xuzj157.stocksyn.repository.calculationUnit.SecondCalculationUnitRepository;
 import personal.xuzj157.stocksyn.service.CalculatorService;
@@ -105,8 +102,8 @@ public class CalculatorServiceImpl implements CalculatorService {
         int t = 0, t2 = 0;
 
         for (int j = 0; j < 10000; j++) {
-            List<RandomUnit> randomUnitList = CalculationUtils.getRandom(timesOri);
-            for (RandomUnit random : randomUnitList) {
+            List<RandomUnitS> randomUnitList = CalculationUtils.getRandomS(timesOri);
+            for (RandomUnitS random : randomUnitList) {
                 List<SumUnit> sumUnitSet = CalculationUtils.getLimitList();
                 for (SecondCalculationUnit second : secondList) {
                     Double sum = CalculationUtils.getSum(random, second);
