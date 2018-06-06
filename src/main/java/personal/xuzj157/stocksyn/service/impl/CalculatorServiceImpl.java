@@ -37,6 +37,31 @@ public class CalculatorServiceImpl implements CalculatorService {
     }
 
     @Override
+    public void calculatorChartStatistics(int times) {
+        Integer upNum = 0, downNum = 0;
+        String format = "#.#";
+        DecimalFormat df = new DecimalFormat(format);
+        List<RandomUnit> randomUnitList = CalculationUtils.getRandom(times);
+        List<SecondCalculationUnit> secondList = secondCalculationUnitRepository.findAll();
+        Map<Double, Integer> upMap = new HashMap<>();
+        Map<Double, Integer> downMap = new HashMap<>();
+
+        for (SecondCalculationUnit second : secondList) {
+            double uprate = second.getUpRate();
+            if (uprate > 0) {
+                upNum++;
+            } else {
+                downNum++;
+            }
+
+
+
+        }
+
+    }
+
+
+    @Override
     public void calculatorChart(int times) {
         Map<String, Map<Double, Integer>> statisticsMap = new HashMap<>();
         Integer upNum = 0, downNum = 0;

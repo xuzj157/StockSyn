@@ -43,7 +43,7 @@ public class BaiduImpl implements BaiduService {
 
     @Override
     public SnapShot getSnapShotFromAndroid() {
-        ExecutorService executorService = Executors.newFixedThreadPool(40);
+        ExecutorService executorService = Executors.newFixedThreadPool(4);
         List<Symbol> symbolList = symbolRepository.findAll();
         for (Symbol symbol : symbolList) {
             String symbolStr = symbol.getExchange().toLowerCase() + symbol.getStockCode();
