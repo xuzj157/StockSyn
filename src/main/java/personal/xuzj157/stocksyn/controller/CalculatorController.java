@@ -29,4 +29,10 @@ public class CalculatorController {
     public void calculatorStatistics(@RequestParam int times) {
         calculatorService.calculatorStatistics(times);
     }
+
+    @GetMapping("/calculatorChartStatistics")
+    public void calculatorChartStatistics(@RequestParam int times) {
+        calculatorService.calculatorChartStatistics(times);
+    }
+
 }

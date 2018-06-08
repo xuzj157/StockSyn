@@ -11,6 +11,9 @@ import personal.xuzj157.stocksyn.utils.MongoDB;
 import personal.xuzj157.stocksyn.utils.chart.LineChartUtils;
 
 import javax.annotation.Resource;
+import javax.swing.text.AbstractDocument;
+import javax.validation.metadata.ValidateUnwrappedValue;
+import java.text.BreakIterator;
 import java.text.DecimalFormat;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
@@ -38,6 +41,7 @@ public class CalculatorServiceImpl implements CalculatorService {
 
     @Override
     public void calculatorChartStatistics(int times) {
+        Map<String, Map<Double, Integer>> finalMap = new HashMap<>();
         Integer upNum = 0, downNum = 0;
         String format = "#.#";
         DecimalFormat df = new DecimalFormat(format);
@@ -53,7 +57,7 @@ public class CalculatorServiceImpl implements CalculatorService {
             for (RandomUnit randomUnit : randomUnitList) {
                 double randomSum = CalculationUtils.getSum(randomUnit, second);
                 randomSum = Double.parseDouble(df.format(randomSum));
-                Integer num = upMap.get(randomSum);
+                Integer num = statisticsMap.get(randomSum);
                 if (num == null || num == 0) {
                     num = 1;
                 } else {
@@ -61,18 +65,77 @@ public class CalculatorServiceImpl implements CalculatorService {
                 }
                 statisticsMap.put(randomSum, num);
             }
-
-            statisticsMap = CalculationUtils.statisticsMapUtil(statisticsMap, 5);
-
-            if (uprate > 0) {
-                upNum++;
-
-            } else {
-                downNum++;
+            //取出前五个
+            statisticsMap = CalculationUtils.statisticsMapUtil(statisticsMap, 9);
+            //分别赋值
+            int num = 0;
+            for (Map.Entry<Double, Integer> entry : statisticsMap.entrySet()) {
+                switch (num) {
+                    case 0:
+                        entry.setValue(300);
+                        break;
+                    case 1:
+                        entry.setValue(50);
+                        break;
+                    case 2:
+                        entry.setValue(50);
+                        break;
+                    case 3:
+                        entry.setValue(30);
+                        break;
+                    case 4:
+                        entry.setValue(30);
+                        break;
+                    case 5:
+                        entry.setValue(15);
+                        break;
+                    case 6:
+                        entry.setValue(15);
+                        break;
+                    case 7:
+                        entry.setValue(5);
+                        break;
+                    case 8:
+                        entry.setValue(5);
+                        break;
+                    default:
+                        break;
+                }
+                statisticsMap.put(entry.getKey(), entry.getValue());
+                num++;
             }
 
+            for (Map.Entry<Double, Integer> entry : statisticsMap.entrySet()) {
+                if (uprate > 0) {
+                    Integer value = upMap.get(entry.getKey());
+                    if (value == null || value == 0) {
+                        value = entry.getValue();
+                    } else {
+                        value = value + entry.getValue();
+                    }
+                    upMap.put(entry.getKey(), value);
+                    upNum++;
+                } else {
+                    Integer value = downMap.get(entry.getKey());
+                    if (value == null || value == 0) {
+                        value = entry.getValue();
+                    } else {
+                        value = value + entry.getValue();
+                    }
+                    downMap.put(entry.getKey(), value);
+                    downNum++;
+                }
+            }
+            log.info("finish:   " + second.getCode());
         }
-
+        log.info("basic finish!!!");
+        finalMap.put(times + "_up", CalculationUtils.mapSort(upMap, upNum/100));
+        finalMap.put(times + "_down", CalculationUtils.mapSort(downMap, downNum/100));
+        //存储以备下次使用
+        CalculationUtils.saveMap(finalMap);
+        log.info("statisticsMap finish!!!");
+        LineChartUtils.allInOne(finalMap, times + "次统计型拟合" + format + " 股票预测", "价格", "数量", 2048, 950);
+        log.info("all finish!!!");
     }
 
 
