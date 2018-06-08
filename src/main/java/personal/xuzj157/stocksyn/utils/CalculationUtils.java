@@ -95,7 +95,7 @@ public class CalculationUtils {
         }
     }
 
-    public static void saveMap(Map<String, Map<Double, Integer>> mapOri) {
+    public static void saveMap(Map<String, Map<Double, Integer>> mapOri, String collectionName) {
         Map<String, Map<String, Integer>> resultMap = new TreeMap<>();
         for (Map.Entry<String, Map<Double, Integer>> entry : mapOri.entrySet()) {
             Map<String, Integer> map = new HashMap<>();
@@ -105,7 +105,7 @@ public class CalculationUtils {
             resultMap.put(entry.getKey(), map);
         }
 
-        MongoDB.writeResultObjectToDB("cal_history", resultMap);
+        MongoDB.writeResultObjectToDB(collectionName, resultMap);
     }
 
     /**
@@ -113,10 +113,10 @@ public class CalculationUtils {
      *
      * @param name 名字
      */
-    public static Map<String, Map<Double, Integer>> findMap(String name) {
+    public static Map<String, Map<Double, Integer>> findMap(String name, String collectionName) {
         Map<String, Map<Double, Integer>> statisticsMap = new HashMap<>();
         Map<String, Map<String, Integer>> map = new HashMap<>();
-        List<JSONObject> jsonObjectList = MongoDB.getResultListFromDB("cal_history", new BasicDBObject(), new BasicDBObject(), JSONObject.class);
+        List<JSONObject> jsonObjectList = MongoDB.getResultListFromDB(collectionName, new BasicDBObject(), new BasicDBObject(), JSONObject.class);
         for (JSONObject jsonObject : jsonObjectList) {
             if (jsonObject.containsKey(name + "down")) {
                 map = JSON.parseObject(jsonObject.toJSONString(), HashMap.class);
@@ -182,7 +182,7 @@ public class CalculationUtils {
         int i = 0;
 
         for (Map.Entry<Double, Integer> entry : sortMap.entrySet()) {
-            if (i >= 5) {
+            if (i >= firstNum) {
                 break;
             }
             i++;

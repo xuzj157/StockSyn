@@ -24,7 +24,7 @@ public class ForecastServiceImpl implements ForecastService {
 
     @Override
     public double chartForecast(String name, String code) {
-        Map<String, Map<Double, Integer>> statisticsMap = CalculationUtils.findMap(name + "_");
+        Map<String, Map<Double, Integer>> statisticsMap = CalculationUtils.findMap(name + "_", "cal_history");
         SecondCalculationUnit second = secondCalculationUnitRepository.findByCode(code);
         DecimalFormat df;
         if (Integer.valueOf(name) > 2000000) {
@@ -50,13 +50,53 @@ public class ForecastServiceImpl implements ForecastService {
             log.info("i:" + i + "    finish: " + second.getCode());
         }
 
-        statisticsMap.put(code, CalculationUtils.mapSort(map,110));
+        statisticsMap.put(code, CalculationUtils.mapSort(map, 110));
 
         for (Map.Entry<String, Map<Double, Integer>> entry : statisticsMap.entrySet()) {
             statisticsMap.put(entry.getKey(), CalculationUtils.mapSort(entry.getValue(), 1));
         }
 
         LineChartUtils.allInOne(statisticsMap, name + " " + code, "", "", 2048, 950);
+        return second.getUpRate();
+    }
+
+    @Override
+    public Double chartStatisticsForecast(String name, String code) {
+        Map<String, Map<Double, Integer>> statisticsMap = CalculationUtils.findMap(name + "_", "cal_statistics_history");
+        SecondCalculationUnit second = secondCalculationUnitRepository.findByCode(code);
+        DecimalFormat df = new DecimalFormat("#.#");
+        Map<Double, Integer> map = new HashMap<>();
+        List<RandomUnit> randomUnitList = CalculationUtils.getRandom(Integer.valueOf(name));
+
+        for (RandomUnit randomUnit : randomUnitList) {
+            double randomSum = CalculationUtils.getSum(randomUnit, second);
+            randomSum = Double.parseDouble(df.format(randomSum));
+            Integer num = map.get(randomSum);
+            if (num == null || num == 0) {
+                num = 1;
+            } else {
+                num++;
+            }
+            map.put(randomSum, num);
+        }
+
+        map = CalculationUtils.statisticsMapUtil(map, 3);
+        int num = 0;
+        for (Map.Entry<Double, Integer> entry : map.entrySet()) {
+            switch (num){
+                case 0:entry.setValue(3000);break;
+                case 1:entry.setValue(10);break;
+                case 2:entry.setValue(10);break;
+
+            }
+            num++;
+        }
+        statisticsMap.put("aaa",map);
+        for (Map.Entry<String, Map<Double, Integer>> entry : statisticsMap.entrySet()) {
+            statisticsMap.put(entry.getKey(), CalculationUtils.mapSort(entry.getValue(), 1));
+        }
+        LineChartUtils.allInOne(statisticsMap, name + " 统计 " + code, "", "", 2048, 950);
+        log.info("finish");
         return second.getUpRate();
     }
 

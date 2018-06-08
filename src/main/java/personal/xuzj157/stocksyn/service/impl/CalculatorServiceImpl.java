@@ -66,13 +66,13 @@ public class CalculatorServiceImpl implements CalculatorService {
                 statisticsMap.put(randomSum, num);
             }
             //取出前五个
-            statisticsMap = CalculationUtils.statisticsMapUtil(statisticsMap, 9);
+            statisticsMap = CalculationUtils.statisticsMapUtil(statisticsMap, 1);
             //分别赋值
             int num = 0;
             for (Map.Entry<Double, Integer> entry : statisticsMap.entrySet()) {
                 switch (num) {
                     case 0:
-                        entry.setValue(300);
+                        entry.setValue(30000);
                         break;
                     case 1:
                         entry.setValue(50);
@@ -129,10 +129,10 @@ public class CalculatorServiceImpl implements CalculatorService {
             log.info("finish:   " + second.getCode());
         }
         log.info("basic finish!!!");
-        finalMap.put(times + "_up", CalculationUtils.mapSort(upMap, upNum/100));
-        finalMap.put(times + "_down", CalculationUtils.mapSort(downMap, downNum/100));
+        finalMap.put(times + "_up", CalculationUtils.mapSort(upMap, upNum / 10));
+        finalMap.put(times + "_down", CalculationUtils.mapSort(downMap, downNum / 10));
         //存储以备下次使用
-        CalculationUtils.saveMap(finalMap);
+        CalculationUtils.saveMap(finalMap, "cal_statistics_history");
         log.info("statisticsMap finish!!!");
         LineChartUtils.allInOne(finalMap, times + "次统计型拟合" + format + " 股票预测", "价格", "数量", 2048, 950);
         log.info("all finish!!!");
@@ -184,7 +184,7 @@ public class CalculatorServiceImpl implements CalculatorService {
         statisticsMap.put(times + "_up", CalculationUtils.mapSort(upMap, upNum));
         statisticsMap.put(times + "_down", CalculationUtils.mapSort(downMap, downNum));
         //存储以备下次使用
-        CalculationUtils.saveMap(statisticsMap);
+        CalculationUtils.saveMap(statisticsMap, "cal_history");
         log.info("statisticsMap finish!!!");
         LineChartUtils.allInOne(statisticsMap, times + "次拟合" + format + " 股票预测", "价格", "数量", 2048, 950);
         log.info("all finish!!!");

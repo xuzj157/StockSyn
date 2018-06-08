@@ -22,4 +22,10 @@ public class ForecastController {
         return new JsonResponse<>(forecastService.chartForecast(name, code));
     }
 
+    @RequestMapping(value = "/chartStatisticsForecast/{name}/{code}", method = RequestMethod.GET)
+    public JsonResponse<Double> chartStatisticsForecast(@PathVariable String name, @PathVariable String code) {
+
+        return new JsonResponse<>(forecastService.chartStatisticsForecast(name, code));
+    }
+
 }
