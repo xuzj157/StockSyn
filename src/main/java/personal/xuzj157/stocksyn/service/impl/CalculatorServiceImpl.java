@@ -48,13 +48,28 @@ public class CalculatorServiceImpl implements CalculatorService {
 
         for (SecondCalculationUnit second : secondList) {
             double uprate = second.getUpRate();
+            Map<Double, Integer> statisticsMap = new HashMap<>();
+
+            for (RandomUnit randomUnit : randomUnitList) {
+                double randomSum = CalculationUtils.getSum(randomUnit, second);
+                randomSum = Double.parseDouble(df.format(randomSum));
+                Integer num = upMap.get(randomSum);
+                if (num == null || num == 0) {
+                    num = 1;
+                } else {
+                    num++;
+                }
+                statisticsMap.put(randomSum, num);
+            }
+
+            statisticsMap = CalculationUtils.statisticsMapUtil(statisticsMap, 5);
+
             if (uprate > 0) {
                 upNum++;
+
             } else {
                 downNum++;
             }
-
-
 
         }
 

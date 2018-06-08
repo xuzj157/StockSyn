@@ -168,4 +168,27 @@ public class CalculationUtils {
         return sumUnitSet;
     }
 
+    /**
+     * 找出前五个
+     *
+     * @return
+     */
+    public static Map<Double, Integer> statisticsMapUtil(Map<Double, Integer> oriMap, int firstNum) {
+        Map<Double, Integer> sortMap = new LinkedHashMap<>();
+        Map<Double, Integer> resultMap = new LinkedHashMap<>();
+
+        oriMap.entrySet().stream().sorted(Map.Entry.<Double, Integer>comparingByValue()
+                .reversed()).forEachOrdered(e -> sortMap.put(e.getKey(), e.getValue()));
+        int i = 0;
+
+        for (Map.Entry<Double, Integer> entry : sortMap.entrySet()) {
+            if (i >= 5) {
+                break;
+            }
+            i++;
+            resultMap.put(entry.getKey(), entry.getValue());
+        }
+        return resultMap;
+    }
+
 }
