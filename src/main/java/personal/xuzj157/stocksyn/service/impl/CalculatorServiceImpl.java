@@ -134,7 +134,7 @@ public class CalculatorServiceImpl implements CalculatorService {
         //存储以备下次使用
         CalculationUtils.saveMap(finalMap, "cal_statistics_history");
         log.info("statisticsMap finish!!!");
-        LineChartUtils.allInOne(finalMap, times + "次统计型拟合" + format + " 股票预测", "价格", "数量", 2048, 950);
+        LineChartUtils.allInOne(finalMap, times + "次统计型拟合" + format + " 股票预测", "价格", "数量", 2000, 950);
         log.info("all finish!!!");
     }
 
@@ -186,7 +186,7 @@ public class CalculatorServiceImpl implements CalculatorService {
         //存储以备下次使用
         CalculationUtils.saveMap(statisticsMap, "cal_history");
         log.info("statisticsMap finish!!!");
-        LineChartUtils.allInOne(statisticsMap, times + "次拟合" + format + " 股票预测", "价格", "数量", 2048, 950);
+        LineChartUtils.allInOne(statisticsMap, times + "次拟合" + format + " 股票预测", "价格", "数量", 2000, 950);
         log.info("all finish!!!");
     }
 
@@ -237,7 +237,7 @@ public class CalculatorServiceImpl implements CalculatorService {
                     Double rateN2 = (double) sumUnit.getN2() / (double) down;
                     Double rateN3 = (double) sumUnit.getN3() / (double) up;
                     Double rateN4 = (double) sumUnit.getN4() / (double) down;
-                    if ((rateN1 > 0.7 && rateN4 > 0.7) || (rateN2 > 0.7 && rateN3 > 0.7)) {
+                    if ((rateN1 > 0.6 && rateN4 > 0.6) || (rateN2 > 0.6 && rateN3 > 0.6)) {
                         sumUnitListRes.add(sumUnit);
                     }
                 }
@@ -247,7 +247,7 @@ public class CalculatorServiceImpl implements CalculatorService {
                     t2++;
                 }
             }
-            System.out.println(j + "       " + t2);
+            log.info(j + "       " + t2);
 
         }
     }
