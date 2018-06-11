@@ -1,5 +1,7 @@
 package personal.xuzj157.stocksyn.service;
 
+import com.alibaba.fastjson.JSONObject;
+
 public interface ForecastService {
 
     /**
@@ -16,7 +18,7 @@ public interface ForecastService {
      * @param code
      * @return
      */
-    Double chartStatisticsForecast(String name, String code);
+    JSONObject chartStatisticsForecast(String name, String code);
 
 
 }

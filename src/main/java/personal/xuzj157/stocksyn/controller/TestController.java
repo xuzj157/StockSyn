@@ -34,10 +34,14 @@ public class TestController {
         dongFangService.getStockInfo();
     }
 
-    @RequestMapping("/xueqiu")
-    public void xueqiuTest() {
-        xueQiuService.getCompInfo();
+    @RequestMapping("/xueqiuFin")
+    public void xueqiuFin() {
         xueQiuService.getFin();
+    }
+
+    @RequestMapping("/xueqiuCompInfo")
+    public void xueqiuCompInfo() {
+        xueQiuService.getCompInfo();
     }
 
     @RequestMapping("/shouhu")

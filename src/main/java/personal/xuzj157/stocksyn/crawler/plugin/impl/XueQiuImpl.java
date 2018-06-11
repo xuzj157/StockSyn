@@ -2,6 +2,7 @@ package personal.xuzj157.stocksyn.crawler.plugin.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -23,12 +24,13 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+@Slf4j
 @Service
 public class XueQiuImpl implements XueQiuService {
 
     private String urlConInfo = "https://xueqiu.com/stock/f10/compinfo.json";
     private String urlFin = "https://xueqiu.com/stock/f10/finmainindex.json";
-    private String cookie = "device_id=66d11289786ec6edd20b417e44546f16; s=fn112aohsh; bid=44e66306585a5c9788ae9c616162de73_j9rst8fy; __utmz=1.1509973978.9.2.utmcsr=baidu|utmccn=(organic)|utmcmd=organic; aliyungf_tc=AQAAANXwRDgo4AsAokBRZUXoxF2LDc/X; xq_a_token=0d524219cf0dd2d0a4d48f15e36f37ef9ebcbee1; xq_a_token.sig=P0rdE1K6FJmvC2XfH5vucrIHsnw; xq_r_token=7095ce0c820e0a53c304a6ead234a6c6eca38488; xq_r_token.sig=xBQzKLc4EP4eZvezKxqxXNtB7K0; u=881524563971954; __utma=1.1428376186.1509680287.1523931447.1524563972.14; __utmc=1; __utmt=1; Hm_lvt_1db88642e346389874251b5a1eded6e3=1523931448,1524563973; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1524564126; __utmb=1.7.10.1524563972";
+    private String cookie = "device_id=041a0db67913d4c6605ddb87a965b825; s=f011oda2d4; xq_a_token=019174f18bf425d22c8e965e48243d9fcfbd2cc0; xq_a_token.sig=_pB0kKy3fV9fvtvkOzxduQTrp7E; xq_r_token=2d465aa5d312fbe8d88b4e7de81e1e915de7989a; xq_r_token.sig=lOCElS5ycgbih9P-Ny3cohQ-FSA; u=541528599373607; Hm_lvt_1db88642e346389874251b5a1eded6e3=1528599374; _ga=GA1.2.1745805919.1528599374; _gid=GA1.2.1376658282.1528599374; _gat_gtag_UA_16079156_4=1; aliyungf_tc=AQAAAKKCFEudvgQA6ReftKmuuxmwnO60; __utma=1.33644132.1521944443.1525164850.1528599382.18; __utmc=1; __utmz=1.1528599382.18.4.utmcsr=xueqiu.com|utmccn=(referral)|utmcmd=referral|utmcct=/; __utmt=1; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1528599387; __utmb=1.2.10.1528599382";
 
     @Autowired
     RestTemplate restTemplate;
@@ -42,7 +44,7 @@ public class XueQiuImpl implements XueQiuService {
     @Override
     public void getCompInfo() {
         HttpEntity<String> requestEntity = setHeader();
-        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(20);
+        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(4);
         List<Symbol> symbolList = symbolRepository.findAll();
         for (Symbol symbol : symbolList) {
             String symbolStr = symbol.getExchange().toLowerCase() + symbol.getStockCode();
@@ -67,12 +69,14 @@ public class XueQiuImpl implements XueQiuService {
                 }
             });
         }
+        log.info("xuqiu_getCompInfo:   finish");
+
     }
 
     @Override
     public void getFin() {
         HttpEntity<String> requestEntity = setHeader();
-        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(50);
+        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(10);
         List<Symbol> symbolList = symbolRepository.findAll();
         for (Symbol symbol : symbolList) {
             String symbolStr = symbol.getExchange().toLowerCase() + symbol.getStockCode();
@@ -89,6 +93,7 @@ public class XueQiuImpl implements XueQiuService {
                 }
             });
         }
+        log.info("xuqiu_getFin:   finish");
     }
 
     private HttpEntity<String> setHeader() {

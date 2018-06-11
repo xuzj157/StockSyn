@@ -1,5 +1,6 @@
 package personal.xuzj157.stocksyn.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -8,6 +9,7 @@ import personal.xuzj157.stocksyn.pojo.vo.JsonResponse;
 import personal.xuzj157.stocksyn.service.ForecastService;
 
 import javax.annotation.Resource;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/forecast")
@@ -23,7 +25,7 @@ public class ForecastController {
     }
 
     @RequestMapping(value = "/chartStatisticsForecast/{name}/{code}", method = RequestMethod.GET)
-    public JsonResponse<Double> chartStatisticsForecast(@PathVariable String name, @PathVariable String code) {
+    public JsonResponse chartStatisticsForecast(@PathVariable String name, @PathVariable String code) {
 
         return new JsonResponse<>(forecastService.chartStatisticsForecast(name, code));
     }

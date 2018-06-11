@@ -1,6 +1,7 @@
 package personal.xuzj157.stocksyn.crawler.plugin.impl;
 
 import com.alibaba.fastjson.JSONArray;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+@Slf4j
 @Service
 public class ShouhuImpl implements ShouhuService {
 
@@ -32,7 +34,7 @@ public class ShouhuImpl implements ShouhuService {
     public void getHistory() {
 
         List<Symbol> symbolList = symbolRepository.findAll();
-        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(20);
+        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(10);
 
         for (Symbol symbol : symbolList) {
             String symbolStr = symbol.getStockCode();
@@ -64,5 +66,6 @@ public class ShouhuImpl implements ShouhuService {
                 }
             });
         }
+        log.info("shouhu     finish");
     }
 }

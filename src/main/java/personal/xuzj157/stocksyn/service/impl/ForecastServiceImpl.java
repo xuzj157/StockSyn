@@ -1,5 +1,7 @@
 package personal.xuzj157.stocksyn.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import personal.xuzj157.stocksyn.pojo.bo.RandomUnit;
@@ -61,7 +63,7 @@ public class ForecastServiceImpl implements ForecastService {
     }
 
     @Override
-    public Double chartStatisticsForecast(String name, String code) {
+    public JSONObject chartStatisticsForecast(String name, String code) {
         Map<String, Map<Double, Integer>> statisticsMap = CalculationUtils.findMap(name + "_", "cal_statistics_history");
         SecondCalculationUnit second = secondCalculationUnitRepository.findByCode(code);
         DecimalFormat df = new DecimalFormat("#.#");
@@ -81,23 +83,33 @@ public class ForecastServiceImpl implements ForecastService {
         }
 
         map = CalculationUtils.statisticsMapUtil(map, 3);
-        int num = 0;
-        for (Map.Entry<Double, Integer> entry : map.entrySet()) {
-            switch (num){
-                case 0:entry.setValue(3000);break;
-                case 1:entry.setValue(10);break;
-                case 2:entry.setValue(10);break;
+//        int num = 0;
+//        for (Map.Entry<Double, Integer> entry : map.entrySet()) {
+//            switch (num) {
+//                case 0:
+//                    entry.setValue(15000);
+//                    break;
+//                case 1:
+//                    entry.setValue(10);
+//                    break;
+//                case 2:
+//                    entry.setValue(10);
+//                    break;
+//
+//            }
+//            num++;
+//        }
+//        statisticsMap.put("0000", map);
+//        for (Map.Entry<String, Map<Double, Integer>> entry : statisticsMap.entrySet()) {
+//            statisticsMap.put(entry.getKey(), CalculationUtils.mapSort(entry.getValue(), 1));
+//        }
+//        LineChartUtils.allInOne(statisticsMap, name + " 统计 " + code, "", "", 2048, 950);
+//        log.info("finish");
 
-            }
-            num++;
-        }
-        statisticsMap.put("aaa",map);
-        for (Map.Entry<String, Map<Double, Integer>> entry : statisticsMap.entrySet()) {
-            statisticsMap.put(entry.getKey(), CalculationUtils.mapSort(entry.getValue(), 1));
-        }
-        LineChartUtils.allInOne(statisticsMap, name + " 统计 " + code, "", "", 2048, 950);
-        log.info("finish");
-        return second.getUpRate();
+        JSONObject resJsonObject = JSON.parseObject(JSON.toJSONString(map));
+        resJsonObject.put("rprate", second.getUpRate());
+
+        return resJsonObject;
     }
 
 }

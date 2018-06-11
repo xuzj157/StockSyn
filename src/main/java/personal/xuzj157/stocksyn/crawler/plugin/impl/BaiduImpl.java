@@ -1,6 +1,7 @@
 package personal.xuzj157.stocksyn.crawler.plugin.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+@Slf4j
 @Service
 public class BaiduImpl implements BaiduService {
     private String urlGetAll = "https://gupiao.baidu.com/api/stocks/stockbets?from=h5&os_ver=0&cuid=xxx&vv=2.2&format=json&stock_code=%s";
@@ -38,6 +40,7 @@ public class BaiduImpl implements BaiduService {
             });
             start++;
         }
+        log.info("baidu_snapShot:     finsh");
         return null;
     }
 
@@ -54,6 +57,7 @@ public class BaiduImpl implements BaiduService {
                 snapShotRepository.save(snapShot);
             });
         }
+        log.info("baidu_snapShot:     finsh");
         return null;
     }
 }
