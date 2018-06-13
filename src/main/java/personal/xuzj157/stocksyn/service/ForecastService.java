@@ -2,6 +2,8 @@ package personal.xuzj157.stocksyn.service;
 
 import com.alibaba.fastjson.JSONObject;
 
+import java.util.Map;
+
 public interface ForecastService {
 
     /**
@@ -18,7 +20,7 @@ public interface ForecastService {
      * @param code
      * @return
      */
-    JSONObject chartStatisticsForecast(String name, String code);
+    Map<String, String> chartStatisticsForecast(String name, String code);
 
 
 }

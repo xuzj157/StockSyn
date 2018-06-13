@@ -63,8 +63,8 @@ public class ForecastServiceImpl implements ForecastService {
     }
 
     @Override
-    public JSONObject chartStatisticsForecast(String name, String code) {
-        Map<String, Map<Double, Integer>> statisticsMap = CalculationUtils.findMap(name + "_", "cal_statistics_history");
+    public Map<String, String> chartStatisticsForecast(String name, String code) {
+//        Map<String, Map<Double, Integer>> statisticsMap = CalculationUtils.findMap(name + "_", "cal_statistics_history");
         SecondCalculationUnit second = secondCalculationUnitRepository.findByCode(code);
         DecimalFormat df = new DecimalFormat("#.#");
         Map<Double, Integer> map = new HashMap<>();
@@ -82,7 +82,7 @@ public class ForecastServiceImpl implements ForecastService {
             map.put(randomSum, num);
         }
 
-        map = CalculationUtils.statisticsMapUtil(map, 3);
+        map = CalculationUtils.statisticsMapUtil(map, 1);
 //        int num = 0;
 //        for (Map.Entry<Double, Integer> entry : map.entrySet()) {
 //            switch (num) {
@@ -106,10 +106,17 @@ public class ForecastServiceImpl implements ForecastService {
 //        LineChartUtils.allInOne(statisticsMap, name + " 统计 " + code, "", "", 2048, 950);
 //        log.info("finish");
 
-        JSONObject resJsonObject = JSON.parseObject(JSON.toJSONString(map));
-        resJsonObject.put("rprate", second.getUpRate());
+        String result = "";
+        for (Map.Entry<Double, Integer> entry : map.entrySet()) {
+            result = entry.getKey().toString();
+            break;
+        }
 
-        return resJsonObject;
+        Map<String, String> resMap = new HashMap<>();
+        resMap.put("up_rate", second.getUpRate().toString());
+        resMap.put("result", result);
+
+        return resMap;
     }
 
 }

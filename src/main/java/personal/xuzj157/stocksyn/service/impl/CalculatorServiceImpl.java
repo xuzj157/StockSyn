@@ -134,7 +134,7 @@ public class CalculatorServiceImpl implements CalculatorService {
         //存储以备下次使用
         CalculationUtils.saveMap(finalMap, "cal_statistics_history");
         log.info("statisticsMap finish!!!");
-        LineChartUtils.allInOne(finalMap, times + "次统计型拟合" + format + " 股票预测", "价格", "数量", 2000, 950);
+        LineChartUtils.allInOne(finalMap, times + "次统计型拟合" + format + " 股票预测", "价格", "数量", 2048, 950);
         log.info("all finish!!!");
     }
 
@@ -186,7 +186,7 @@ public class CalculatorServiceImpl implements CalculatorService {
         //存储以备下次使用
         CalculationUtils.saveMap(statisticsMap, "cal_history");
         log.info("statisticsMap finish!!!");
-        LineChartUtils.allInOne(statisticsMap, times + "次拟合" + format + " 股票预测", "价格", "数量", 2000, 950);
+        LineChartUtils.allInOne(statisticsMap, times + "次拟合" + format + " 股票预测", "价格", "数量", 2048, 950);
         log.info("all finish!!!");
     }
 
