@@ -11,13 +11,11 @@ import personal.xuzj157.stocksyn.utils.MongoDB;
 import personal.xuzj157.stocksyn.utils.chart.LineChartUtils;
 
 import javax.annotation.Resource;
-import javax.swing.text.AbstractDocument;
-import javax.validation.metadata.ValidateUnwrappedValue;
-import java.text.BreakIterator;
 import java.text.DecimalFormat;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Slf4j
 @Service
@@ -139,10 +137,14 @@ public class CalculatorServiceImpl implements CalculatorService {
     }
 
 
+
     @Override
     public void calculatorChart(int times) {
+        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(16);
+
         Map<String, Map<Double, Integer>> statisticsMap = new HashMap<>();
-        Integer upNum = 0, downNum = 0;
+        AtomicReference<Integer> upNum = new AtomicReference<>(0);
+        AtomicReference<Integer> downNum = new AtomicReference<>(0);
         String format = "#.#";
         DecimalFormat df = new DecimalFormat(format);
         //初始化随机数单元
@@ -151,43 +153,57 @@ public class CalculatorServiceImpl implements CalculatorService {
         Map<Double, Integer> upMap = new HashMap<>();
         Map<Double, Integer> downMap = new HashMap<>();
         for (SecondCalculationUnit second : secondList) {
-            double uprate = second.getUpRate();
-            if (uprate > 0) {
-                upNum++;
-            } else {
-                downNum++;
-            }
-            for (RandomUnit randomUnit : randomUnitList) {
-                double randomSum = CalculationUtils.getSum(randomUnit, second);
-                randomSum = Double.parseDouble(df.format(randomSum));
+
+            fixedThreadPool.execute(()->{
+                double uprate = second.getUpRate();
                 if (uprate > 0) {
-                    Integer num = upMap.get(randomSum);
-                    if (num == null || num == 0) {
-                        num = 1;
-                    } else {
-                        num++;
-                    }
-                    upMap.put(randomSum, num);
+                    upNum.getAndSet(upNum.get() + 1);
                 } else {
-                    Integer num = downMap.get(randomSum);
-                    if (num == null || num == 0) {
-                        num = 1;
-                    } else {
-                        num++;
-                    }
-                    downMap.put(randomSum, num);
+                    downNum.getAndSet(downNum.get() + 1);
                 }
-            }
-            log.info("finish: " + second.getCode());
+                for (RandomUnit randomUnit : randomUnitList) {
+                    double randomSum = CalculationUtils.getSum(randomUnit, second);
+                    randomSum = Double.parseDouble(df.format(randomSum));
+                    if (uprate > 0) {
+                        Integer num = upMap.get(randomSum);
+                        if (num == null || num == 0) {
+                            num = 1;
+                        } else {
+                            num++;
+                        }
+                        upMap.put(randomSum, num);
+                    } else {
+                        Integer num = downMap.get(randomSum);
+                        if (num == null || num == 0) {
+                            num = 1;
+                        } else {
+                            num++;
+                        }
+                        downMap.put(randomSum, num);
+                    }
+                }
+                log.info("finish: " + second.getCode());
+            });
         }
+
+        while (!fixedThreadPool.isTerminated()){
+            try {
+                new Thread().sleep(100000l);
+                System.out.println("未执行完成");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
         log.info("basic finish!!!");
-        statisticsMap.put(times + "_up", CalculationUtils.mapSort(upMap, upNum));
-        statisticsMap.put(times + "_down", CalculationUtils.mapSort(downMap, downNum));
+        statisticsMap.put(times + "_up", CalculationUtils.mapSort(upMap, upNum.get()));
+        statisticsMap.put(times + "_down", CalculationUtils.mapSort(downMap, downNum.get()));
         //存储以备下次使用
         CalculationUtils.saveMap(statisticsMap, "cal_history");
         log.info("statisticsMap finish!!!");
         LineChartUtils.allInOne(statisticsMap, times + "次拟合" + format + " 股票预测", "价格", "数量", 2048, 950);
         log.info("all finish!!!");
+
     }
 
     @Override

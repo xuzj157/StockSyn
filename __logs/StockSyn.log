@@ -11107,3 +11107,738 @@ java.lang.NumberFormatException: For input string: "-"
 18:07:51.481 [http-nio-9902-exec-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000338
 18:07:52.241 [http-nio-9902-exec-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000301
 18:07:52.988 [http-nio-9902-exec-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000401
+18:57:52.036 [restartedMain] INFO  p.x.stocksyn.StockSynApplication - Starting StockSynApplication on xuzj157 with PID 10916 (D:\IdeaProjects\StockSyn\target\classes started by 智杰 in D:\IdeaProjects\StockSyn)
+18:57:52.044 [restartedMain] INFO  p.x.stocksyn.StockSynApplication - No active profile set, falling back to default profiles: default
+18:57:52.331 [restartedMain] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@266df9ad: startup date [Mon Jan 21 18:57:52 CST 2019]; root of context hierarchy
+18:57:53.894 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\BasicInfoRepository.class]
+18:57:53.894 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\calculationUnit\FirstCalculationUnitRepository.class]
+18:57:53.894 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\calculationUnit\RandomUnitRepository.class]
+18:57:53.895 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\calculationUnit\SecondCalculationUnitRepository.class]
+18:57:53.895 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\FinInfoRepository.class]
+18:57:53.896 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\HqInfoRepository.class]
+18:57:53.896 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\SnapShotRepository.class]
+18:57:53.897 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\SymbolRepository.class]
+18:57:53.942 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: firstCalculationUnitRepository - Interface: personal.xuzj157.stocksyn.repository.calculationUnit.FirstCalculationUnitRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:57:53.946 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: snapShotRepository - Interface: personal.xuzj157.stocksyn.repository.SnapShotRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:57:53.949 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: basicInfoRepository - Interface: personal.xuzj157.stocksyn.repository.BasicInfoRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:57:53.951 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: symbolRepository - Interface: personal.xuzj157.stocksyn.repository.SymbolRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:57:53.969 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: hqInfoRepository - Interface: personal.xuzj157.stocksyn.repository.HqInfoRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:57:53.973 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: randomUnitRepository - Interface: personal.xuzj157.stocksyn.repository.calculationUnit.RandomUnitRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:57:53.976 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: secondCalculationUnitRepository - Interface: personal.xuzj157.stocksyn.repository.calculationUnit.SecondCalculationUnitRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:57:53.979 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: finInfoRepository - Interface: personal.xuzj157.stocksyn.repository.FinInfoRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:57:54.510 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$cd0e7715] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+18:57:54.548 [restartedMain] INFO  o.s.w.s.a.s.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+18:57:54.597 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2876b216] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+18:57:55.048 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9902 (http)
+18:57:55.062 [restartedMain] INFO  o.a.c.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9902"]
+18:57:55.072 [restartedMain] INFO  o.a.c.core.StandardService - Starting service [Tomcat]
+18:57:55.072 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.28
+18:57:55.077 [localhost-startStop-1] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\Java\jdk1.8.0_101\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\Program Files\Condusiv Technologies\ExpressCache\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin;D:\Program Files\Git\cmd;D:\Android\sdk\platform-tools;D:\Android\sdk\tools;;D:\Android\Android Studio\gradle\gradle-4.2\bin;D:\Program Files\MongoDB\Server\3.4\bin;D:\Program Files\JetBrains\IntelliJ IDEA 2018.1\plugins\maven\lib\maven3\bin;D:\Program Files\Java\jdk1.8.0_101\bin;D:\Program Files\Java\jdk1.8.0_101\jre\bin;C:\Program Files\Intel\WiFi\bin\;C:\ProgramD:\Program Files\Java\jdk1.8.0_101\bin; Files\Common Files\Intel\WirelessCommon\;D:\Program Files\Fiddler;.]
+18:57:55.179 [localhost-startStop-1] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+18:57:55.179 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2848 ms
+18:57:56.119 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+18:57:56.121 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Servlet messageDispatcherServlet mapped to [/services/*]
+18:57:56.124 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+18:57:56.124 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+18:57:56.125 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+18:57:56.125 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+18:57:56.125 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpTraceFilter' to: [/*]
+18:57:56.125 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webMvcMetricsFilter' to: [/*]
+18:57:56.222 [restartedMain] INFO  c.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+18:57:56.404 [restartedMain] INFO  c.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+18:57:56.467 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+18:57:56.479 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+18:57:56.559 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.14.Final}
+18:57:56.561 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+18:57:56.597 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+18:57:56.735 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+18:57:57.449 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+18:57:57.791 [restartedMain] DEBUG o.s.d.j.r.query.JpaQueryFactory - Looking up query for method findAllByCode
+18:57:57.794 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Looking up named query FinInfo.findAllByCode
+18:57:57.797 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Did not find named query FinInfo.findAllByCode
+18:57:57.878 [restartedMain] DEBUG o.s.d.j.r.query.JpaQueryFactory - Looking up query for method findHqInfosByCode
+18:57:57.879 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Looking up named query HqInfo.findHqInfosByCode
+18:57:57.879 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Did not find named query HqInfo.findHqInfosByCode
+18:57:57.892 [restartedMain] DEBUG o.s.d.j.r.query.JpaQueryFactory - Looking up query for method findByCode
+18:57:57.892 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Looking up named query SnapShot.findByCode
+18:57:57.893 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Did not find named query SnapShot.findByCode
+18:57:57.927 [restartedMain] DEBUG o.s.d.j.r.query.JpaQueryFactory - Looking up query for method findByCode
+18:57:57.927 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Looking up named query SecondCalculationUnit.findByCode
+18:57:57.928 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Did not find named query SecondCalculationUnit.findByCode
+18:57:58.489 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@266df9ad: startup date [Mon Jan 21 18:57:52 CST 2019]; root of context hierarchy
+18:57:58.523 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+18:57:58.560 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/basic/init],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.BasicController.init()
+18:57:58.561 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/basic/ori2First],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.BasicController.ori2First()
+18:57:58.561 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/basic/first2Second],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.BasicController.first2Second()
+18:57:58.562 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/calculator/getRandomUnit],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.CalculatorController.genRandom()
+18:57:58.564 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/calculator/calculatorChart],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.CalculatorController.calculatorChart(int)
+18:57:58.565 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/calculator/calculatorChartStatistics],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.CalculatorController.calculatorChartStatistics(int)
+18:57:58.565 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/calculator/calculatorStatistics],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.CalculatorController.calculatorStatistics(int)
+18:57:58.566 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/forecast/chartForecast/{times}/{code}],methods=[GET]}" onto public personal.xuzj157.stocksyn.pojo.vo.JsonResponse<java.lang.Double> personal.xuzj157.stocksyn.controller.ForecastController.chartForecast(java.lang.String,java.lang.String)
+18:57:58.566 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/forecast/chartStatisticsForecast/{name}/{code}],methods=[GET]}" onto public personal.xuzj157.stocksyn.pojo.vo.JsonResponse personal.xuzj157.stocksyn.controller.ForecastController.chartStatisticsForecast(java.lang.String,java.lang.String)
+18:57:58.568 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/crawler/all],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.TestController.getAll() throws java.net.URISyntaxException
+18:57:58.568 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/baidu/null],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.TestController.baiduTest()
+18:57:58.568 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/baidu/params],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.TestController.baiduTest(int,int,java.lang.String)
+18:57:58.569 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/shouhu]}" onto public void personal.xuzj157.stocksyn.controller.TestController.shouhuTest()
+18:57:58.569 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/xueqiuCompInfo]}" onto public void personal.xuzj157.stocksyn.controller.TestController.xueqiuCompInfo()
+18:57:58.569 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/dongfang]}" onto public void personal.xuzj157.stocksyn.controller.TestController.GetAllTest() throws java.net.URISyntaxException
+18:57:58.569 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/xueqiuFin]}" onto public void personal.xuzj157.stocksyn.controller.TestController.xueqiuFin()
+18:57:58.573 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+18:57:58.574 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+18:57:58.624 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+18:57:58.624 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+18:57:58.689 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+18:57:59.203 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+18:57:59.232 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/auditevents],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.233 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/beans],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.233 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/health],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.233 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/conditions],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.233 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/configprops],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.234 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/env],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.234 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/env/{toMatch}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.234 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/info],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.235 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/loggers],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.235 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/loggers/{name}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.236 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/loggers/{name}],methods=[POST],consumes=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.236 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/heapdump],methods=[GET],produces=[application/octet-stream]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.236 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/threaddump],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.237 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/metrics],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.237 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/metrics/{requiredMetricName}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.237 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/scheduledtasks],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.238 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/httptrace],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.238 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/mappings],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:57:59.239 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto protected java.util.Map<java.lang.String, java.util.Map<java.lang.String, org.springframework.boot.actuate.endpoint.web.Link>> org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping.links(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+18:57:59.360 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+18:57:59.361 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+18:57:59.371 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+18:57:59.392 [restartedMain] INFO  o.a.c.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9902"]
+18:57:59.404 [restartedMain] INFO  o.a.t.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+18:57:59.421 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9902 (http) with context path ''
+18:57:59.426 [restartedMain] INFO  p.x.stocksyn.StockSynApplication - Started StockSynApplication in 8.548 seconds (JVM running for 9.721)
+18:58:00.252 [RMI TCP Connection(7)-127.0.0.1] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+18:58:00.253 [RMI TCP Connection(7)-127.0.0.1] INFO  o.s.w.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+18:58:00.284 [RMI TCP Connection(7)-127.0.0.1] INFO  o.s.w.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 30 ms
+18:58:14.674 [http-nio-9902-exec-1] INFO  p.x.s.utils.CalculationUtils - getRandom finish
+18:58:14.683 [http-nio-9902-exec-1] DEBUG o.s.d.r.c.s.TransactionalRepositoryProxyPostProcessor$CustomAnnotationTransactionAttributeSource - Adding transactional method 'findAll' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly; ''
+18:58:14.710 [http-nio-9902-exec-1] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+18:58:20.228 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000002
+18:58:20.481 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000011
+18:58:20.583 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000006
+18:58:20.663 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000001
+18:58:25.653 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000012
+18:58:26.173 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000016
+18:58:26.630 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000021
+18:58:26.734 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000024
+18:58:46.836 [restartedMain] INFO  p.x.stocksyn.StockSynApplication - Starting StockSynApplication on xuzj157 with PID 6880 (D:\IdeaProjects\StockSyn\target\classes started by 智杰 in D:\IdeaProjects\StockSyn)
+18:58:46.838 [restartedMain] INFO  p.x.stocksyn.StockSynApplication - No active profile set, falling back to default profiles: default
+18:58:46.922 [restartedMain] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4dda6b62: startup date [Mon Jan 21 18:58:46 CST 2019]; root of context hierarchy
+18:58:48.562 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\BasicInfoRepository.class]
+18:58:48.563 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\calculationUnit\FirstCalculationUnitRepository.class]
+18:58:48.563 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\calculationUnit\RandomUnitRepository.class]
+18:58:48.563 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\calculationUnit\SecondCalculationUnitRepository.class]
+18:58:48.563 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\FinInfoRepository.class]
+18:58:48.564 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\HqInfoRepository.class]
+18:58:48.564 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\SnapShotRepository.class]
+18:58:48.564 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\SymbolRepository.class]
+18:58:48.607 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: symbolRepository - Interface: personal.xuzj157.stocksyn.repository.SymbolRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:58:48.611 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: firstCalculationUnitRepository - Interface: personal.xuzj157.stocksyn.repository.calculationUnit.FirstCalculationUnitRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:58:48.614 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: snapShotRepository - Interface: personal.xuzj157.stocksyn.repository.SnapShotRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:58:48.616 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: basicInfoRepository - Interface: personal.xuzj157.stocksyn.repository.BasicInfoRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:58:48.627 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: hqInfoRepository - Interface: personal.xuzj157.stocksyn.repository.HqInfoRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:58:48.629 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: secondCalculationUnitRepository - Interface: personal.xuzj157.stocksyn.repository.calculationUnit.SecondCalculationUnitRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:58:48.632 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: randomUnitRepository - Interface: personal.xuzj157.stocksyn.repository.calculationUnit.RandomUnitRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:58:48.635 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: finInfoRepository - Interface: personal.xuzj157.stocksyn.repository.FinInfoRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:58:49.228 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$9ad14e0d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+18:58:49.268 [restartedMain] INFO  o.s.w.s.a.s.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+18:58:49.342 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f639890e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+18:58:49.903 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9902 (http)
+18:58:49.924 [restartedMain] INFO  o.a.c.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9902"]
+18:58:49.940 [restartedMain] INFO  o.a.c.core.StandardService - Starting service [Tomcat]
+18:58:49.940 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.28
+18:58:49.946 [localhost-startStop-1] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\Java\jdk1.8.0_101\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\Program Files\Condusiv Technologies\ExpressCache\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin;D:\Program Files\Git\cmd;D:\Android\sdk\platform-tools;D:\Android\sdk\tools;;D:\Android\Android Studio\gradle\gradle-4.2\bin;D:\Program Files\MongoDB\Server\3.4\bin;D:\Program Files\JetBrains\IntelliJ IDEA 2018.1\plugins\maven\lib\maven3\bin;D:\Program Files\Java\jdk1.8.0_101\bin;D:\Program Files\Java\jdk1.8.0_101\jre\bin;C:\Program Files\Intel\WiFi\bin\;C:\ProgramD:\Program Files\Java\jdk1.8.0_101\bin; Files\Common Files\Intel\WirelessCommon\;D:\Program Files\Fiddler;.]
+18:58:50.100 [localhost-startStop-1] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+18:58:50.100 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3179 ms
+18:58:51.160 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+18:58:51.161 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Servlet messageDispatcherServlet mapped to [/services/*]
+18:58:51.165 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+18:58:51.165 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+18:58:51.165 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+18:58:51.165 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+18:58:51.166 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpTraceFilter' to: [/*]
+18:58:51.166 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webMvcMetricsFilter' to: [/*]
+18:58:51.314 [restartedMain] INFO  c.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+18:58:51.783 [restartedMain] INFO  c.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+18:58:51.921 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+18:58:51.947 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+18:58:52.028 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.14.Final}
+18:58:52.029 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+18:58:52.072 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+18:58:52.272 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+18:58:53.289 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+18:58:53.606 [restartedMain] DEBUG o.s.d.j.r.query.JpaQueryFactory - Looking up query for method findAllByCode
+18:58:53.608 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Looking up named query FinInfo.findAllByCode
+18:58:53.610 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Did not find named query FinInfo.findAllByCode
+18:58:53.694 [restartedMain] DEBUG o.s.d.j.r.query.JpaQueryFactory - Looking up query for method findHqInfosByCode
+18:58:53.694 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Looking up named query HqInfo.findHqInfosByCode
+18:58:53.695 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Did not find named query HqInfo.findHqInfosByCode
+18:58:53.712 [restartedMain] DEBUG o.s.d.j.r.query.JpaQueryFactory - Looking up query for method findByCode
+18:58:53.712 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Looking up named query SnapShot.findByCode
+18:58:53.713 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Did not find named query SnapShot.findByCode
+18:58:53.772 [restartedMain] DEBUG o.s.d.j.r.query.JpaQueryFactory - Looking up query for method findByCode
+18:58:53.773 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Looking up named query SecondCalculationUnit.findByCode
+18:58:53.773 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Did not find named query SecondCalculationUnit.findByCode
+18:58:54.370 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4dda6b62: startup date [Mon Jan 21 18:58:46 CST 2019]; root of context hierarchy
+18:58:54.406 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+18:58:54.442 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/basic/init],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.BasicController.init()
+18:58:54.443 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/basic/first2Second],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.BasicController.first2Second()
+18:58:54.444 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/basic/ori2First],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.BasicController.ori2First()
+18:58:54.447 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/calculator/calculatorStatistics],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.CalculatorController.calculatorStatistics(int)
+18:58:54.447 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/calculator/calculatorChartStatistics],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.CalculatorController.calculatorChartStatistics(int)
+18:58:54.447 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/calculator/calculatorChart],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.CalculatorController.calculatorChart(int)
+18:58:54.448 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/calculator/getRandomUnit],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.CalculatorController.genRandom()
+18:58:54.448 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/forecast/chartStatisticsForecast/{name}/{code}],methods=[GET]}" onto public personal.xuzj157.stocksyn.pojo.vo.JsonResponse personal.xuzj157.stocksyn.controller.ForecastController.chartStatisticsForecast(java.lang.String,java.lang.String)
+18:58:54.449 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/forecast/chartForecast/{times}/{code}],methods=[GET]}" onto public personal.xuzj157.stocksyn.pojo.vo.JsonResponse<java.lang.Double> personal.xuzj157.stocksyn.controller.ForecastController.chartForecast(java.lang.String,java.lang.String)
+18:58:54.451 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/crawler/all],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.TestController.getAll() throws java.net.URISyntaxException
+18:58:54.451 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/baidu/null],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.TestController.baiduTest()
+18:58:54.451 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/baidu/params],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.TestController.baiduTest(int,int,java.lang.String)
+18:58:54.452 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/dongfang]}" onto public void personal.xuzj157.stocksyn.controller.TestController.GetAllTest() throws java.net.URISyntaxException
+18:58:54.452 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/shouhu]}" onto public void personal.xuzj157.stocksyn.controller.TestController.shouhuTest()
+18:58:54.452 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/xueqiuFin]}" onto public void personal.xuzj157.stocksyn.controller.TestController.xueqiuFin()
+18:58:54.452 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/xueqiuCompInfo]}" onto public void personal.xuzj157.stocksyn.controller.TestController.xueqiuCompInfo()
+18:58:54.456 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+18:58:54.457 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+18:58:54.506 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+18:58:54.506 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+18:58:54.591 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+18:58:55.338 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+18:58:55.378 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/auditevents],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.380 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/beans],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.380 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/health],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.381 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/conditions],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.381 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/configprops],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.381 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/env],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.382 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/env/{toMatch}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.382 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/info],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.383 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/loggers],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.384 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/loggers/{name}],methods=[POST],consumes=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.384 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/loggers/{name}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.386 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/heapdump],methods=[GET],produces=[application/octet-stream]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.387 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/threaddump],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.387 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/metrics/{requiredMetricName}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.387 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/metrics],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.387 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/scheduledtasks],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.388 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/httptrace],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.388 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/mappings],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:58:55.389 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto protected java.util.Map<java.lang.String, java.util.Map<java.lang.String, org.springframework.boot.actuate.endpoint.web.Link>> org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping.links(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+18:58:55.527 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+18:58:55.528 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+18:58:55.538 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+18:58:55.562 [restartedMain] INFO  o.a.c.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9902"]
+18:58:55.574 [restartedMain] INFO  o.a.t.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+18:58:55.591 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9902 (http) with context path ''
+18:58:55.596 [restartedMain] INFO  p.x.stocksyn.StockSynApplication - Started StockSynApplication in 9.839 seconds (JVM running for 11.227)
+18:58:56.265 [RMI TCP Connection(11)-127.0.0.1] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+18:58:56.265 [RMI TCP Connection(11)-127.0.0.1] INFO  o.s.w.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+18:58:56.287 [RMI TCP Connection(11)-127.0.0.1] INFO  o.s.w.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 22 ms
+18:59:22.004 [restartedMain] INFO  p.x.stocksyn.StockSynApplication - Starting StockSynApplication on xuzj157 with PID 8880 (D:\IdeaProjects\StockSyn\target\classes started by 智杰 in D:\IdeaProjects\StockSyn)
+18:59:22.006 [restartedMain] INFO  p.x.stocksyn.StockSynApplication - No active profile set, falling back to default profiles: default
+18:59:22.160 [restartedMain] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@31694916: startup date [Mon Jan 21 18:59:22 CST 2019]; root of context hierarchy
+18:59:25.127 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\BasicInfoRepository.class]
+18:59:25.127 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\calculationUnit\FirstCalculationUnitRepository.class]
+18:59:25.128 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\calculationUnit\RandomUnitRepository.class]
+18:59:25.128 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\calculationUnit\SecondCalculationUnitRepository.class]
+18:59:25.128 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\FinInfoRepository.class]
+18:59:25.129 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\HqInfoRepository.class]
+18:59:25.130 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\SnapShotRepository.class]
+18:59:25.131 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\SymbolRepository.class]
+18:59:25.181 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: randomUnitRepository - Interface: personal.xuzj157.stocksyn.repository.calculationUnit.RandomUnitRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:59:25.194 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: hqInfoRepository - Interface: personal.xuzj157.stocksyn.repository.HqInfoRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:59:25.197 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: symbolRepository - Interface: personal.xuzj157.stocksyn.repository.SymbolRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:59:25.200 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: finInfoRepository - Interface: personal.xuzj157.stocksyn.repository.FinInfoRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:59:25.203 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: secondCalculationUnitRepository - Interface: personal.xuzj157.stocksyn.repository.calculationUnit.SecondCalculationUnitRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:59:25.207 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: basicInfoRepository - Interface: personal.xuzj157.stocksyn.repository.BasicInfoRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:59:25.210 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: firstCalculationUnitRepository - Interface: personal.xuzj157.stocksyn.repository.calculationUnit.FirstCalculationUnitRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:59:25.212 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: snapShotRepository - Interface: personal.xuzj157.stocksyn.repository.SnapShotRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+18:59:25.879 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$540c6b93] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+18:59:25.923 [restartedMain] INFO  o.s.w.s.a.s.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+18:59:26.009 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$af74a694] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+18:59:26.461 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9902 (http)
+18:59:26.474 [restartedMain] INFO  o.a.c.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9902"]
+18:59:26.484 [restartedMain] INFO  o.a.c.core.StandardService - Starting service [Tomcat]
+18:59:26.485 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.28
+18:59:26.490 [localhost-startStop-1] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\Java\jdk1.8.0_101\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\Program Files\Condusiv Technologies\ExpressCache\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin;D:\Program Files\Git\cmd;D:\Android\sdk\platform-tools;D:\Android\sdk\tools;;D:\Android\Android Studio\gradle\gradle-4.2\bin;D:\Program Files\MongoDB\Server\3.4\bin;D:\Program Files\JetBrains\IntelliJ IDEA 2018.1\plugins\maven\lib\maven3\bin;D:\Program Files\Java\jdk1.8.0_101\bin;D:\Program Files\Java\jdk1.8.0_101\jre\bin;C:\Program Files\Intel\WiFi\bin\;C:\ProgramD:\Program Files\Java\jdk1.8.0_101\bin; Files\Common Files\Intel\WirelessCommon\;D:\Program Files\Fiddler;.]
+18:59:26.593 [localhost-startStop-1] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+18:59:26.593 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 4434 ms
+18:59:27.498 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+18:59:27.499 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Servlet messageDispatcherServlet mapped to [/services/*]
+18:59:27.502 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+18:59:27.503 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+18:59:27.503 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+18:59:27.503 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+18:59:27.503 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpTraceFilter' to: [/*]
+18:59:27.503 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webMvcMetricsFilter' to: [/*]
+18:59:27.599 [restartedMain] INFO  c.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+18:59:27.793 [restartedMain] INFO  c.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+18:59:27.856 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+18:59:27.868 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+18:59:27.957 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.14.Final}
+18:59:27.959 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+18:59:27.997 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+18:59:28.142 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+18:59:28.798 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+18:59:29.188 [restartedMain] DEBUG o.s.d.j.r.query.JpaQueryFactory - Looking up query for method findAllByCode
+18:59:29.190 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Looking up named query FinInfo.findAllByCode
+18:59:29.193 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Did not find named query FinInfo.findAllByCode
+18:59:29.267 [restartedMain] DEBUG o.s.d.j.r.query.JpaQueryFactory - Looking up query for method findHqInfosByCode
+18:59:29.267 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Looking up named query HqInfo.findHqInfosByCode
+18:59:29.267 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Did not find named query HqInfo.findHqInfosByCode
+18:59:29.279 [restartedMain] DEBUG o.s.d.j.r.query.JpaQueryFactory - Looking up query for method findByCode
+18:59:29.279 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Looking up named query SnapShot.findByCode
+18:59:29.280 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Did not find named query SnapShot.findByCode
+18:59:29.309 [restartedMain] DEBUG o.s.d.j.r.query.JpaQueryFactory - Looking up query for method findByCode
+18:59:29.310 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Looking up named query SecondCalculationUnit.findByCode
+18:59:29.310 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Did not find named query SecondCalculationUnit.findByCode
+18:59:29.867 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@31694916: startup date [Mon Jan 21 18:59:22 CST 2019]; root of context hierarchy
+18:59:29.916 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+18:59:29.974 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/basic/init],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.BasicController.init()
+18:59:29.976 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/basic/first2Second],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.BasicController.first2Second()
+18:59:29.976 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/basic/ori2First],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.BasicController.ori2First()
+18:59:29.982 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/calculator/calculatorStatistics],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.CalculatorController.calculatorStatistics(int)
+18:59:29.983 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/calculator/calculatorChartStatistics],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.CalculatorController.calculatorChartStatistics(int)
+18:59:29.983 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/calculator/getRandomUnit],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.CalculatorController.genRandom()
+18:59:29.985 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/calculator/calculatorChart],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.CalculatorController.calculatorChart(int)
+18:59:29.987 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/forecast/chartStatisticsForecast/{name}/{code}],methods=[GET]}" onto public personal.xuzj157.stocksyn.pojo.vo.JsonResponse personal.xuzj157.stocksyn.controller.ForecastController.chartStatisticsForecast(java.lang.String,java.lang.String)
+18:59:29.988 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/forecast/chartForecast/{times}/{code}],methods=[GET]}" onto public personal.xuzj157.stocksyn.pojo.vo.JsonResponse<java.lang.Double> personal.xuzj157.stocksyn.controller.ForecastController.chartForecast(java.lang.String,java.lang.String)
+18:59:29.993 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/crawler/all],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.TestController.getAll() throws java.net.URISyntaxException
+18:59:29.996 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/shouhu]}" onto public void personal.xuzj157.stocksyn.controller.TestController.shouhuTest()
+18:59:29.996 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/baidu/params],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.TestController.baiduTest(int,int,java.lang.String)
+18:59:29.996 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/baidu/null],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.TestController.baiduTest()
+18:59:29.997 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/xueqiuCompInfo]}" onto public void personal.xuzj157.stocksyn.controller.TestController.xueqiuCompInfo()
+18:59:29.998 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/xueqiuFin]}" onto public void personal.xuzj157.stocksyn.controller.TestController.xueqiuFin()
+18:59:29.998 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/dongfang]}" onto public void personal.xuzj157.stocksyn.controller.TestController.GetAllTest() throws java.net.URISyntaxException
+18:59:30.002 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+18:59:30.003 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+18:59:30.066 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+18:59:30.066 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+18:59:30.164 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+18:59:30.726 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+18:59:30.769 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/auditevents],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.770 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/beans],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.770 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/health],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.770 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/conditions],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.771 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/configprops],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.771 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/env],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.771 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/env/{toMatch}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.772 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/info],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.774 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/loggers],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.774 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/loggers/{name}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.775 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/loggers/{name}],methods=[POST],consumes=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.775 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/heapdump],methods=[GET],produces=[application/octet-stream]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.776 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/threaddump],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.776 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/metrics],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.776 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/metrics/{requiredMetricName}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.776 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/scheduledtasks],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.777 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/httptrace],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.777 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/mappings],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+18:59:30.778 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto protected java.util.Map<java.lang.String, java.util.Map<java.lang.String, org.springframework.boot.actuate.endpoint.web.Link>> org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping.links(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+18:59:30.920 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+18:59:30.921 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+18:59:30.931 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+18:59:30.957 [restartedMain] INFO  o.a.c.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9902"]
+18:59:30.970 [restartedMain] INFO  o.a.t.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+18:59:30.988 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9902 (http) with context path ''
+18:59:30.992 [restartedMain] INFO  p.x.stocksyn.StockSynApplication - Started StockSynApplication in 10.293 seconds (JVM running for 11.825)
+18:59:31.512 [http-nio-9902-exec-2] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+18:59:31.512 [http-nio-9902-exec-2] INFO  o.s.w.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+18:59:31.660 [http-nio-9902-exec-2] INFO  o.s.w.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 68 ms
+18:59:36.096 [http-nio-9902-exec-2] INFO  p.x.s.utils.CalculationUtils - getRandom finish
+18:59:36.103 [http-nio-9902-exec-2] DEBUG o.s.d.r.c.s.TransactionalRepositoryProxyPostProcessor$CustomAnnotationTransactionAttributeSource - Adding transactional method 'findAll' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly; ''
+18:59:36.131 [http-nio-9902-exec-2] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+18:59:40.328 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000001
+18:59:40.364 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000002
+18:59:40.424 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000006
+18:59:40.479 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000011
+18:59:44.067 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000016
+18:59:44.094 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000012
+18:59:44.259 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000024
+18:59:44.711 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000021
+18:59:47.606 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000026
+18:59:47.742 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000027
+18:59:48.017 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000029
+18:59:49.327 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000028
+18:59:51.465 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000032
+18:59:51.490 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000030
+18:59:51.800 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000031
+18:59:53.186 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000035
+18:59:55.074 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000034
+18:59:55.204 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000038
+18:59:55.716 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000036
+18:59:57.698 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000039
+18:59:58.711 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000040
+18:59:58.779 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000042
+18:59:59.282 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000043
+19:00:01.515 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000046
+19:00:02.426 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000050
+19:00:02.610 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000049
+19:00:03.190 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000058
+19:00:15.033 [restartedMain] INFO  p.x.stocksyn.StockSynApplication - Starting StockSynApplication on xuzj157 with PID 9116 (D:\IdeaProjects\StockSyn\target\classes started by 智杰 in D:\IdeaProjects\StockSyn)
+19:00:15.035 [restartedMain] INFO  p.x.stocksyn.StockSynApplication - No active profile set, falling back to default profiles: default
+19:00:15.176 [restartedMain] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@62ba99bc: startup date [Mon Jan 21 19:00:15 CST 2019]; root of context hierarchy
+19:00:23.622 [restartedMain] INFO  p.x.stocksyn.StockSynApplication - Starting StockSynApplication on xuzj157 with PID 9712 (D:\IdeaProjects\StockSyn\target\classes started by 智杰 in D:\IdeaProjects\StockSyn)
+19:00:23.624 [restartedMain] INFO  p.x.stocksyn.StockSynApplication - No active profile set, falling back to default profiles: default
+19:00:23.736 [restartedMain] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@54ff4e23: startup date [Mon Jan 21 19:00:23 CST 2019]; root of context hierarchy
+19:00:25.344 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\BasicInfoRepository.class]
+19:00:25.345 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\calculationUnit\FirstCalculationUnitRepository.class]
+19:00:25.345 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\calculationUnit\RandomUnitRepository.class]
+19:00:25.345 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\calculationUnit\SecondCalculationUnitRepository.class]
+19:00:25.345 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\FinInfoRepository.class]
+19:00:25.346 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\HqInfoRepository.class]
+19:00:25.347 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\SnapShotRepository.class]
+19:00:25.347 [restartedMain] DEBUG o.s.d.r.c.RepositoryComponentProvider - Identified candidate component class: file [D:\IdeaProjects\StockSyn\target\classes\personal\xuzj157\stocksyn\repository\SymbolRepository.class]
+19:00:25.395 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: hqInfoRepository - Interface: personal.xuzj157.stocksyn.repository.HqInfoRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+19:00:25.399 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: snapShotRepository - Interface: personal.xuzj157.stocksyn.repository.SnapShotRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+19:00:25.402 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: basicInfoRepository - Interface: personal.xuzj157.stocksyn.repository.BasicInfoRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+19:00:25.405 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: symbolRepository - Interface: personal.xuzj157.stocksyn.repository.SymbolRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+19:00:25.407 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: randomUnitRepository - Interface: personal.xuzj157.stocksyn.repository.calculationUnit.RandomUnitRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+19:00:25.409 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: finInfoRepository - Interface: personal.xuzj157.stocksyn.repository.FinInfoRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+19:00:25.412 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: firstCalculationUnitRepository - Interface: personal.xuzj157.stocksyn.repository.calculationUnit.FirstCalculationUnitRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+19:00:25.414 [restartedMain] DEBUG o.s.d.r.c.RepositoryConfigurationDelegate - Spring Data JPA - Registering repository: secondCalculationUnitRepository - Interface: personal.xuzj157.stocksyn.repository.calculationUnit.SecondCalculationUnitRepository - Factory: org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean
+19:00:25.899 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$e54ab28] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+19:00:25.935 [restartedMain] INFO  o.s.w.s.a.s.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+19:00:25.985 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$69bce629] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+19:00:26.385 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9902 (http)
+19:00:26.397 [restartedMain] INFO  o.a.c.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9902"]
+19:00:26.407 [restartedMain] INFO  o.a.c.core.StandardService - Starting service [Tomcat]
+19:00:26.408 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.28
+19:00:26.412 [localhost-startStop-1] INFO  o.a.c.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\Program Files\Java\jdk1.8.0_101\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\Program Files\Condusiv Technologies\ExpressCache\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin;D:\Program Files\Git\cmd;D:\Android\sdk\platform-tools;D:\Android\sdk\tools;;D:\Android\Android Studio\gradle\gradle-4.2\bin;D:\Program Files\MongoDB\Server\3.4\bin;D:\Program Files\JetBrains\IntelliJ IDEA 2018.1\plugins\maven\lib\maven3\bin;D:\Program Files\Java\jdk1.8.0_101\bin;D:\Program Files\Java\jdk1.8.0_101\jre\bin;C:\Program Files\Intel\WiFi\bin\;C:\ProgramD:\Program Files\Java\jdk1.8.0_101\bin; Files\Common Files\Intel\WirelessCommon\;D:\Program Files\Fiddler;.]
+19:00:26.510 [localhost-startStop-1] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring embedded WebApplicationContext
+19:00:26.511 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2775 ms
+19:00:27.432 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+19:00:27.434 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Servlet messageDispatcherServlet mapped to [/services/*]
+19:00:27.438 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+19:00:27.438 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+19:00:27.439 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+19:00:27.439 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+19:00:27.439 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpTraceFilter' to: [/*]
+19:00:27.439 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webMvcMetricsFilter' to: [/*]
+19:00:27.536 [restartedMain] INFO  c.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+19:00:27.719 [restartedMain] INFO  c.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+19:00:27.787 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+19:00:27.799 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+19:00:27.879 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.14.Final}
+19:00:27.880 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+19:00:27.917 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+19:00:28.055 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+19:00:28.671 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+19:00:28.979 [restartedMain] DEBUG o.s.d.j.r.query.JpaQueryFactory - Looking up query for method findAllByCode
+19:00:28.981 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Looking up named query FinInfo.findAllByCode
+19:00:28.983 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Did not find named query FinInfo.findAllByCode
+19:00:29.045 [restartedMain] DEBUG o.s.d.j.r.query.JpaQueryFactory - Looking up query for method findHqInfosByCode
+19:00:29.046 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Looking up named query HqInfo.findHqInfosByCode
+19:00:29.046 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Did not find named query HqInfo.findHqInfosByCode
+19:00:29.060 [restartedMain] DEBUG o.s.d.j.r.query.JpaQueryFactory - Looking up query for method findByCode
+19:00:29.060 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Looking up named query SnapShot.findByCode
+19:00:29.060 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Did not find named query SnapShot.findByCode
+19:00:29.087 [restartedMain] DEBUG o.s.d.j.r.query.JpaQueryFactory - Looking up query for method findByCode
+19:00:29.087 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Looking up named query SecondCalculationUnit.findByCode
+19:00:29.088 [restartedMain] DEBUG o.s.d.j.r.query.NamedQuery - Did not find named query SecondCalculationUnit.findByCode
+19:00:29.622 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@54ff4e23: startup date [Mon Jan 21 19:00:23 CST 2019]; root of context hierarchy
+19:00:29.656 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+19:00:29.690 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/basic/init],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.BasicController.init()
+19:00:29.691 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/basic/ori2First],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.BasicController.ori2First()
+19:00:29.692 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/basic/first2Second],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.BasicController.first2Second()
+19:00:29.693 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/calculator/getRandomUnit],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.CalculatorController.genRandom()
+19:00:29.695 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/calculator/calculatorChart],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.CalculatorController.calculatorChart(int)
+19:00:29.695 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/calculator/calculatorChartStatistics],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.CalculatorController.calculatorChartStatistics(int)
+19:00:29.696 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/calculator/calculatorStatistics],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.CalculatorController.calculatorStatistics(int)
+19:00:29.697 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/forecast/chartForecast/{times}/{code}],methods=[GET]}" onto public personal.xuzj157.stocksyn.pojo.vo.JsonResponse<java.lang.Double> personal.xuzj157.stocksyn.controller.ForecastController.chartForecast(java.lang.String,java.lang.String)
+19:00:29.697 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/forecast/chartStatisticsForecast/{name}/{code}],methods=[GET]}" onto public personal.xuzj157.stocksyn.pojo.vo.JsonResponse personal.xuzj157.stocksyn.controller.ForecastController.chartStatisticsForecast(java.lang.String,java.lang.String)
+19:00:29.699 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/crawler/all],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.TestController.getAll() throws java.net.URISyntaxException
+19:00:29.699 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/baidu/null],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.TestController.baiduTest()
+19:00:29.699 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/baidu/params],methods=[GET]}" onto public void personal.xuzj157.stocksyn.controller.TestController.baiduTest(int,int,java.lang.String)
+19:00:29.700 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/xueqiuCompInfo]}" onto public void personal.xuzj157.stocksyn.controller.TestController.xueqiuCompInfo()
+19:00:29.700 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/shouhu]}" onto public void personal.xuzj157.stocksyn.controller.TestController.shouhuTest()
+19:00:29.700 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/xueqiuFin]}" onto public void personal.xuzj157.stocksyn.controller.TestController.xueqiuFin()
+19:00:29.700 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/test/dongfang]}" onto public void personal.xuzj157.stocksyn.controller.TestController.GetAllTest() throws java.net.URISyntaxException
+19:00:29.704 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+19:00:29.705 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+19:00:29.753 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+19:00:29.753 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+19:00:29.808 [restartedMain] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+19:00:30.266 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+19:00:30.294 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/auditevents],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.295 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/beans],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.295 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/health],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.295 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/conditions],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.295 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/configprops],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.296 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/env],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.296 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/env/{toMatch}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.296 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/info],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.296 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/loggers],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.297 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/loggers/{name}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.299 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/loggers/{name}],methods=[POST],consumes=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.299 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/heapdump],methods=[GET],produces=[application/octet-stream]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.299 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/threaddump],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.299 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/metrics],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.300 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/metrics/{requiredMetricName}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.300 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/scheduledtasks],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.300 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/httptrace],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.300 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator/mappings],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+19:00:30.304 [restartedMain] INFO  o.s.b.a.e.w.s.WebMvcEndpointHandlerMapping - Mapped "{[/actuator],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto protected java.util.Map<java.lang.String, java.util.Map<java.lang.String, org.springframework.boot.actuate.endpoint.web.Link>> org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping.links(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+19:00:30.429 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+19:00:30.431 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+19:00:30.441 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+19:00:30.461 [restartedMain] INFO  o.a.c.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9902"]
+19:00:30.472 [restartedMain] INFO  o.a.t.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+19:00:30.491 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 9902 (http) with context path ''
+19:00:30.495 [restartedMain] INFO  p.x.stocksyn.StockSynApplication - Started StockSynApplication in 7.767 seconds (JVM running for 8.889)
+19:00:31.424 [RMI TCP Connection(6)-127.0.0.1] INFO  o.a.c.c.C.[.[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+19:00:31.425 [RMI TCP Connection(6)-127.0.0.1] INFO  o.s.w.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+19:00:31.467 [RMI TCP Connection(6)-127.0.0.1] INFO  o.s.w.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 42 ms
+19:00:56.482 [http-nio-9902-exec-2] INFO  p.x.s.utils.CalculationUtils - getRandom finish
+19:00:56.489 [http-nio-9902-exec-2] DEBUG o.s.d.r.c.s.TransactionalRepositoryProxyPostProcessor$CustomAnnotationTransactionAttributeSource - Adding transactional method 'findAll' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly; ''
+19:00:56.517 [http-nio-9902-exec-2] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+19:01:10.388 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000006
+19:01:10.684 [pool-2-thread-8] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000024
+19:01:10.731 [pool-2-thread-14] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000031
+19:01:11.056 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000002
+19:01:11.764 [pool-2-thread-5] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000012
+19:01:12.408 [pool-2-thread-16] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000035
+19:01:12.502 [pool-2-thread-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000021
+19:01:12.618 [pool-2-thread-13] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000030
+19:01:12.674 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000001
+19:01:12.739 [pool-2-thread-10] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000027
+19:01:13.010 [pool-2-thread-9] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000026
+19:01:13.039 [pool-2-thread-15] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000032
+19:01:13.126 [pool-2-thread-6] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000016
+19:01:13.246 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000011
+19:01:13.947 [pool-2-thread-11] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000029
+19:01:14.793 [pool-2-thread-12] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000028
+19:01:26.975 [pool-2-thread-16] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000042
+19:01:26.987 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000034
+19:01:27.136 [pool-2-thread-5] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000040
+19:01:27.643 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000039
+19:01:27.649 [pool-2-thread-14] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000036
+19:01:27.753 [pool-2-thread-6] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000059
+19:01:27.989 [pool-2-thread-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000043
+19:01:28.002 [pool-2-thread-10] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000049
+19:01:28.229 [pool-2-thread-8] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000038
+19:01:28.309 [pool-2-thread-15] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000055
+19:01:28.428 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000050
+19:01:28.727 [pool-2-thread-11] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000062
+19:01:28.749 [pool-2-thread-13] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000046
+19:01:29.477 [pool-2-thread-9] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000058
+19:01:33.275 [pool-2-thread-12] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000065
+19:01:33.419 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000060
+19:01:43.091 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000069
+19:01:43.237 [pool-2-thread-5] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000096
+19:01:43.358 [pool-2-thread-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000088
+19:01:43.430 [pool-2-thread-8] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000151
+19:01:43.565 [pool-2-thread-16] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000070
+19:01:43.654 [pool-2-thread-6] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000099
+19:01:43.729 [pool-2-thread-10] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000100
+19:01:43.953 [pool-2-thread-14] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000078
+19:01:44.143 [pool-2-thread-11] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000157
+19:01:44.174 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000090
+19:01:44.320 [pool-2-thread-15] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000150
+19:01:45.232 [pool-2-thread-9] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000301
+19:01:45.447 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000153
+19:01:45.637 [pool-2-thread-13] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000338
+19:01:49.133 [pool-2-thread-12] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000401
+19:01:51.164 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000402
+19:01:57.972 [pool-2-thread-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000409
+19:01:58.315 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000404
+19:01:58.443 [pool-2-thread-8] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000407
+19:01:58.582 [pool-2-thread-16] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000411
+19:01:59.493 [pool-2-thread-10] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000415
+19:01:59.561 [pool-2-thread-6] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000413
+19:02:00.623 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000419
+19:02:00.630 [pool-2-thread-14] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000417
+19:02:00.683 [pool-2-thread-15] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000422
+19:02:00.907 [pool-2-thread-11] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000418
+19:02:01.061 [pool-2-thread-9] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000420
+19:02:01.386 [pool-2-thread-5] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000408
+19:02:01.400 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000423
+19:02:02.942 [pool-2-thread-13] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000421
+19:02:05.373 [pool-2-thread-12] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000426
+19:02:07.491 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000429
+19:02:13.166 [pool-2-thread-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000425
+19:02:13.748 [pool-2-thread-8] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000430
+19:02:14.268 [pool-2-thread-16] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000498
+19:02:14.501 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000488
+19:02:15.382 [pool-2-thread-6] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000501
+19:02:15.749 [pool-2-thread-11] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000511
+19:02:16.130 [pool-2-thread-10] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000502
+19:02:16.570 [pool-2-thread-9] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000517
+19:02:16.710 [pool-2-thread-14] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000507
+19:02:17.374 [pool-2-thread-5] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000513
+19:02:17.600 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000505
+19:02:17.619 [pool-2-thread-15] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000510
+19:02:21.068 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000516
+19:02:21.508 [pool-2-thread-13] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000519
+19:02:23.279 [pool-2-thread-12] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000520
+19:02:24.800 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000521
+19:02:31.112 [pool-2-thread-16] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000525
+19:02:31.262 [pool-2-thread-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000524
+19:02:31.351 [pool-2-thread-8] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000526
+19:02:32.375 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000529
+19:02:32.747 [pool-2-thread-11] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000531
+19:02:32.892 [pool-2-thread-6] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000528
+19:02:33.256 [pool-2-thread-14] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000539
+19:02:33.734 [pool-2-thread-10] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000530
+19:02:34.081 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000541
+19:02:34.190 [pool-2-thread-9] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000537
+19:02:35.046 [pool-2-thread-15] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000540
+19:02:36.792 [pool-2-thread-5] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000538
+19:02:37.602 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000543
+19:02:40.945 [pool-2-thread-13] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000545
+19:02:41.005 [pool-2-thread-12] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000544
+19:02:42.321 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000546
+19:02:46.655 [pool-2-thread-8] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000550
+19:02:48.586 [pool-2-thread-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000551
+19:02:48.610 [pool-2-thread-16] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000547
+19:02:48.713 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000552
+19:02:48.987 [pool-2-thread-6] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000557
+19:02:48.995 [pool-2-thread-11] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000553
+19:02:49.609 [pool-2-thread-14] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000555
+19:02:49.713 [pool-2-thread-9] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000563
+19:02:50.962 [pool-2-thread-5] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000565
+19:02:51.529 [pool-2-thread-15] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000564
+19:02:52.086 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000559
+19:02:53.099 [pool-2-thread-10] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000560
+19:02:53.448 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000566
+19:02:56.794 [pool-2-thread-12] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000568
+19:02:57.410 [pool-2-thread-13] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000567
+19:03:00.137 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000581
+19:03:02.340 [pool-2-thread-8] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000582
+19:03:03.484 [pool-2-thread-16] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000584
+19:03:04.995 [pool-2-thread-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000585
+19:03:05.068 [pool-2-thread-9] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000599
+19:03:05.601 [pool-2-thread-6] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000591
+19:03:06.103 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000589
+19:03:06.475 [pool-2-thread-14] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000598
+19:03:06.600 [pool-2-thread-11] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000597
+19:03:08.887 [pool-2-thread-5] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000600
+19:03:08.957 [pool-2-thread-15] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000601
+19:03:09.447 [pool-2-thread-10] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000606
+19:03:09.923 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000620
+19:03:10.851 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000603
+19:03:15.307 [pool-2-thread-13] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000617
+19:03:16.147 [pool-2-thread-12] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000616
+19:03:18.460 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000623
+19:03:18.926 [pool-2-thread-8] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000625
+19:03:20.178 [pool-2-thread-16] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000631
+19:03:21.423 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000635
+19:03:21.536 [pool-2-thread-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000627
+19:03:21.805 [pool-2-thread-11] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000639
+19:03:22.211 [pool-2-thread-6] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000630
+19:03:22.666 [pool-2-thread-9] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000629
+19:03:24.904 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000655
+19:03:25.469 [pool-2-thread-10] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000652
+19:03:25.669 [pool-2-thread-15] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000651
+19:03:25.872 [pool-2-thread-14] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000636
+19:03:26.843 [pool-2-thread-5] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000650
+19:03:26.906 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000657
+19:03:34.445 [pool-2-thread-12] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000661
+19:03:34.540 [pool-2-thread-8] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000665
+19:03:34.943 [pool-2-thread-13] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000656
+19:03:35.361 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000662
+19:03:36.100 [pool-2-thread-16] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000666
+19:03:36.600 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000667
+19:03:36.616 [pool-2-thread-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000669
+19:03:36.749 [pool-2-thread-6] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000673
+19:03:37.351 [pool-2-thread-11] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000671
+19:03:37.964 [pool-2-thread-9] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000676
+19:03:39.295 [pool-2-thread-10] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000682
+19:03:39.774 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000683
+19:03:40.723 [pool-2-thread-14] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000685
+19:03:41.956 [pool-2-thread-15] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000680
+19:03:42.318 [pool-2-thread-5] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000686
+19:03:43.491 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000690
+19:03:50.816 [pool-2-thread-8] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000701
+19:03:51.612 [pool-2-thread-6] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000707
+19:03:51.717 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000703
+19:03:52.004 [pool-2-thread-12] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000695
+19:03:52.014 [pool-2-thread-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000708
+19:03:52.198 [pool-2-thread-16] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000705
+19:03:52.815 [pool-2-thread-13] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000698
+19:03:53.066 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000702
+19:03:53.977 [pool-2-thread-9] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000710
+19:03:54.243 [pool-2-thread-11] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000709
+19:03:54.420 [pool-2-thread-10] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000711
+19:03:54.469 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000715
+19:03:55.762 [pool-2-thread-14] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000716
+19:03:57.276 [pool-2-thread-5] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000718
+19:03:57.535 [pool-2-thread-15] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000717
+19:03:58.365 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000722
+19:04:07.138 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000723
+19:04:07.142 [pool-2-thread-8] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000720
+19:04:07.907 [pool-2-thread-6] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000726
+19:04:08.168 [pool-2-thread-13] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000735
+19:04:08.182 [pool-2-thread-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000732
+19:04:08.396 [pool-2-thread-12] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000725
+19:04:08.524 [pool-2-thread-16] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000731
+19:04:08.942 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000733
+19:04:10.364 [pool-2-thread-9] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000736
+19:04:10.813 [pool-2-thread-10] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000739
+19:04:10.961 [pool-2-thread-11] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000738
+19:04:10.993 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000756
+19:04:11.335 [pool-2-thread-5] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000753
+19:04:11.471 [pool-2-thread-15] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000758
+19:04:12.002 [pool-2-thread-14] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000757
+19:04:14.497 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000759
+19:04:22.462 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000761
+19:04:23.450 [pool-2-thread-8] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000766
+19:04:23.649 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000785
+19:04:23.671 [pool-2-thread-16] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000783
+19:04:23.914 [pool-2-thread-6] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000767
+19:04:23.961 [pool-2-thread-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000778
+19:04:25.296 [pool-2-thread-5] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000797
+19:04:25.592 [pool-2-thread-13] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000776
+19:04:25.800 [pool-2-thread-12] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000782
+19:04:26.213 [pool-2-thread-11] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000791
+19:04:26.464 [pool-2-thread-14] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000799
+19:04:26.521 [pool-2-thread-10] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000789
+19:04:26.731 [pool-2-thread-15] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000798
+19:04:26.948 [pool-2-thread-9] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000786
+19:04:27.507 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000795
+19:04:38.562 [pool-2-thread-16] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000818
+19:04:38.584 [pool-2-thread-8] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000813
+19:04:38.586 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000811
+19:04:38.587 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000810
+19:04:38.642 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000819
+19:04:39.522 [pool-2-thread-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000822
+19:04:40.243 [pool-2-thread-6] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000821
+19:04:41.016 [pool-2-thread-13] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000825
+19:04:41.042 [pool-2-thread-11] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000828
+19:04:41.127 [pool-2-thread-5] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000826
+19:04:41.334 [pool-2-thread-10] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000833
+19:04:41.733 [pool-2-thread-9] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000848
+19:04:42.356 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000850
+19:04:42.515 [pool-2-thread-12] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000823
+19:04:43.234 [pool-2-thread-14] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000830
+19:04:43.648 [pool-2-thread-15] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000836
+19:04:53.376 [pool-2-thread-7] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000869
+19:04:53.394 [pool-2-thread-16] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000860
+19:04:53.751 [pool-2-thread-8] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000858
+19:04:54.301 [pool-2-thread-3] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000859
+19:04:54.498 [pool-2-thread-2] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000861
+19:04:54.613 [pool-2-thread-4] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000862
+19:04:56.789 [pool-2-thread-13] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000876
+19:04:56.824 [pool-2-thread-6] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000878
+19:04:56.927 [pool-2-thread-5] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000880
+19:04:57.038 [pool-2-thread-11] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000877
+19:04:57.076 [pool-2-thread-9] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000882
+19:04:58.049 [pool-2-thread-10] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000885
+19:04:59.368 [pool-2-thread-14] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000886
+19:04:59.616 [pool-2-thread-15] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000892
+19:05:00.046 [pool-2-thread-1] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000883
+19:05:01.169 [pool-2-thread-12] INFO  p.x.s.s.i.CalculatorServiceImpl - finish: 000881
