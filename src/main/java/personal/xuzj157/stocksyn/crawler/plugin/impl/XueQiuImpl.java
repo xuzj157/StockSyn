@@ -30,7 +30,7 @@ public class XueQiuImpl implements XueQiuService {
 
     private String urlConInfo = "https://xueqiu.com/stock/f10/compinfo.json";
     private String urlFin = "https://xueqiu.com/stock/f10/finmainindex.json";
-    private String cookie = "device_id=041a0db67913d4c6605ddb87a965b825; s=f011oda2d4; xq_a_token=019174f18bf425d22c8e965e48243d9fcfbd2cc0; xq_a_token.sig=_pB0kKy3fV9fvtvkOzxduQTrp7E; xq_r_token=2d465aa5d312fbe8d88b4e7de81e1e915de7989a; xq_r_token.sig=lOCElS5ycgbih9P-Ny3cohQ-FSA; u=541528599373607; Hm_lvt_1db88642e346389874251b5a1eded6e3=1528599374; _ga=GA1.2.1745805919.1528599374; _gid=GA1.2.1376658282.1528599374; _gat_gtag_UA_16079156_4=1; aliyungf_tc=AQAAAKKCFEudvgQA6ReftKmuuxmwnO60; __utma=1.33644132.1521944443.1525164850.1528599382.18; __utmc=1; __utmz=1.1528599382.18.4.utmcsr=xueqiu.com|utmccn=(referral)|utmcmd=referral|utmcct=/; __utmt=1; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1528599387; __utmb=1.2.10.1528599382";
+    private String cookie = "xq_a_token=dac65245b3a3efae1b7df05a0da1e391a1dc9135; xq_a_token.sig=2jFI2opILtFxo21yBLvZ2SnDNZA; xq_r_token=24a12835d176d574c10d976cfc672b9a9d73eba7; xq_r_token.sig=uCuclRLKQMgHs7hWYxhcbMUHu-s; _ga=GA1.2.1428376186.1509680287; _gid=GA1.2.1493123690.1548047320; Hm_lvt_1db88642e346389874251b5a1eded6e3=1548047320; u=611548047323282; device_id=572a380f09087c7e1fccd6bbc24906e9; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1548047359";
 
     @Autowired
     RestTemplate restTemplate;

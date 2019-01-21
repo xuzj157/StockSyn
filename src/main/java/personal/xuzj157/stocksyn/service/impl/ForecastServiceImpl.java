@@ -1,7 +1,5 @@
 package personal.xuzj157.stocksyn.service.impl;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import personal.xuzj157.stocksyn.pojo.bo.RandomUnit;
@@ -25,11 +23,11 @@ public class ForecastServiceImpl implements ForecastService {
     private SecondCalculationUnitRepository secondCalculationUnitRepository;
 
     @Override
-    public double chartForecast(String name, String code) {
-        Map<String, Map<Double, Integer>> statisticsMap = CalculationUtils.findMap(name + "_", "cal_history");
+    public double chartForecast(String times, String code) {
+        Map<String, Map<Double, Integer>> statisticsMap = CalculationUtils.findMap(times + "_", "cal_history");
         SecondCalculationUnit second = secondCalculationUnitRepository.findByCode(code);
         DecimalFormat df;
-        if (Integer.valueOf(name) > 2000000) {
+        if (Integer.valueOf(times) > 2000000) {
             df = new DecimalFormat("#.#");
         } else {
             df = new DecimalFormat("#.#");
@@ -37,7 +35,7 @@ public class ForecastServiceImpl implements ForecastService {
 
         Map<Double, Integer> map = new HashMap<>();
         for (int i = 0; i < 100; i++) {
-            List<RandomUnit> randomUnitList = CalculationUtils.getRandom(Integer.valueOf(name));
+            List<RandomUnit> randomUnitList = CalculationUtils.getRandom(Integer.valueOf(times));
             for (RandomUnit randomUnit : randomUnitList) {
                 double randomSum = CalculationUtils.getSum(randomUnit, second);
                 randomSum = Double.parseDouble(df.format(randomSum));
@@ -58,7 +56,7 @@ public class ForecastServiceImpl implements ForecastService {
             statisticsMap.put(entry.getKey(), CalculationUtils.mapSort(entry.getValue(), 1));
         }
 
-        LineChartUtils.allInOne(statisticsMap, name + " " + code, "", "", 2048, 950);
+        LineChartUtils.allInOne(statisticsMap, times + " " + code, "", "", 2048, 950);
         return second.getUpRate();
     }
 

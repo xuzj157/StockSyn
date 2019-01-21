@@ -10,6 +10,7 @@ import personal.xuzj157.stocksyn.pojo.bo.SecondCalculationUnit;
 import personal.xuzj157.stocksyn.pojo.bo.SumUnit;
 
 import java.util.*;
+import java.util.logging.Logger;
 
 @Slf4j
 public class CalculationUtils {
@@ -104,8 +105,11 @@ public class CalculationUtils {
             }
             resultMap.put(entry.getKey(), map);
         }
-
-        MongoDB.writeResultObjectToDB(collectionName, resultMap);
+        try {
+            MongoDB.writeResultObjectToDB(collectionName, resultMap);
+        } catch (Exception e) {
+            log.error("mongo\n" + e);
+        }
     }
 
     /**

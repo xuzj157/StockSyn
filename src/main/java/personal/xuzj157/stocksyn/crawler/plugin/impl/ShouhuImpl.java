@@ -34,35 +34,39 @@ public class ShouhuImpl implements ShouhuService {
     public void getHistory() {
 
         List<Symbol> symbolList = symbolRepository.findAll();
-        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(10);
+        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(8);
 
         for (Symbol symbol : symbolList) {
             String symbolStr = symbol.getStockCode();
             fixedThreadPool.execute(() -> {
-                String resultStr = restTemplate.getForObject(String.format(urlHistory, symbolStr), String.class);
-                resultStr = resultStr.replaceAll("historySearchHandler\\(", "");
-                resultStr = resultStr.replaceAll("\\)", "");
-                JSONArray jsonArray = JSONArray.parseArray(resultStr);
-                int status = jsonArray.getJSONObject(0).getInteger("status");
-                if (status == 0) {
-                    List<HqInfo> hqInfoList = new ArrayList<>();
-                    JSONArray hqArray = jsonArray.getJSONObject(0).getJSONArray("hq");
-                    for (int i = 0; i < hqArray.size(); i++) {
-                        HqInfo hqInfo = new HqInfo();
-                        hqInfo.setData(hqArray.getJSONArray(i).getString(0).replaceAll("-", ""));
-                        hqInfo.setOpen(Double.valueOf(hqArray.getJSONArray(i).getString(1)));
-                        hqInfo.setClose(Double.valueOf(hqArray.getJSONArray(i).getString(2)));
-                        hqInfo.setFloatW(Double.valueOf(hqArray.getJSONArray(i).getString(3)));
-                        hqInfo.setFloatPre(Double.valueOf(hqArray.getJSONArray(i).getString(4).replaceAll("%", "")));
-                        hqInfo.setLowPrice(Double.valueOf(hqArray.getJSONArray(i).getString(5)));
-                        hqInfo.setHighPrice(Double.valueOf(hqArray.getJSONArray(i).getString(6)));
-                        hqInfo.setVol(Double.valueOf(hqArray.getJSONArray(i).getString(7)) / 100);
-                        hqInfo.setVolPrice(Double.valueOf(hqArray.getJSONArray(i).getString(8)));
-                        hqInfo.setExchangeRate(Double.valueOf(hqArray.getJSONArray(i).getString(9).replaceAll("%", "")));
-                        hqInfo.setCode(symbol.getStockCode());
-                        hqInfoList.add(hqInfo);
+                try {
+                    String resultStr = restTemplate.getForObject(String.format(urlHistory, symbolStr), String.class);
+                    resultStr = resultStr.replaceAll("historySearchHandler\\(", "");
+                    resultStr = resultStr.replaceAll("\\)", "");
+                    JSONArray jsonArray = JSONArray.parseArray(resultStr);
+                    int status = jsonArray.getJSONObject(0).getInteger("status");
+                    if (status == 0) {
+                        List<HqInfo> hqInfoList = new ArrayList<>();
+                        JSONArray hqArray = jsonArray.getJSONObject(0).getJSONArray("hq");
+                        for (int i = 0; i < hqArray.size(); i++) {
+                            HqInfo hqInfo = new HqInfo();
+                            hqInfo.setData(hqArray.getJSONArray(i).getString(0).replaceAll("-", ""));
+                            hqInfo.setOpen(Double.valueOf(hqArray.getJSONArray(i).getString(1)));
+                            hqInfo.setClose(Double.valueOf(hqArray.getJSONArray(i).getString(2)));
+                            hqInfo.setFloatW(Double.valueOf(hqArray.getJSONArray(i).getString(3)));
+                            hqInfo.setFloatPre(Double.valueOf(hqArray.getJSONArray(i).getString(4).replaceAll("%", "")));
+                            hqInfo.setLowPrice(Double.valueOf(hqArray.getJSONArray(i).getString(5)));
+                            hqInfo.setHighPrice(Double.valueOf(hqArray.getJSONArray(i).getString(6)));
+                            hqInfo.setVol(Double.valueOf(hqArray.getJSONArray(i).getString(7)) / 100);
+                            hqInfo.setVolPrice(Double.valueOf(hqArray.getJSONArray(i).getString(8)));
+                            hqInfo.setExchangeRate(Double.valueOf(hqArray.getJSONArray(i).getString(9).replaceAll("%", "")));
+                            hqInfo.setCode(symbol.getStockCode());
+                            hqInfoList.add(hqInfo);
+                        }
+                        hqInfoRepository.saveAll(hqInfoList);
                     }
-                    hqInfoRepository.saveAll(hqInfoList);
+                } catch (Exception e) {
+                    log.error("搜狐抓取失败 symbolStr： " + symbolStr + "\n", e);
                 }
             });
         }

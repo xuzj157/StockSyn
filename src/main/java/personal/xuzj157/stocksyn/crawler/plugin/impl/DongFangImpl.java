@@ -61,10 +61,20 @@ public class DongFangImpl implements DongFangService {
         elements = document.getElementById("quotesearch").getElementsByTag("ul").get(1).getElementsByTag("li");
         for (Element element : elements) {
             String text = element.text();
-            String regex = "((6|0|3)0[0-3][0-9][0-9][0-9])";
+            String regex = "((0|3)0[0-3][0-9][0-9][0-9])";
             String code = regexString(regex, text);
             if (!isEmpty(code)) {
                 symbolList.add(new Symbol(code, "SZ"));
+            }
+        }
+
+        elements = document.getElementById("quotesearch").getElementsByTag("ul").get(0).getElementsByTag("li");
+        for (Element element : elements) {
+            String text = element.text();
+            String regex = "(60[0-3][0-9][0-9][0-9])";
+            String code = regexString(regex, text);
+            if (!isEmpty(code)) {
+                symbolList.add(new Symbol(code, "SH"));
             }
         }
 
