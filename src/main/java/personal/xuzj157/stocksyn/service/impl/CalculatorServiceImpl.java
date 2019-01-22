@@ -1,14 +1,17 @@
 package personal.xuzj157.stocksyn.service.impl;
 
+import com.mongodb.client.model.geojson.CoordinateReferenceSystem;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import personal.xuzj157.stocksyn.pojo.bo.*;
+import personal.xuzj157.stocksyn.pojo.vo.Coordinate;
 import personal.xuzj157.stocksyn.repository.calculationUnit.RandomUnitRepository;
 import personal.xuzj157.stocksyn.repository.calculationUnit.SecondCalculationUnitRepository;
 import personal.xuzj157.stocksyn.service.CalculatorService;
 import personal.xuzj157.stocksyn.utils.CalculationUtils;
 import personal.xuzj157.stocksyn.utils.MongoDB;
 import personal.xuzj157.stocksyn.utils.chart.LineChartUtils;
+import personal.xuzj157.stocksyn.utils.chart.ScatterPlotUtils;
 
 import javax.annotation.Resource;
 import java.text.DecimalFormat;
@@ -137,7 +140,6 @@ public class CalculatorServiceImpl implements CalculatorService {
     }
 
 
-
     @Override
     public void calculatorChart(int times) {
         ExecutorService fixedThreadPool = Executors.newFixedThreadPool(16);
@@ -154,7 +156,7 @@ public class CalculatorServiceImpl implements CalculatorService {
         Map<Double, Integer> downMap = new HashMap<>();
         for (SecondCalculationUnit second : secondList) {
 
-            fixedThreadPool.execute(()->{
+            fixedThreadPool.execute(() -> {
                 double uprate = second.getUpRate();
                 if (uprate > 0) {
                     upNum.getAndSet(upNum.get() + 1);
@@ -186,7 +188,7 @@ public class CalculatorServiceImpl implements CalculatorService {
             });
         }
 
-        while (!fixedThreadPool.isTerminated()){
+        while (!fixedThreadPool.isTerminated()) {
             try {
                 new Thread().sleep(100000l);
                 System.out.println("未执行完成");
@@ -268,5 +270,25 @@ public class CalculatorServiceImpl implements CalculatorService {
         }
     }
 
+    @Override
+    public void cal() throws Exception {
+        List<SecondCalculationUnit> secondList = secondCalculationUnitRepository.findAll();
+        List<Coordinate> coordinateUp = new ArrayList<>();
+        List<Coordinate> coordinateDown = new ArrayList<>();
+        for (SecondCalculationUnit secondCalculationUnit : secondList) {
+            Coordinate coordinate = new Coordinate();
+            coordinate.setXAxis(Math.abs(secondCalculationUnit.getUpRate()));
+            coordinate.setYAxis(secondCalculationUnit.getLowHistoryPrice());
+            if (secondCalculationUnit.getUpRate() < 0) {
+                coordinateUp.add(coordinate);
+            } else {
+                coordinateDown.add(coordinate);
+            }
+        }
+        Map<String, List<Coordinate>> map = new HashMap<>();
+        map.put("up", coordinateUp);
+        map.put("down", coordinateDown);
+        ScatterPlotUtils.allInOne(map,"title","x","y",1000,800);
+    }
 
 }

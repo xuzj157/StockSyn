@@ -20,4 +20,6 @@ public interface CalculatorService {
      * @param times
      */
     void calculatorChartStatistics(int times);
+
+    void cal() throws Exception;
 }

@@ -35,4 +35,13 @@ public class CalculatorController {
         calculatorService.calculatorChartStatistics(times);
     }
 
+    @GetMapping("/cal")
+    public void cal(){
+        try {
+            calculatorService.cal();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -34,7 +34,7 @@ public class ShouhuImpl implements ShouhuService {
     public void getHistory() {
 
         List<Symbol> symbolList = symbolRepository.findAll();
-        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(8);
+        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(2);
 
         for (Symbol symbol : symbolList) {
             String symbolStr = symbol.getStockCode();
