@@ -10,5 +10,5 @@ import java.util.List;
 public interface FinInfoRepository extends PagingAndSortingRepository<FinInfo, String> {
     List<FinInfo> findAll();
 
-    List<FinInfo> findAllByCode(String code);
+    List<FinInfo> findAllByCodeOrderByReportDateDesc(String code);
 }

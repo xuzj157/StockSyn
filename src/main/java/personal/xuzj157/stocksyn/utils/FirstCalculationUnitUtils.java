@@ -14,17 +14,18 @@ public class FirstCalculationUnitUtils {
      *
      * @return
      */
-    public static Double getUpDate(List<HqInfo> hqInfoList) {
+    public static Double getUpDate(List<HqInfo> hqInfoList, int days) {
         double lastThirty = 0;
         double firstThirty = 0;
-        for (int i = hqInfoList.size() - 30; i < hqInfoList.size(); i++) {
+        int halfDays = days / 2;
+        for (int i = hqInfoList.size() - halfDays; i < hqInfoList.size(); i++) {
             lastThirty = lastThirty + SymbolUtils.getAvgOneDay(hqInfoList.get(i));
         }
-        for (int i = hqInfoList.size() - 60; i < hqInfoList.size() - 30; i++) {
+        for (int i = hqInfoList.size() - days; i < hqInfoList.size() - halfDays; i++) {
             firstThirty = firstThirty + SymbolUtils.getAvgOneDay(hqInfoList.get(i));
         }
-        double a = (1.0 / 4.0) * (firstThirty / 30.0) + (3.0 / 4.0) * (lastThirty / 30.0);
-        double b = getSomedayPrice(hqInfoList, 60);
+        double a = (1.0 / 4.0) * (firstThirty / (double) halfDays) + (3.0 / 4.0) * (lastThirty / (double) halfDays);
+        double b = getSomedayPrice(hqInfoList, days);
         return (a - b) / b * 100.0;
     }
 

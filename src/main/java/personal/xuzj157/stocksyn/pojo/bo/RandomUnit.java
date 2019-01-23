@@ -85,7 +85,37 @@ public class RandomUnit {
     /**
      * 历史最低价 / 时价
      */
-    private double lowHistoryPrice = MathUtils.logicS(Math.random(), 6, 4);
+    private double lowHistoryPrice = MathUtils.logicS(Math.random(), 1, 4);
+
+    /**
+     * 每股收益 / 时价
+     */
+    private double basiceps = MathUtils.logicS(Math.random(), 1, 4);
+    /**
+     * 每股净资产 / 时价
+     */
+    private double naps = MathUtils.logicS(Math.random(), 1, 4);
+    /**
+     * 每股现金流 / 时价
+     */
+    private double oPerCashPerShare = MathUtils.logicS(Math.random(), 1, 4);
+    /**
+     * 净资产增长率(%)
+     */
+    private double netassgrowrate = MathUtils.logicS(Math.random(), 1, 4);
+    /**
+     * 净资产收益率(加权)(%)
+     */
+    private double weightedroe = MathUtils.logicS(Math.random(), 1, 4);
+    /**
+     * 主营业务收入增长率(%)
+     */
+    private double mainBusincGrowRate = MathUtils.logicS(Math.random(), 1, 4);
+    /**
+     * 总资产增长率(%)
+     */
+    private double totassgrowrate = MathUtils.logicS(Math.random(), 1, 4);
+
 
     @Override
     public boolean equals(Object o) {

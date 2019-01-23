@@ -11,5 +11,5 @@ import java.util.List;
 public interface HqInfoRepository extends JpaRepository<HqInfo, String>, JpaSpecificationExecutor {
 
     List<HqInfo> findAll();
-    List<HqInfo> findHqInfosByCode(String code);
+    List<HqInfo> findHqInfosByCodeOrderByDataAsc(String code);
 }

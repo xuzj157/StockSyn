@@ -8,6 +8,7 @@ import personal.xuzj157.stocksyn.pojo.bo.RandomUnit;
 import personal.xuzj157.stocksyn.pojo.bo.RandomUnitS;
 import personal.xuzj157.stocksyn.pojo.bo.SecondCalculationUnit;
 import personal.xuzj157.stocksyn.pojo.bo.SumUnit;
+import sun.management.StackTraceElementCompositeData;
 
 import java.util.*;
 import java.util.logging.Logger;
@@ -35,6 +36,16 @@ public class CalculationUtils {
         sum = sum + randomUnit.getLowFourHundredPrice() * second.getLowFourHundredPrice();
         sum = sum + randomUnit.getHistoryPrice() * second.getLowHistoryPrice();
         sum = sum + randomUnit.getLowHistoryPrice() * second.getLowHistoryPrice();
+        sum = sum + randomUnit.getBasiceps() * second.getBasiceps();
+        sum = sum + randomUnit.getNaps() * second.getNaps();
+        sum = sum + randomUnit.getOPerCashPerShare() * second.getOPerCashPerShare();
+        sum = sum + randomUnit.getNetassgrowrate() * second.getNetassgrowrate();
+        sum = sum + randomUnit.getWeightedroe() * second.getWeightedroe();
+        sum = sum + randomUnit.getMainBusincGrowRate() * second.getMainBusincGrowRate();
+        sum = sum + randomUnit.getTotassgrowrate() * second.getTotassgrowrate();
+        if (sum > 100){
+            System.out.println();
+        }
         return sum;
     }
 

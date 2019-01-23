@@ -38,7 +38,7 @@ public class BasicServiceImpl implements BasicService {
 
 
     @Override
-    public void ori2First() {
+    public void ori2First(int days) {
         List<Symbol> symbolList = symbolRepository.findAll();
         ExecutorService executorService = Executors.newFixedThreadPool(6);
 
@@ -62,11 +62,11 @@ public class BasicServiceImpl implements BasicService {
                 FirstCalculationUnit firstCalculationUnit = new FirstCalculationUnit();
                 code = symbol.getStockCode();
                 SnapShot snapShot = snapShotRepository.findByCode(code);
-                List<FinInfo> finInfoList = finInfoRepository.findAllByCode(code);
-                List<HqInfo> hqInfoList = hqInfoRepository.findHqInfosByCode(code);
+                List<FinInfo> finInfoList = finInfoRepository.findAllByCodeOrderByReportDateDesc(code);
+                List<HqInfo> hqInfoList = hqInfoRepository.findHqInfosByCodeOrderByDataAsc(code);
 
                 //筛选条件
-                if (hqInfoList.size() > 900) {
+                if (hqInfoList.size() > 600) {
                     if (snapShot.getPeratio() < 50.0 && snapShot.getPeratio() != 0) {
                         firstCalculationUnit.setCode(code);
 //                    ----------------------------------SnapShot操作-----------------------------
@@ -76,86 +76,86 @@ public class BasicServiceImpl implements BasicService {
                         firstCalculationUnit.setBvRatio(bvRatio);
 //                -------------------------------------hqInfoList相关操作------------------------------------------------------
                         //upRate
-                        upRate = FirstCalculationUnitUtils.getUpDate(hqInfoList);
+                        upRate = FirstCalculationUnitUtils.getUpDate(hqInfoList, days);
                         firstCalculationUnit.setUpRate(upRate);
                         //nowPrice
-                        nowPrice = FirstCalculationUnitUtils.getSomedayPrice(hqInfoList, 60);
+                        nowPrice = FirstCalculationUnitUtils.getSomedayPrice(hqInfoList, days);
                         firstCalculationUnit.setNowPrice(nowPrice);
                         //fifteenPrice
-                        fifteenPrice = FirstCalculationUnitUtils.getAvgPeriodPrice(hqInfoList, 75, 60);
+                        fifteenPrice = FirstCalculationUnitUtils.getAvgPeriodPrice(hqInfoList, days + 15, days);
                         firstCalculationUnit.setFifteenPrice(fifteenPrice);
                         //lowFifteenPrice
-                        lowFifteenPrice = FirstCalculationUnitUtils.getLowPeriodPrice(hqInfoList, 75, 60);
+                        lowFifteenPrice = FirstCalculationUnitUtils.getLowPeriodPrice(hqInfoList, days + 15, days);
                         firstCalculationUnit.setLowFifteenPrice(lowFifteenPrice);
                         //thirtyPrice
-                        thirtyPrice = FirstCalculationUnitUtils.getAvgPeriodPrice(hqInfoList, 90, 60);
+                        thirtyPrice = FirstCalculationUnitUtils.getAvgPeriodPrice(hqInfoList, days + 30, days);
                         firstCalculationUnit.setThirtyPrice(thirtyPrice);
                         //lowThirtyPrice
-                        lowThirtyPrice = FirstCalculationUnitUtils.getLowPeriodPrice(hqInfoList, 90, 60);
+                        lowThirtyPrice = FirstCalculationUnitUtils.getLowPeriodPrice(hqInfoList, days + 30, days);
                         firstCalculationUnit.setLowThirtyPrice(lowThirtyPrice);
                         //sixtyPrice
-                        sixtyPrice = FirstCalculationUnitUtils.getAvgPeriodPrice(hqInfoList, 120, 60);
+                        sixtyPrice = FirstCalculationUnitUtils.getAvgPeriodPrice(hqInfoList, days + 60, days);
                         firstCalculationUnit.setSixtyPrice(sixtyPrice);
                         //lowSixtyPrice
-                        lowSixtyPrice = FirstCalculationUnitUtils.getLowPeriodPrice(hqInfoList, 120, 60);
+                        lowSixtyPrice = FirstCalculationUnitUtils.getLowPeriodPrice(hqInfoList, days + 60, days);
                         firstCalculationUnit.setLowSixtyPrice(lowSixtyPrice);
                         //oneEightyPrice
-                        oneEightyPrice = FirstCalculationUnitUtils.getAvgPeriodPrice(hqInfoList, 240, 60);
+                        oneEightyPrice = FirstCalculationUnitUtils.getAvgPeriodPrice(hqInfoList, days + 180, days);
                         firstCalculationUnit.setOneEightyPrice(oneEightyPrice);
                         //lowOneEightyPrice
-                        lowOneEightyPrice = FirstCalculationUnitUtils.getLowPeriodPrice(hqInfoList, 240, 60);
+                        lowOneEightyPrice = FirstCalculationUnitUtils.getLowPeriodPrice(hqInfoList, days + 180, days);
                         firstCalculationUnit.setLowOneEightyPrice(lowOneEightyPrice);
                         //fourHundredPrice
-                        fourHundredPrice = FirstCalculationUnitUtils.getAvgPeriodPrice(hqInfoList, 460, 60);
+                        fourHundredPrice = FirstCalculationUnitUtils.getAvgPeriodPrice(hqInfoList, days + 400, days);
                         firstCalculationUnit.setFourHundredPrice(fourHundredPrice);
                         //lowFourHundredPrice
-                        lowFourHundredPrice = FirstCalculationUnitUtils.getLowPeriodPrice(hqInfoList, 460, 60);
+                        lowFourHundredPrice = FirstCalculationUnitUtils.getLowPeriodPrice(hqInfoList, days + 400, days);
                         firstCalculationUnit.setLowFourHundredPrice(lowFourHundredPrice);
                         //historyPrice
-                        historyPrice = FirstCalculationUnitUtils.getAvgPeriodPrice(hqInfoList, hqInfoList.size(), 60);
+                        historyPrice = FirstCalculationUnitUtils.getAvgPeriodPrice(hqInfoList, hqInfoList.size(), days);
                         firstCalculationUnit.setHistoryPrice(historyPrice);
                         //lowHistoryPrice
-                        lowHistoryPrice = FirstCalculationUnitUtils.getLowPeriodPrice(hqInfoList, hqInfoList.size(), 60);
+                        lowHistoryPrice = FirstCalculationUnitUtils.getLowPeriodPrice(hqInfoList, hqInfoList.size(), days);
                         firstCalculationUnit.setLowHistoryPrice(lowHistoryPrice);
 //                    ----------------------------FinInfo操作---------------------------------------------
                         //basiceps
-                        basiceps = finInfoList.get(finInfoList.size() - 2).getBasiceps();
+                        basiceps = finInfoList.get(0).getBasiceps();
                         firstCalculationUnit.setBasiceps(basiceps);
                         //naps
-                        naps = finInfoList.get(finInfoList.size() - 2).getNaps();
+                        naps = finInfoList.get(0).getNaps();
                         firstCalculationUnit.setNaps(naps);
                         //oPerCashPerShare
-                        oPerCashPerShare = finInfoList.get(finInfoList.size() - 2).getOPerCashPerShare();
+                        oPerCashPerShare = finInfoList.get(0).getOPerCashPerShare();
                         firstCalculationUnit.setOPerCashPerShare(oPerCashPerShare);
                         //netassgrowrate
-                        netassgrowrate = finInfoList.get(finInfoList.size() - 2).getNetassgrowrate();
+                        netassgrowrate = finInfoList.get(0).getNetassgrowrate();
                         firstCalculationUnit.setNetassgrowrate(netassgrowrate);
                         //weightedroe
-                        weightedroe = finInfoList.get(finInfoList.size() - 2).getWeightedroe();
+                        weightedroe = finInfoList.get(0).getWeightedroe();
                         firstCalculationUnit.setWeightedroe(weightedroe);
                         //mainBusincGrowRate
-                        mainBusincGrowRate = finInfoList.get(finInfoList.size() - 2).getMainBusincGrowRate();
+                        mainBusincGrowRate = finInfoList.get(0).getMainBusincGrowRate();
                         firstCalculationUnit.setMainBusincGrowRate(mainBusincGrowRate);
                         //totassgrowrate
-                        totassgrowrate = finInfoList.get(finInfoList.size() - 2).getTotassgrowrate();
+                        totassgrowrate = finInfoList.get(0).getTotassgrowrate();
                         firstCalculationUnit.setTotassgrowrate(totassgrowrate);
                         //netincGrowRate
-                        netincGrowRate = finInfoList.get(finInfoList.size() - 2).getNetincGrowRate();
+                        netincGrowRate = finInfoList.get(0).getNetincGrowRate();
                         firstCalculationUnit.setNetincGrowRate(netincGrowRate);
                         //mainbusiincome
-                        mainbusiincome = finInfoList.get(finInfoList.size() - 2).getMainbusiincome();
+                        mainbusiincome = finInfoList.get(0).getMainbusiincome();
                         firstCalculationUnit.setMainbusiincome(mainbusiincome);
                         //mainbusiincomeAvg
                         mainbusiincomeAvg = FirstCalculationUnitUtils.getMainbusiincomeAvg(finInfoList);
                         firstCalculationUnit.setMainbusiincomeAvg(mainbusiincomeAvg);
                         //netprofit
-                        netprofit = finInfoList.get(finInfoList.size() - 2).getNetprofit();
+                        netprofit = finInfoList.get(0).getNetprofit();
                         firstCalculationUnit.setNetprofit(netprofit);
                         //netprofitAvg
                         netprofitAvg = FirstCalculationUnitUtils.getNetprofitAvg(finInfoList);
                         firstCalculationUnit.setNetprofitAvg(netprofitAvg);
                         //totalassets
-                        totalassets = finInfoList.get(finInfoList.size() - 2).getTotalassets();
+                        totalassets = finInfoList.get(0).getTotalassets();
                         firstCalculationUnit.setTotalassets(totalassets);
                         //totalassetsAvg
                         totalassetsAvg = FirstCalculationUnitUtils.getTotalassetsAvg(finInfoList);
@@ -184,10 +184,10 @@ public class BasicServiceImpl implements BasicService {
             second.setTotalassets(MathUtils.logicS(first.getTotalassets(), first.getTotalassetsAvg()));
             second.setPeratio(MathUtils.logicS(first.getPeratio(), basicUnit.getPeratioAvg()));
             second.setBvRatio(MathUtils.logicS(first.getBvRatio(), basicUnit.getBvRatioAvg()));
-            second.setNetassgrowrate(first.getNetassgrowrate());
-            second.setWeightedroe(first.getWeightedroe());
-            second.setMainBusincGrowRate(first.getMainBusincGrowRate());
-            second.setTotassgrowrate(first.getTotassgrowrate());
+            second.setNetassgrowrate(first.getNetassgrowrate() / 100.0);
+            second.setWeightedroe(first.getWeightedroe() / 100.0);
+            second.setMainBusincGrowRate(first.getMainBusincGrowRate() / 100.0);
+            second.setTotassgrowrate(first.getTotassgrowrate() / 100.0);
 
             double now = first.getNowPrice();
             second.setBasiceps(first.getBasiceps() / now);

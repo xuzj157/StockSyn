@@ -21,7 +21,7 @@ import java.util.concurrent.Executors;
 @Service
 public class ShouhuImpl implements ShouhuService {
 
-    private String urlHistory = "http://q.stock.sohu.com/hisHq?code=cn_%s&start=19960101&end=20180330&stat=1&order=D&period=d&callback=historySearchHandler&rt=jsonp";
+    private String urlHistory = "http://q.stock.sohu.com/hisHq?code=cn_%s&start=19960101&end=20190120&stat=1&order=D&period=d&callback=historySearchHandler&rt=jsonp";
 
     @Resource
     RestTemplate restTemplate;
@@ -34,7 +34,7 @@ public class ShouhuImpl implements ShouhuService {
     public void getHistory() {
 
         List<Symbol> symbolList = symbolRepository.findAll();
-        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(2);
+        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(12);
 
         for (Symbol symbol : symbolList) {
             String symbolStr = symbol.getStockCode();

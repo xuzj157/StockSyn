@@ -1,6 +1,5 @@
 package personal.xuzj157.stocksyn.service.impl;
 
-import com.mongodb.client.model.geojson.CoordinateReferenceSystem;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import personal.xuzj157.stocksyn.pojo.bo.*;
