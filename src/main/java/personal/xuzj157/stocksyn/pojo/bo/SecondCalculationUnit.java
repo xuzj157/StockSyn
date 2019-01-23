@@ -49,6 +49,34 @@ public class SecondCalculationUnit {
      */
     private double bvRatio;
     /**
+     * 每股收益 / 时价
+     */
+    private double basiceps;
+    /**
+     * 每股净资产 / 时价
+     */
+    private double naps;
+    /**
+     * 每股现金流
+     */
+    private double oPerCashPerShare;
+    /**
+     * 净资产增长率(%)
+     */
+    private double netassgrowrate;
+    /**
+     * 净资产收益率(加权)(%)
+     */
+    private double weightedroe;
+    /**
+     * 主营业务收入增长率(%)
+     */
+    private double mainBusincGrowRate;
+    /**
+     * 总资产增长率(%)
+     */
+    private double totassgrowrate;
+    /**
      * 15日均价 / 时价
      */
     private double fifteenPrice;

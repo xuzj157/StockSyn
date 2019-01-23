@@ -54,8 +54,8 @@ public class BasicServiceImpl implements BasicService {
                         fourHundredPrice, lowFourHundredPrice,
                         historyPrice, lowHistoryPrice;
                 Double peratio, bvRatio;
-                Double netincGrowRate,
-                        mainbusiincome, mainbusiincomeAvg,
+                Double naps, basiceps, oPerCashPerShare, netassgrowrate, weightedroe, mainBusincGrowRate, totassgrowrate,
+                        netincGrowRate, mainbusiincome, mainbusiincomeAvg,
                         netprofit, netprofitAvg,
                         totalassets, totalassetsAvg;
 
@@ -118,6 +118,21 @@ public class BasicServiceImpl implements BasicService {
                         lowHistoryPrice = FirstCalculationUnitUtils.getLowPeriodPrice(hqInfoList, hqInfoList.size(), 60);
                         firstCalculationUnit.setLowHistoryPrice(lowHistoryPrice);
 //                    ----------------------------FinInfo操作---------------------------------------------
+                        //basiceps
+                        basiceps = finInfoList.get(finInfoList.size() - 2).getBasiceps();
+                        //naps
+                        naps = finInfoList.get(finInfoList.size() - 2).getNaps();
+                        //oPerCashPerShare
+                        oPerCashPerShare = finInfoList.get(finInfoList.size() - 2).getOPerCashPerShare();
+                        //netassgrowrate
+                        netassgrowrate = finInfoList.get(finInfoList.size() - 2).getNetassgrowrate();
+                        //weightedroe
+                        weightedroe = finInfoList.get(finInfoList.size() - 2).getWeightedroe();
+                        //mainBusincGrowRate
+                        mainBusincGrowRate = finInfoList.get(finInfoList.size() - 2).getMainBusincGrowRate();
+                        //totassgrowrate
+                        totassgrowrate = finInfoList.get(finInfoList.size() - 2).getTotassgrowrate();
+
                         //netincGrowRate
                         netincGrowRate = finInfoList.get(finInfoList.size() - 2).getNetincGrowRate();
                         firstCalculationUnit.setNetincGrowRate(netincGrowRate);
