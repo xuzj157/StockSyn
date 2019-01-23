@@ -36,9 +36,9 @@ public class CalculatorController {
     }
 
     @GetMapping("/cal")
-    public void cal(){
+    public void cal(@RequestParam int times){
         try {
-            calculatorService.cal();
+            calculatorService.cal(times);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -21,5 +21,5 @@ public interface CalculatorService {
      */
     void calculatorChartStatistics(int times);
 
-    void cal() throws Exception;
+    void cal(int times) throws Exception;
 }

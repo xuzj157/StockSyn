@@ -271,9 +271,9 @@ public class CalculatorServiceImpl implements CalculatorService {
     }
 
     @Override
-    public void cal() throws Exception {
+    public void cal(int times) throws Exception {
         List<SecondCalculationUnit> secondList = secondCalculationUnitRepository.findAll();
-        List<RandomUnit> randomUnitList = CalculationUtils.getRandom(3);
+        List<RandomUnit> randomUnitList = CalculationUtils.getRandom(times);
         for (int i = 0; i < randomUnitList.size(); i++) {
             List<Coordinate> coordinateUp = new ArrayList<>();
             List<Coordinate> coordinateDown = new ArrayList<>();
