@@ -57,7 +57,7 @@ public class SecondCalculationUnit {
      */
     private double naps;
     /**
-     * 每股现金流
+     * 每股现金流 / 时价
      */
     private double oPerCashPerShare;
     /**

@@ -184,8 +184,15 @@ public class BasicServiceImpl implements BasicService {
             second.setTotalassets(MathUtils.logicS(first.getTotalassets(), first.getTotalassetsAvg()));
             second.setPeratio(MathUtils.logicS(first.getPeratio(), basicUnit.getPeratioAvg()));
             second.setBvRatio(MathUtils.logicS(first.getBvRatio(), basicUnit.getBvRatioAvg()));
+            second.setNetassgrowrate(first.getNetassgrowrate() / 100);
+            second.setWeightedroe(first.getWeightedroe() / 100);
+            second.setMainBusincGrowRate(first.getMainBusincGrowRate() / 100);
+            second.setTotassgrowrate(first.getTotassgrowrate() / 100);
 
             double now = first.getNowPrice();
+            second.setBasiceps(first.getBasiceps() / now);
+            second.setNaps(first.getNaps() / now);
+            second.setOPerCashPerShare(first.getOPerCashPerShare() / now);
             second.setFifteenPrice(first.getFifteenPrice() / now);
             second.setLowFifteenPrice(first.getLowFifteenPrice() / now);
             second.setThirtyPrice(first.getThirtyPrice() / now);
