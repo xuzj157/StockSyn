@@ -187,10 +187,10 @@ public class CalculatorServiceImpl implements CalculatorService {
                 log.info("finish: " + second.getCode());
             });
         }
-
+        fixedThreadPool.shutdown();
         while (!fixedThreadPool.isTerminated()) {
             try {
-                new Thread().sleep(100000l);
+                new Thread().sleep(2000l);
                 System.out.println("未执行完成");
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -227,7 +227,7 @@ public class CalculatorServiceImpl implements CalculatorService {
             for (RandomUnitS random : randomUnitList) {
                 List<SumUnit> sumUnitSet = CalculationUtils.getLimitList();
                 for (SecondCalculationUnit second : secondList) {
-                    Double sum = CalculationUtils.getSum(random, second);
+                    double sum = CalculationUtils.getSum(random, second);
                     for (int i = 0; i < sumUnitSet.size(); i++) {
                         SumUnit sumUnit = sumUnitSet.get(i);
                         //二分类
@@ -251,10 +251,10 @@ public class CalculatorServiceImpl implements CalculatorService {
 //            sumUnitSet = sumUnitSet.subList(0, 10);
                 List<SumUnit> sumUnitListRes = new LinkedList<>();
                 for (SumUnit sumUnit : sumUnitSet) {
-                    Double rateN1 = (double) sumUnit.getN1() / (double) up;
-                    Double rateN2 = (double) sumUnit.getN2() / (double) down;
-                    Double rateN3 = (double) sumUnit.getN3() / (double) up;
-                    Double rateN4 = (double) sumUnit.getN4() / (double) down;
+                    double rateN1 = (double) sumUnit.getN1() / (double) up;
+                    double rateN2 = (double) sumUnit.getN2() / (double) down;
+                    double rateN3 = (double) sumUnit.getN3() / (double) up;
+                    double rateN4 = (double) sumUnit.getN4() / (double) down;
                     if ((rateN1 > 0.6 && rateN4 > 0.6) || (rateN2 > 0.6 && rateN3 > 0.6)) {
                         sumUnitListRes.add(sumUnit);
                     }

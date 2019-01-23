@@ -66,7 +66,7 @@ public class BasicServiceImpl implements BasicService {
                 List<HqInfo> hqInfoList = hqInfoRepository.findHqInfosByCode(code);
 
                 //筛选条件
-                if (hqInfoList.size() > 1500) {
+                if (hqInfoList.size() > 900) {
                     if (snapShot.getPeratio() < 50.0 && snapShot.getPeratio() != 0) {
                         firstCalculationUnit.setCode(code);
 //                    ----------------------------------SnapShot操作-----------------------------
