@@ -273,22 +273,27 @@ public class CalculatorServiceImpl implements CalculatorService {
     @Override
     public void cal() throws Exception {
         List<SecondCalculationUnit> secondList = secondCalculationUnitRepository.findAll();
-        List<Coordinate> coordinateUp = new ArrayList<>();
-        List<Coordinate> coordinateDown = new ArrayList<>();
-        for (SecondCalculationUnit secondCalculationUnit : secondList) {
-            Coordinate coordinate = new Coordinate();
-            coordinate.setXAxis(Math.abs(secondCalculationUnit.getUpRate()));
-            coordinate.setYAxis(secondCalculationUnit.getLowHistoryPrice());
-            if (secondCalculationUnit.getUpRate() < 0) {
-                coordinateUp.add(coordinate);
-            } else {
-                coordinateDown.add(coordinate);
+        List<RandomUnit> randomUnitList = CalculationUtils.getRandom(3);
+        for (int i = 0; i < randomUnitList.size(); i++) {
+            List<Coordinate> coordinateUp = new ArrayList<>();
+            List<Coordinate> coordinateDown = new ArrayList<>();
+
+            for (SecondCalculationUnit secondCalculationUnit : secondList) {
+                Coordinate coordinate = new Coordinate();
+                coordinate.setXAxis(Math.abs(secondCalculationUnit.getUpRate()));
+                coordinate.setYAxis(CalculationUtils.getSum(randomUnitList.get(i), secondCalculationUnit));
+                if (secondCalculationUnit.getUpRate() < 0) {
+                    coordinateUp.add(coordinate);
+                } else {
+                    coordinateDown.add(coordinate);
+                }
             }
+
+            Map<String, List<Coordinate>> map = new HashMap<>();
+            map.put("up", coordinateUp);
+            map.put("down", coordinateDown);
+            ScatterPlotUtils.allInOne(map, "title-" + i, "x", "y", 1000, 800);
         }
-        Map<String, List<Coordinate>> map = new HashMap<>();
-        map.put("up", coordinateUp);
-        map.put("down", coordinateDown);
-        ScatterPlotUtils.allInOne(map,"title","x","y",1000,800);
     }
 
 }
