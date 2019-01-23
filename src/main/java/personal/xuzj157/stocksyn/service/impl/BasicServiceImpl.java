@@ -120,19 +120,25 @@ public class BasicServiceImpl implements BasicService {
 //                    ----------------------------FinInfo操作---------------------------------------------
                         //basiceps
                         basiceps = finInfoList.get(finInfoList.size() - 2).getBasiceps();
+                        firstCalculationUnit.setBasiceps(basiceps);
                         //naps
                         naps = finInfoList.get(finInfoList.size() - 2).getNaps();
+                        firstCalculationUnit.setNaps(naps);
                         //oPerCashPerShare
                         oPerCashPerShare = finInfoList.get(finInfoList.size() - 2).getOPerCashPerShare();
+                        firstCalculationUnit.setOPerCashPerShare(oPerCashPerShare);
                         //netassgrowrate
                         netassgrowrate = finInfoList.get(finInfoList.size() - 2).getNetassgrowrate();
+                        firstCalculationUnit.setNetassgrowrate(netassgrowrate);
                         //weightedroe
                         weightedroe = finInfoList.get(finInfoList.size() - 2).getWeightedroe();
+                        firstCalculationUnit.setWeightedroe(weightedroe);
                         //mainBusincGrowRate
                         mainBusincGrowRate = finInfoList.get(finInfoList.size() - 2).getMainBusincGrowRate();
+                        firstCalculationUnit.setMainBusincGrowRate(mainBusincGrowRate);
                         //totassgrowrate
                         totassgrowrate = finInfoList.get(finInfoList.size() - 2).getTotassgrowrate();
-
+                        firstCalculationUnit.setTotassgrowrate(totassgrowrate);
                         //netincGrowRate
                         netincGrowRate = finInfoList.get(finInfoList.size() - 2).getNetincGrowRate();
                         firstCalculationUnit.setNetincGrowRate(netincGrowRate);
